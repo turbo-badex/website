@@ -165,7 +165,9 @@ RedirectMatch 301 ^/$ /portfolio/index.html
 
 ### Animated Light Streaks Background
 
-The portfolio features subtle animated vertical light streaks that enhance the ambient atmosphere:
+**Status: Currently Disabled** (as of February 2026)
+
+The portfolio includes code for subtle animated vertical light streaks that can enhance the ambient atmosphere. The feature is currently hidden via CSS but can be easily re-enabled.
 
 **Technical Specifications:**
 - 6 active streaks on desktop (3 on mobile)
@@ -177,14 +179,20 @@ The portfolio features subtle animated vertical light streaks that enhance the a
 - GPU-accelerated transforms for 60fps performance
 - Respects reduced motion preferences
 
-**CSS Location:** Lines 130-200 in `<style>` section
+**CSS Location:** Lines 192-260 in `<style>` section
 
 ```css
 /* Light streaks container */
 .light-streaks {
-    position: fixed;
-    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 3;
     overflow: hidden;
+    display: none;  /* Currently hidden */
 }
 
 /* Individual streak animation */
@@ -196,9 +204,9 @@ The portfolio features subtle animated vertical light streaks that enhance the a
 }
 ```
 
-**HTML Location:** After `.diagonal-stroke` element in hero section
+**HTML Location:** Line 966 (inside hero section)
 
-To disable: Set `.light-streaks { display: none; }` or remove the HTML markup.
+**To re-enable:** Remove the `display: none;` line from `.light-streaks` CSS rule (line 201) or change it to `display: block;`
 
 ### Font Loading Optimization
 
