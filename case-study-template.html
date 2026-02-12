@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Project Name] - Case Study | Taiwo</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="logo_new_badex.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="logo_new_badex.png">
+    <link rel="shortcut icon" href="logo_new_badex.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Sora:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* ========================================
+           FONT DISPLAY FIX - Ensures immediate text visibility
+        ======================================== */
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;  /* Show fallback text immediately */
+            src: url('https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfMZg.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 600;
+            font-display: swap;
+            src: url('https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuGKYMZg.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url('https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuFuYMZg.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Sora';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url('https://fonts.gstatic.com/s/sora/v17/xMQOuFFYT72X5wkB_18qmnndmSe1mX-K.ttf') format('truetype');
+        }
+
+        /* ========================================
+           CSS RESET & BASE STYLES
+        ======================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-tertiary: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --text-muted: #666666;
+            --accent: #6366f1;
+            --accent-hover: #818cf8;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(255, 255, 255, 0.15);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: radial-gradient(circle, rgba(255,255,255,0.18) 1px, transparent 1px);
+            background-size: 32px 32px;
+            background-attachment: fixed;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        .container-narrow {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* ========================================
+           NAVIGATION
+        ======================================== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 0;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 108px;
+            width: auto;
+            filter: invert(1);
+            transition: opacity 0.3s ease;
+        }
+
+        .logo:hover img {
+            opacity: 0.8;
+        }
+
+        .back-link {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 400;
+            position: relative;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-link:hover {
+            color: var(--text-primary);
+        }
+
+        .back-link::before {
+            content: '←';
+            font-size: 1.2rem;
+        }
+
+        /* ========================================
+           HERO SECTION
+        ======================================== */
+        .case-study-hero {
+            padding-top: 200px;
+            padding-bottom: 80px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .project-tag {
+            font-size: 0.75rem;
+            color: var(--accent);
+            padding: 6px 14px;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 20px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 24px;
+        }
+
+        .case-study-title {
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            letter-spacing: -2px;
+            line-height: 1.1;
+            margin-bottom: 32px;
+        }
+
+        .case-study-subtitle {
+            font-size: 1.35rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin-bottom: 48px;
+            font-weight: 400;
+            line-height: 1.7;
+        }
+
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            padding: 32px 0;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .meta-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .meta-value {
+            font-size: 1rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* ========================================
+           FEATURED IMAGE
+        ======================================== */
+        .featured-image {
+            width: 100%;
+            margin: 80px 0;
+        }
+
+        .featured-image img {
+            width: 100%;
+            border-radius: 0;
+            border: 1px solid var(--border-subtle);
+        }
+
+        /* ========================================
+           CONTENT SECTIONS
+        ======================================== */
+        .content-section {
+            padding: 80px 0;
+        }
+
+        .content-section:not(:last-child) {
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent);
+            margin-bottom: 24px;
+            font-weight: 500;
+        }
+
+        .section-title {
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
+            font-weight: 700;
+            letter-spacing: -1px;
+            line-height: 1.2;
+            margin-bottom: 32px;
+        }
+
+        .content-text p {
+            color: var(--text-secondary);
+            font-size: 1.15rem;
+            line-height: 1.85;
+            margin-bottom: 24px;
+        }
+
+        .content-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .content-text strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .content-text ul, .content-text ol {
+            color: var(--text-secondary);
+            font-size: 1.15rem;
+            line-height: 1.85;
+            margin-bottom: 24px;
+            padding-left: 24px;
+        }
+
+        .content-text li {
+            margin-bottom: 12px;
+        }
+
+        /* ========================================
+           TWO COLUMN LAYOUT
+        ======================================== */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 48px;
+        }
+
+        /* ========================================
+           HIGHLIGHT BOX
+        ======================================== */
+        .highlight-box {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            padding: 48px;
+            margin: 48px 0;
+            border-radius: 0;
+        }
+
+        .highlight-box .section-title {
+            margin-bottom: 24px;
+        }
+
+        .highlight-stat {
+            font-family: 'Sora', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .highlight-label {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        /* ========================================
+           IMAGE GRID
+        ======================================== */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin: 48px 0;
+        }
+
+        .image-grid img {
+            width: 100%;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .image-caption {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 12px;
+            text-align: center;
+            font-style: italic;
+        }
+
+        /* ========================================
+           VIDEO EMBED
+        ======================================== */
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            margin: 48px 0;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* ========================================
+           QUOTE
+        ======================================== */
+        .quote-block {
+            margin: 48px 0;
+            padding: 48px;
+            background: var(--bg-secondary);
+            border-left: 4px solid var(--accent);
+        }
+
+        .quote-text {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            line-height: 1.5;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+
+        .quote-author {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        /* ========================================
+           PROCESS TIMELINE
+        ======================================== */
+        .process-timeline {
+            margin: 48px 0;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 32px;
+            margin-bottom: 48px;
+            padding-bottom: 48px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .timeline-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .timeline-number {
+            font-family: 'Sora', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .timeline-content h3 {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .timeline-content p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        /* ========================================
+           CTA SECTION
+        ======================================== */
+        .cta-section {
+            padding: 100px 0;
+            text-align: center;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .cta-title {
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            letter-spacing: -1.5px;
+            margin-bottom: 32px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--text-primary);
+            color: var(--bg-primary);
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: transparent;
+            color: var(--text-primary);
+            padding: 16px 32px;
+            border-radius: 50px;
+            border: 1px solid var(--border-subtle);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* ========================================
+           FOOTER
+        ======================================== */
+        footer {
+            padding: 32px 0;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* ========================================
+           RESPONSIVE DESIGN
+        ======================================== */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 24px;
+            }
+
+            .case-study-hero {
+                padding-top: 160px;
+                padding-bottom: 60px;
+            }
+
+            .project-meta {
+                gap: 24px;
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .timeline-item {
+                grid-template-columns: 60px 1fr;
+                gap: 20px;
+            }
+
+            .timeline-number {
+                font-size: 2rem;
+            }
+
+            .highlight-box {
+                padding: 32px 24px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            footer .container {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ========================================
+         NAVIGATION
+    ======================================== -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="logo_new_badex.png" alt="Badex">
+            </a>
+            <a href="index.html#work" class="back-link">Back to Portfolio</a>
+        </div>
+    </nav>
+
+    <!-- ========================================
+         HERO SECTION
+    ======================================== -->
+    <section class="case-study-hero">
+        <div class="container-narrow">
+            <span class="project-tag">Articulate Storyline</span>
+            <h1 class="case-study-title">Project Title Goes Here</h1>
+            <p class="case-study-subtitle">A brief one-sentence description of what this project achieved and why it mattered.</p>
+
+            <div class="project-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Role</span>
+                    <span class="meta-value">Instructional Designer</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Timeline</span>
+                    <span class="meta-value">8 weeks</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Tools</span>
+                    <span class="meta-value">Storyline, Photoshop</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Completed</span>
+                    <span class="meta-value">2023</span>
+                </div>
+            </div>
+
+            <!-- UPDATE THIS LINK to your live project URL -->
+            <a href="https://your-project-url-here.com" target="_blank" rel="noopener noreferrer" class="btn-primary" style="margin-top: 32px;">
+                View Live Project
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- ========================================
+         FEATURED IMAGE
+    ======================================== -->
+    <div class="container">
+        <div class="featured-image">
+            <img src="screenshot-elearning.png" alt="Project Screenshot">
+        </div>
+    </div>
+
+    <!-- ========================================
+         OVERVIEW
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <p class="section-label">Overview</p>
+            <h2 class="section-title">Project Background</h2>
+            <div class="content-text">
+                <p>Provide context about the client, organization, or situation. What was the business need or learning problem that required solving?</p>
+                <p>Include relevant details about the audience, their current skill level, and what success would look like.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         THE CHALLENGE
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <p class="section-label">The Challenge</p>
+            <h2 class="section-title">What problem needed solving?</h2>
+            <div class="content-text">
+                <p>Clearly articulate the core challenge or pain point. Be specific about:</p>
+                <ul>
+                    <li><strong>The learning gap:</strong> What did learners not know or couldn't do?</li>
+                    <li><strong>Constraints:</strong> Budget, timeline, technical limitations, stakeholder concerns</li>
+                    <li><strong>Success criteria:</strong> What metrics or outcomes would define success?</li>
+                    <li><strong>Audience challenges:</strong> Were they resistant? Time-constrained? Remote?</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         MY APPROACH
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <p class="section-label">My Approach</p>
+            <h2 class="section-title">Design Process</h2>
+            <div class="content-text">
+                <p>Walk through your instructional design process. Show your thinking and methodology.</p>
+            </div>
+
+            <!-- Process Timeline -->
+            <div class="process-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-number">01</div>
+                    <div class="timeline-content">
+                        <h3>Analysis & Research</h3>
+                        <p>Describe your needs analysis, audience research, SME interviews, and performance analysis. What did you learn?</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">02</div>
+                    <div class="timeline-content">
+                        <h3>Design & Storyboarding</h3>
+                        <p>Explain your learning objectives, instructional strategy, and how you structured the content. What pedagogical approach did you choose and why?</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">03</div>
+                    <div class="timeline-content">
+                        <h3>Development & Iteration</h3>
+                        <p>Detail the build process, tools used, and how you incorporated feedback from stakeholders and pilot testing.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">04</div>
+                    <div class="timeline-content">
+                        <h3>Testing & Refinement</h3>
+                        <p>Describe your QA process, pilot testing with real users, and how you refined based on data and feedback.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         THE SOLUTION
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <p class="section-label">The Solution</p>
+            <h2 class="section-title">What I Created</h2>
+            <div class="content-text">
+                <p>Describe the final learning solution. What did you create and why did you make specific design choices?</p>
+                <p>Highlight key features, interactions, or innovations that made this solution effective.</p>
+            </div>
+        </div>
+
+        <!-- Optional: Image Grid for Screenshots -->
+        <div class="container">
+            <div class="image-grid">
+                <div>
+                    <img src="screenshot-elearning.png" alt="Screenshot 1">
+                    <p class="image-caption">Caption describing this screenshot</p>
+                </div>
+                <div>
+                    <img src="screenshot-elearning.png" alt="Screenshot 2">
+                    <p class="image-caption">Caption describing this screenshot</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Optional: Video Demo -->
+        <!-- <div class="container-narrow">
+            <div class="video-wrapper">
+                <iframe src="https://player.vimeo.com/video/VIDEOID?h=0&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div> -->
+    </section>
+
+    <!-- ========================================
+         KEY DECISIONS
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <p class="section-label">Design Decisions</p>
+            <h2 class="section-title">Critical Choices</h2>
+            <div class="content-text">
+                <p>Share 2-3 key design decisions you made and the rationale behind them. This demonstrates your expertise and thinking process.</p>
+            </div>
+
+            <div class="two-column">
+                <div>
+                    <h3 style="font-family: 'Sora', sans-serif; font-size: 1.3rem; margin-bottom: 16px;">Decision #1</h3>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.7;">Why did you choose scenario-based learning over knowledge checks? Why branching scenarios vs. linear? Explain the pedagogical reasoning.</p>
+                </div>
+                <div>
+                    <h3 style="font-family: 'Sora', sans-serif; font-size: 1.3rem; margin-bottom: 16px;">Decision #2</h3>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.7;">Maybe you chose microlearning modules instead of one long course. Why? How did learner context influence this?</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         RESULTS & IMPACT
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <p class="section-label">Impact</p>
+            <h2 class="section-title">Results & Outcomes</h2>
+            <div class="content-text">
+                <p>Share measurable results whenever possible. If you don't have hard data, share qualitative feedback.</p>
+            </div>
+
+            <!-- Highlight Metrics -->
+            <div class="two-column" style="margin-top: 48px;">
+                <div class="highlight-box">
+                    <div class="highlight-stat">95%</div>
+                    <div class="highlight-label">Course Completion Rate</div>
+                </div>
+                <div class="highlight-box">
+                    <div class="highlight-stat">87%</div>
+                    <div class="highlight-label">Assessment Pass Rate</div>
+                </div>
+            </div>
+
+            <div class="content-text" style="margin-top: 32px;">
+                <ul>
+                    <li><strong>Learner feedback:</strong> "This was the most engaging compliance training I've ever taken."</li>
+                    <li><strong>Business impact:</strong> Reduced on-the-job incidents by 30% in the first quarter</li>
+                    <li><strong>Stakeholder response:</strong> The course became a template for future training initiatives</li>
+                </ul>
+            </div>
+
+            <!-- Optional: Client Quote -->
+            <!-- <div class="quote-block">
+                <p class="quote-text">"Working with Taiwo transformed how we approach employee training. The course was engaging, effective, and delivered real results."</p>
+                <p class="quote-author">— Jane Smith, Director of Learning & Development</p>
+            </div> -->
+        </div>
+    </section>
+
+    <!-- ========================================
+         LESSONS LEARNED
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <p class="section-label">Reflection</p>
+            <h2 class="section-title">What I Learned</h2>
+            <div class="content-text">
+                <p>Reflect on what you learned from this project. What would you do differently? What validated your approach? This shows growth mindset and self-awareness.</p>
+                <p>Maybe you learned a new tool, discovered a more effective feedback process, or found a better way to handle stakeholder reviews.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         CTA SECTION
+    ======================================== -->
+    <section class="cta-section">
+        <div class="container-narrow">
+            <h2 class="cta-title">Let's work together</h2>
+            <div class="cta-buttons">
+                <a href="index.html#contact" class="btn-primary">
+                    Get in Touch
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="index.html#work" class="btn-secondary">View More Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         FOOTER
+    ======================================== -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Taiwo. All rights reserved.</p>
+            <p>Crafted with 🤍</p>
+        </div>
+    </footer>
+</body>
+</html>

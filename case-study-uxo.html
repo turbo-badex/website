@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UXO Awareness Training - Case Study | Taiwo</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="logo_new_badex.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="logo_new_badex.png">
+    <link rel="shortcut icon" href="logo_new_badex.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Sora:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* ========================================
+           FONT DISPLAY FIX - Ensures immediate text visibility
+        ======================================== */
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;  /* Show fallback text immediately */
+            src: url('https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfMZg.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 600;
+            font-display: swap;
+            src: url('https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuGKYMZg.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url('https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuFuYMZg.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Sora';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url('https://fonts.gstatic.com/s/sora/v17/xMQOuFFYT72X5wkB_18qmnndmSe1mX-K.ttf') format('truetype');
+        }
+
+        /* ========================================
+           CSS RESET & BASE STYLES
+        ======================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-tertiary: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --text-muted: #666666;
+            --accent: #6366f1;
+            --accent-hover: #818cf8;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(255, 255, 255, 0.15);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: radial-gradient(circle, rgba(255,255,255,0.18) 1px, transparent 1px);
+            background-size: 32px 32px;
+            background-attachment: fixed;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        .container-narrow {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* ========================================
+           NAVIGATION
+        ======================================== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 0;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 108px;
+            width: auto;
+            filter: invert(1);
+            transition: opacity 0.3s ease;
+        }
+
+        .logo:hover img {
+            opacity: 0.8;
+        }
+
+        .back-link {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 400;
+            position: relative;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-link:hover {
+            color: var(--text-primary);
+        }
+
+        .back-link::before {
+            content: '←';
+            font-size: 1.2rem;
+        }
+
+        /* ========================================
+           HERO SECTION
+        ======================================== */
+        .case-study-hero {
+            padding-top: 200px;
+            padding-bottom: 80px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .project-tag {
+            font-size: 0.75rem;
+            color: var(--accent);
+            padding: 6px 14px;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 20px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 24px;
+        }
+
+        .case-study-title {
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            letter-spacing: -2px;
+            line-height: 1.1;
+            margin-bottom: 32px;
+        }
+
+        .case-study-subtitle {
+            font-size: 1.35rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin-bottom: 48px;
+            font-weight: 400;
+            line-height: 1.7;
+        }
+
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            padding: 32px 0;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .meta-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .meta-value {
+            font-size: 1rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* ========================================
+           FEATURED IMAGE
+        ======================================== */
+        .featured-image {
+            width: 100%;
+            margin: 80px 0;
+        }
+
+        .featured-image img {
+            width: 100%;
+            border-radius: 0;
+            border: 1px solid var(--border-subtle);
+        }
+
+        /* ========================================
+           CONTENT SECTIONS
+        ======================================== */
+        .content-section {
+            padding: 80px 0;
+        }
+
+        .content-section:not(:last-child) {
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent);
+            margin-bottom: 24px;
+            font-weight: 500;
+        }
+
+        .section-title {
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
+            font-weight: 700;
+            letter-spacing: -1px;
+            line-height: 1.2;
+            margin-bottom: 32px;
+        }
+
+        .content-text p {
+            color: var(--text-secondary);
+            font-size: 1.15rem;
+            line-height: 1.85;
+            margin-bottom: 24px;
+        }
+
+        .content-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .content-text strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .content-text ul, .content-text ol {
+            color: var(--text-secondary);
+            font-size: 1.15rem;
+            line-height: 1.85;
+            margin-bottom: 24px;
+            padding-left: 24px;
+        }
+
+        .content-text li {
+            margin-bottom: 12px;
+        }
+
+        /* ========================================
+           TWO COLUMN LAYOUT
+        ======================================== */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 48px;
+        }
+
+        /* ========================================
+           HIGHLIGHT BOX
+        ======================================== */
+        .highlight-box {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            padding: 48px;
+            margin: 48px 0;
+            border-radius: 0;
+        }
+
+        .highlight-box .section-title {
+            margin-bottom: 24px;
+        }
+
+        .highlight-stat {
+            font-family: 'Sora', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .highlight-label {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        /* ========================================
+           PROCESS TIMELINE
+        ======================================== */
+        .process-timeline {
+            margin: 48px 0;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 32px;
+            margin-bottom: 48px;
+            padding-bottom: 48px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .timeline-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .timeline-number {
+            font-family: 'Sora', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .timeline-content h3 {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .timeline-content p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        /* ========================================
+           CTA SECTION
+        ======================================== */
+        .cta-section {
+            padding: 100px 0;
+            text-align: center;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .cta-title {
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            letter-spacing: -1.5px;
+            margin-bottom: 32px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--text-primary);
+            color: var(--bg-primary);
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: transparent;
+            color: var(--text-primary);
+            padding: 16px 32px;
+            border-radius: 50px;
+            border: 1px solid var(--border-subtle);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* ========================================
+           FOOTER
+        ======================================== */
+        footer {
+            padding: 32px 0;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* ========================================
+           RESPONSIVE DESIGN
+        ======================================== */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 24px;
+            }
+
+            .case-study-hero {
+                padding-top: 160px;
+                padding-bottom: 60px;
+            }
+
+            .project-meta {
+                gap: 24px;
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .timeline-item {
+                grid-template-columns: 60px 1fr;
+                gap: 20px;
+            }
+
+            .timeline-number {
+                font-size: 2rem;
+            }
+
+            .highlight-box {
+                padding: 32px 24px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            footer .container {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ========================================
+         NAVIGATION
+    ======================================== -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="logo_new_badex.png" alt="Badex">
+            </a>
+            <a href="index.html#work" class="back-link">Back to Portfolio</a>
+        </div>
+    </nav>
+
+    <!-- ========================================
+         HERO SECTION
+    ======================================== -->
+    <section class="case-study-hero">
+        <div class="container-narrow">
+            <span class="project-tag">Articulate Rise</span>
+            <h1 class="case-study-title">UXO Awareness Training for Federal Construction Sites</h1>
+            <p class="case-study-subtitle">Designing safety-critical behavior change for mobile-first construction workers with a microlearning protocol that could save lives.</p>
+
+            <div class="project-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Client</span>
+                    <span class="meta-value">Federal Government Agency</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Role</span>
+                    <span class="meta-value">Lead Instructional Designer</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Duration</span>
+                    <span class="meta-value">15-20 minutes</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Tools</span>
+                    <span class="meta-value">Articulate Rise 360</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Audience</span>
+                    <span class="meta-value">500-1000 construction workers</span>
+                </div>
+            </div>
+
+            <a href="https://www.badex.tv/portfolio/elearning/index.html" target="_blank" rel="noopener noreferrer" class="btn-primary" style="margin-top: 32px;">
+                View Live Project
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- ========================================
+         FEATURED IMAGE
+    ======================================== -->
+    <div class="container">
+        <div class="featured-image">
+            <img src="screenshot-elearning.png" alt="UXO Awareness Training Course Screenshot">
+        </div>
+    </div>
+
+    <!-- ========================================
+         OVERVIEW
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <p class="section-label">Overview</p>
+            <h2 class="section-title">Project Background</h2>
+            <div class="content-text">
+                <p>A federal government agency manages construction projects on Department of National Defence (DND) sites across Canada—properties with historical military activities that left unexploded ordnance (UXO) buried in the ground. When construction workers encounter suspicious objects during excavation, trenching, or demolition, their immediate response determines whether lives are saved or lost.</p>
+                <p>The project, titled <strong>"Stop Work. Secure the Area. Report."</strong> aimed to equip 500-1000 construction workers, equipment operators, and site supervisors with a life-saving 4-step protocol for UXO encounters.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         THE CHALLENGE
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <p class="section-label">The Challenge</p>
+            <h2 class="section-title">Safety-Critical Protocol Gaps</h2>
+            <div class="content-text">
+                <p>This wasn't simply a knowledge recall challenge—it was a <strong>behavior change challenge in a safety-critical context</strong>. The training had to transform compliance-driven workers into confident protocol executors who would stop work immediately in high-stress situations, even when uncertain.</p>
+
+                <p><strong>Performance Gap Analysis:</strong></p>
+
+                <p><strong>Current State:</strong></p>
+                <ul>
+                    <li>Workers delayed stop-work responses, continuing to dig "to see what it is"</li>
+                    <li>Personnel touched, moved, or photographed suspicious objects at close range</li>
+                    <li>Inconsistent reporting through chain of command (skipping steps, calling wrong contacts)</li>
+                    <li>Documentation gaps increased risk exposure and project delays</li>
+                </ul>
+
+                <p><strong>Desired State:</strong></p>
+                <ul>
+                    <li>100% immediate stop-work compliance upon encountering suspicious objects</li>
+                    <li>Zero incidents of workers handling or approaching potential UXO</li>
+                    <li>Consistent, accurate reporting through established chain</li>
+                    <li>Complete incident documentation</li>
+                </ul>
+
+                <p><strong>Audience Challenges:</strong></p>
+                <ul>
+                    <li><strong>Demographics:</strong> Ages 18-65+, wide experience range, high school to technical certifications</li>
+                    <li><strong>Context:</strong> Field environment with distractions, weather, limited training time</li>
+                    <li><strong>Devices:</strong> Primarily smartphones and tablets (80%+ mobile)</li>
+                    <li><strong>Attitude:</strong> "Just want to work" mindset—low intrinsic motivation for compliance training</li>
+                    <li><strong>Constraints:</strong> 15-20 minute maximum duration, must work offline, need to function with work gloves</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         MY APPROACH
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <p class="section-label">My Approach</p>
+            <h2 class="section-title">Systematic, Evidence-Based Design</h2>
+            <div class="content-text">
+                <p>I applied the <strong>ADDIE framework</strong> integrated with <strong>Merrill's First Principles</strong>, <strong>Gagné's Nine Events of Instruction</strong>, and <strong>Mayer's Multimedia Learning principles</strong> to ensure systematic, rigorous design.</p>
+            </div>
+
+            <!-- Process Timeline -->
+            <div class="process-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-number">01</div>
+                    <div class="timeline-content">
+                        <h3>Analysis & Research</h3>
+                        <p>Conducted performance gap analysis, audience context research, and stakeholder interviews. Confirmed training was the appropriate solution—the gap stemmed from knowledge and skill deficits, not system barriers. Identified mobile-first usage patterns (80%+ smartphone completion) and field constraints (outdoor lighting, work gloves, interruptions).</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">02</div>
+                    <div class="timeline-content">
+                        <h3>Design & Storyboarding</h3>
+                        <p>Designed assessment-first with 10 questions, five flagged as "critical" requiring 100% accuracy (life-safety actions). Applied Merrill's First Principles: opened with real excavation scenarios, not abstract concepts. Structured 5 microlearning modules (3-7 minutes each) to respect time and attention constraints.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">03</div>
+                    <div class="timeline-content">
+                        <h3>Development & Iteration</h3>
+                        <p>Built in Articulate Rise 360 with branching scenarios, 90-second protocol demonstration video, and interactive elements. Applied Mayer's principles: color-coded steps, narration + visuals (not text duplication), removed decorative images. Developed laminated job aid as performance support tool for field use.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">04</div>
+                    <div class="timeline-content">
+                        <h3>Testing & Refinement</h3>
+                        <p>Ensured WCAG 2.1 AA compliance (color contrast ≥4.5:1, alt text, captions, keyboard navigation). Tested with work gloves, outdoor readability, and mobile optimization. Planned 4-week rollout: pilot with 50 users, revisions, then full deployment to 500-1000 workers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         THE SOLUTION
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <p class="section-label">The Solution</p>
+            <h2 class="section-title">A Complete Behavioral Readiness System</h2>
+            <div class="content-text">
+                <p>I designed a <strong>5-module microlearning course</strong> (15-20 minutes total) that bridged training to real-world field application:</p>
+
+                <p><strong>Module 1: Why This Matters (5 min)</strong></p>
+                <ul>
+                    <li>Opened with real incident: "In 2019, a worker followed protocol—stopped work, secured the area, reported. Bomb disposal confirmed live ordnance. Zero injuries. The protocol saved lives."</li>
+                    <li>Positive framing (success story, not fear-based) established relevance immediately</li>
+                </ul>
+
+                <p><strong>Module 2: Recognize Suspicious Objects (3 min)</strong></p>
+                <ul>
+                    <li>Interactive flashcard stack with 6 red flags</li>
+                    <li>Image sorting practice: 3 suspicious vs. 3 normal objects</li>
+                </ul>
+
+                <p><strong>Module 3: The Protocol (7 min)</strong></p>
+                <ul>
+                    <li>4-step process: Stop → Secure (25m exclusion zone) → Report (chain of command) → Wait (expert clearance only)</li>
+                    <li>Color-coded system: Red (stop), Yellow (secure), Blue (report), Green (wait)</li>
+                    <li>90-second demonstration video with narration and captions</li>
+                    <li>Role-specific tabs for workers, supervisors, and site authorities</li>
+                </ul>
+
+                <p><strong>Module 4: Practice Scenarios (3 min)</strong></p>
+                <ul>
+                    <li>3 branching scenarios with consequence-based feedback</li>
+                    <li>Scenario 1 (Excavation): Worker chooses "continue digging" → explosion animation: "NEVER continue digging. Vibration could detonate." → Retry</li>
+                    <li>Safe failure environment allowed learners to make mistakes and see outcomes without real-world consequences</li>
+                </ul>
+
+                <p><strong>Module 5: Assessment & Resources (2 min)</strong></p>
+                <ul>
+                    <li>10-question quiz: 80% pass threshold, but 100% accuracy required on critical safety items</li>
+                    <li>Downloadable job aid (PDF + mobile PNG)</li>
+                    <li>Certificate generation and safety commitment acknowledgment</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         KEY DECISIONS
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <p class="section-label">Design Decisions</p>
+            <h2 class="section-title">Critical Choices That Drove Success</h2>
+            <div class="content-text">
+                <p>Three key design decisions shaped the effectiveness of this training:</p>
+            </div>
+
+            <div class="two-column">
+                <div>
+                    <h3 style="font-family: 'Sora', sans-serif; font-size: 1.3rem; margin-bottom: 16px;">Scenario-Based Learning Over Knowledge Checks</h3>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.7;">Traditional quiz-based training wouldn't achieve behavior change. Branching scenarios with consequence-based feedback (seeing explosion risk if you "continue digging") created emotional encoding that's far more memorable than reading "don't continue digging." The safe failure environment was pedagogically critical.</p>
+                </div>
+                <div>
+                    <h3 style="font-family: 'Sora', sans-serif; font-size: 1.3rem; margin-bottom: 16px;">Mobile-First, Not Mobile-Friendly</h3>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.7;">With 80%+ smartphone completion, I designed for mobile from the start: vertical scroll, large tap targets (≥44px), works with gloves (no hover interactions), optimized for 4G, offline-capable SCORM. This wasn't adaptation—it was the primary design paradigm.</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 48px;">
+                <h3 style="font-family: 'Sora', sans-serif; font-size: 1.3rem; margin-bottom: 16px;">Performance Support Tool, Not Just Training</h3>
+                <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.7;">Recognizing that training completion doesn't guarantee real-world protocol execution, I designed a laminated job aid as point-of-need performance support. Front: 4-step flowchart (visual, color-coded, minimal text). Back: Red flags checklist, prohibited actions, role-specific reporting chains, fillable emergency contacts. This bridged the training-to-performance gap.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         RESULTS & IMPACT
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <p class="section-label">Impact</p>
+            <h2 class="section-title">Measurable Outcomes Across Four Levels</h2>
+            <div class="content-text">
+                <p>Success was measured using the Kirkpatrick model to track reaction, learning, behavior, and business results:</p>
+            </div>
+
+            <!-- Highlight Metrics -->
+            <div class="two-column" style="margin-top: 48px;">
+                <div class="highlight-box">
+                    <div class="highlight-stat">≥90%</div>
+                    <div class="highlight-label">Target Completion Rate</div>
+                </div>
+                <div class="highlight-box">
+                    <div class="highlight-stat">100%</div>
+                    <div class="highlight-label">Critical Item Accuracy Required</div>
+                </div>
+            </div>
+
+            <div class="content-text" style="margin-top: 32px;">
+                <p><strong>Level 1: Reaction (Learner Satisfaction)</strong></p>
+                <ul>
+                    <li>Target: ≥4.0/5.0 satisfaction ("This training was clear, practical, and valuable")</li>
+                    <li>Pre/post confidence: +1.5 point increase ("I feel confident applying the protocol")</li>
+                </ul>
+
+                <p><strong>Level 2: Learning (Knowledge & Skill Acquisition)</strong></p>
+                <ul>
+                    <li>Target: ≥85% average assessment score</li>
+                    <li>100% accuracy required on critical safety items: stop work immediately, 25m exclusion zone, correct reporting chain, wait for expert clearance</li>
+                    <li>Unlimited attempts with targeted remediation (mastery-based learning)</li>
+                </ul>
+
+                <p><strong>Level 3: Behavior (On-the-Job Application)</strong></p>
+                <ul>
+                    <li>Target: 100% protocol adherence in real UXO incidents</li>
+                    <li>Target: 80%+ sites have job aid accessible (posted at site office or with crews)</li>
+                    <li>Follow-up survey at 30-90 days post-training: Job aid usage, protocol confidence</li>
+                </ul>
+
+                <p><strong>Level 4: Results (Business Impact)</strong></p>
+                <ul>
+                    <li>Target: 50% reduction in protocol deviations year-over-year</li>
+                    <li>Target: 30% reduction in discovery-to-notification time</li>
+                    <li>Target: Zero injuries or fatalities from improper UXO handling</li>
+                    <li>Target: Reduced project delays due to improper incident management</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         LESSONS LEARNED
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <p class="section-label">Reflection</p>
+            <h2 class="section-title">What I Learned</h2>
+            <div class="content-text">
+                <p>This project reinforced that <strong>effective compliance training requires understanding the true performance context</strong>. The audience wasn't sitting at desks—they were in field environments with distractions, weather, and time pressure. Designing for that reality (mobile-first, offline-capable, job aid at point of need) was the difference between a course people complete and a system that changes behavior.</p>
+                <p>The assessment-first approach was critical. By designing the 10-question assessment before developing content, I ensured learning objectives drove instruction. The decision to require 100% accuracy on critical safety items (instead of just 80% overall) reinforced that safety-critical behaviors demand mastery, not partial competence.</p>
+                <p>If I were to iterate, I'd pilot the job aid earlier in development to gather field usability data before finalizing the laminated version. Testing outdoor readability, glove manipulation, and protocol lookup speed with real workers would have provided valuable insights for refinement.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         CTA SECTION
+    ======================================== -->
+    <section class="cta-section">
+        <div class="container-narrow">
+            <h2 class="cta-title">Let's work together</h2>
+            <div class="cta-buttons">
+                <a href="index.html#contact" class="btn-primary">
+                    Get in Touch
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="index.html#work" class="btn-secondary">View More Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         FOOTER
+    ======================================== -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Taiwo. All rights reserved.</p>
+            <p>Crafted with 🤍</p>
+        </div>
+    </footer>
+</body>
+</html>

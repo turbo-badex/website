@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taiwo | Instructional Designer & Video Professional</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="logo_new_badex.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="logo_new_badex.png">
+    <link rel="shortcut icon" href="logo_new_badex.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Sora:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* ========================================
+           FONT DISPLAY FIX - Ensures immediate text visibility
+        ======================================== */
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;  /* Show fallback text immediately */
+            src: url('https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfMZg.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 600;
+            font-display: swap;
+            src: url('https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuGKYMZg.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url('https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuFuYMZg.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Sora';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url('https://fonts.gstatic.com/s/sora/v17/xMQOuFFYT72X5wkB_18qmnndmSe1mX-K.ttf') format('truetype');
+        }
+
+        /* ========================================
+           CSS RESET & BASE STYLES
+        ======================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-tertiary: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --text-muted: #666666;
+            --accent: #6366f1;
+            --accent-hover: #818cf8;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(255, 255, 255, 0.15);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Respect reduced motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            html {
+                scroll-behavior: auto;
+            }
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            /* Dot grid background */
+            background-image: radial-gradient(circle, rgba(255,255,255,0.18) 1px, transparent 1px);
+            background-size: 32px 32px;
+            background-attachment: fixed;
+        }
+
+        /* Diagonal stroke decoration */
+        .diagonal-stroke {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 50;
+            overflow: visible;
+        }
+
+        .diagonal-stroke::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 25%;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom,
+                transparent 0%,
+                rgba(255, 255, 255, 0.15) 10%,
+                rgba(255, 255, 255, 0.15) 85%,
+                transparent 100%
+            );
+            transform: rotate(35deg);
+            transform-origin: top center;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* ========================================
+           NAVIGATION
+        ======================================== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 0;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-subtle);
+            transition: box-shadow 0.3s ease;
+        }
+
+        nav.scrolled {
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 108px;
+            width: auto;
+            filter: invert(1);
+            transition: opacity 0.3s ease;
+        }
+
+        .logo:hover img {
+            opacity: 0.8;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 400;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* ========================================
+           HERO SECTION
+        ======================================== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 160px;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent);
+            margin-bottom: 24px;
+            font-weight: 500;
+        }
+
+        .hero-title {
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 700;
+            letter-spacing: -3px;
+            line-height: 1.05;
+            margin-bottom: 32px;
+        }
+
+        .hero-title .line {
+            display: block;
+            overflow: hidden;
+        }
+
+        .hero-title .line-inner {
+            display: block;
+        }
+
+        .hero-title .highlight {
+            color: var(--text-muted);
+        }
+
+        .hero-description {
+            font-size: 1.35rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 48px;
+            font-weight: 400;
+            line-height: 1.7;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--text-primary);
+            color: var(--bg-primary);
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.3);
+        }
+
+        .hero-cta svg {
+            transition: transform 0.3s ease;
+        }
+
+        .hero-cta:hover svg {
+            transform: translateX(4px);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 48px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .scroll-indicator .line {
+            width: 1px;
+            height: 60px;
+            background: linear-gradient(to bottom, var(--text-muted), transparent);
+        }
+
+        /* ========================================
+           SECTION STYLES
+        ======================================== */
+        section {
+            padding: 140px 0;
+        }
+
+        .section-header {
+            margin-bottom: 80px;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent);
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .section-title {
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            letter-spacing: -1.5px;
+            line-height: 1.2;
+        }
+
+        /* ========================================
+           ABOUT SECTION
+        ======================================== */
+        #about {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-bg-image {
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1500px;
+            height: 1500px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .about-bg-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            opacity: 0.12;
+        }
+
+        #about .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            font-size: 1.15rem;
+            line-height: 1.85;
+            margin-bottom: 28px;
+        }
+
+        .about-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .skills-section {
+            margin-top: 24px;
+        }
+
+        .skills-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            letter-spacing: 0.02em;
+        }
+
+        .skills-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .skills-list .skill-item {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .skills-list .skill-item::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .skills-list .skill-item:hover {
+            color: var(--text-primary);
+        }
+
+        /* ========================================
+           WORK/PROJECTS SECTION
+        ======================================== */
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 60px 40px; /* row-gap column-gap */
+        }
+
+        .work-item {
+            background: var(--bg-secondary);
+            border-radius: 0;
+            border: 1px solid var(--border-subtle);
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .work-item:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .work-item-image {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            background: var(--bg-tertiary);
+            position: relative;
+        }
+
+        .work-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .work-item:hover .work-item-image img {
+            transform: scale(1.05);
+        }
+
+        .work-item-video {
+            position: relative;
+        }
+
+        .work-item-video iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .work-item-content {
+            padding: 40px 48px;
+        }
+
+        .work-item-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .work-tag {
+            font-size: 0.75rem;
+            color: var(--accent);
+            padding: 6px 14px;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 20px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .work-item h3 {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            margin-bottom: 16px;
+        }
+
+        .work-item p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            max-width: 700px;
+        }
+
+        .work-item-link-wrapper {
+            display: block;
+            color: inherit;
+        }
+
+        .view-project {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--accent);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .work-item:hover .view-project {
+            color: var(--accent-hover);
+        }
+
+        /* ========================================
+           PHILOSOPHY SECTION
+        ======================================== */
+        #philosophy {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .philosophy-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .philosophy-quote {
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(1.5rem, 3vw, 2.25rem);
+            font-weight: 600;
+            line-height: 1.5;
+            letter-spacing: -0.5px;
+            margin-bottom: 32px;
+            position: relative;
+        }
+
+        .philosophy-quote::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: -30px;
+            font-size: 6rem;
+            color: var(--accent);
+            opacity: 0.2;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .philosophy-author {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        /* ========================================
+           CONTACT SECTION
+        ======================================== */
+        .contact {
+            text-align: center;
+            padding-bottom: 160px;
+            position: relative;
+        }
+
+        .contact .diagonal-stroke {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .contact .diagonal-stroke::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 25%;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom,
+                transparent 0%,
+                rgba(255, 255, 255, 0.15) 10%,
+                rgba(255, 255, 255, 0.15) 85%,
+                transparent 100%
+            );
+            transform: rotate(-35deg);
+            transform-origin: top center;
+        }
+
+        .contact .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-title {
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            letter-spacing: -2px;
+            margin-bottom: 24px;
+        }
+
+        .contact-description {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 48px;
+            line-height: 1.7;
+        }
+
+        .contact-email {
+            display: inline-block;
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            font-weight: 600;
+            color: var(--text-primary);
+            position: relative;
+            padding-bottom: 4px;
+        }
+
+        .contact-email::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-email:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-top: 56px;
+        }
+
+        .social-links a {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+        }
+
+        /* ========================================
+           FOOTER
+        ======================================== */
+        footer {
+            padding: 32px 0;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* ========================================
+           RESPONSIVE DESIGN
+        ======================================== */
+        @media (max-width: 968px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .work-item-content {
+                padding: 32px;
+            }
+
+            .work-grid {
+                gap: 48px 32px; /* Reduced gaps for tablet */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .container {
+                padding: 0 24px;
+            }
+
+            section {
+                padding: 100px 0;
+            }
+
+            .hero-title {
+                letter-spacing: -2px;
+            }
+
+            .hero-description {
+                font-size: 1.15rem;
+            }
+
+            .about-bg-image {
+                width: 600px;
+                height: 600px;
+                right: -20%;
+            }
+
+            .skills-title {
+                font-size: 0.95rem;
+            }
+
+            .skills-list .skill-item {
+                font-size: 0.9rem;
+                margin-bottom: 10px;
+            }
+
+            .work-grid {
+                grid-template-columns: 1fr; /* Single column on mobile */
+                gap: 40px;
+            }
+
+            .work-item h3 {
+                font-size: 1.4rem;
+            }
+
+            .work-item-content {
+                padding: 24px;
+            }
+
+            .philosophy-quote::before {
+                display: none;
+            }
+
+            footer .container {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+            }
+        }
+
+        /* ========================================
+           ANIMATION HELPER CLASSES
+        ======================================== */
+        .split-text .word {
+            display: inline-block;
+            overflow: hidden;
+        }
+
+        .split-text .char {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <!-- ========================================
+         NAVIGATION
+    ======================================== -->
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="logo_new_badex.png" alt="Badex">
+            </a>
+            <ul class="nav-links">
+                <li><a href="#work">Work</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ========================================
+         HERO SECTION
+    ======================================== -->
+    <section class="hero">
+        <!-- Diagonal stroke decoration -->
+        <div class="diagonal-stroke"></div>
+        <div class="container">
+            <div class="hero-content">
+                <p class="hero-label">Senior Instructional Designer + Storyteller</p>
+                <h1 class="hero-title">
+                    <span class="line"><span class="line-inner">Hello, My name is Tai!</span></span>
+                    <span class="line"><span class="line-inner">I Craft Learning</span></span>
+                    <span class="line"><span class="line-inner">Experiences That</span></span>
+                    <span class="line"><span class="line-inner highlight">Truly Resonate.</span></span>
+                </h1>
+                <p class="hero-description">I bring instructional design expertise from strategy through delivery—creating engaging, learner-centered experiences that drive real outcomes.</p>
+                <a href="#contact" class="hero-cta">
+                    Let's Connect
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="line"></div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         WORK/PROJECTS SECTION
+    ======================================== -->
+    <section id="work">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Selected Work</p>
+                <h2 class="section-title">Projects that made<br>an impact</h2>
+            </div>
+            <div class="work-grid">
+                <article class="work-item">
+                    <div class="work-item-image">
+                        <img src="screenshot/platform_onboarding.png" alt="Cloud Design Platform Customer Onboarding" loading="lazy">
+                    </div>
+                    <div class="work-item-content">
+                        <div class="work-item-meta">
+                            <span class="work-tag">Articulate Rise</span>
+                            <span class="work-tag">Enablement</span>
+                        </div>
+                        <h3>Cloud Design Platform Customer Onboarding</h3>
+                        <p>Dual-path customer enablement program transforming 55% seat utilization to 80% through role-based eLearning. Designed separate learning paths for Platform Administrators (30 min) and Designers (15 min), reducing time-to-value from 14 days to 3 days.</p>
+                        <div style="display: flex; gap: 16px; margin-top: 20px; flex-wrap: wrap;">
+                            <a href="case-study-website.html" class="view-project">View Case Study →</a>
+                            <a href="https://www.badex.tv/portfolio/designer/index.html" target="_blank" rel="noopener noreferrer" class="view-project">View Designer Path →</a>
+                            <a href="https://www.badex.tv/portfolio/platform/index.html" target="_blank" rel="noopener noreferrer" class="view-project">View Admin Path →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="work-item">
+                    <div class="work-item-image">
+                        <img src="screenshot/handshake.jpg" alt="Crisis Decision-Making Through Case-Based Peer Learning" loading="lazy">
+                    </div>
+                    <div class="work-item-content">
+                        <div class="work-item-meta">
+                            <span class="work-tag">Learning Design</span>
+                            <span class="work-tag">Case-Based Learning</span>
+                        </div>
+                        <h3>Crisis Decision-Making Through Case-Based Peer Learning</h3>
+                        <p>Comprehensive instructional design package for teaching institutional investors to navigate portfolio crisis scenarios through structured peer collaboration. Designed a 5-touchpoint learning architecture with 9 implementation deliverables including facilitator guides, assessment rubrics, and discussion protocols.</p>
+                        <div style="display: flex; gap: 16px; margin-top: 20px; flex-wrap: wrap;">
+                            <a href="case-study-peer-learning.html" class="view-project">View Case Study →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="work-item">
+                    <div class="work-item-image">
+                        <img src="https://www.badex.tv/wp-content/uploads/2024/11/new-frame-1024x581.png" alt="Abuse Prevention and Response Protocol" loading="lazy">
+                    </div>
+                    <div class="work-item-content">
+                        <div class="work-item-meta">
+                            <span class="work-tag">Articulate Storyline</span>
+                        </div>
+                        <h3>Abuse Prevention and Response Protocol</h3>
+                        <p>Interactive online learning course module designed and developed using Articulate Storyline. Features scenario-based training with branching narratives to teach effective abuse prevention and response protocols.</p>
+                        <div style="display: flex; gap: 16px; margin-top: 20px;">
+                            <a href="case-study-aprp.html" class="view-project">View Case Study →</a>
+                            <a href="https://demoinstructionaldesignaprp.s3.us-west-2.amazonaws.com/APRP_protocol_course+-+Storyline+output/story.html" target="_blank" rel="noopener noreferrer" class="view-project">View Live Project →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="work-item">
+                    <div class="work-item-image">
+                        <img src="https://www.badex.tv/wp-content/uploads/2024/11/image-2-1024x754.png" alt="Storyboard Development" loading="lazy">
+                    </div>
+                    <div class="work-item-content">
+                        <div class="work-item-meta">
+                            <span class="work-tag">Visual Design</span>
+                        </div>
+                        <h3>Storyboard Development</h3>
+                        <p>Visual instructional design work showcasing comprehensive storyboarding techniques. Created detailed visual blueprints for e-learning modules and video-based training content with clear narrative flow.</p>
+                    </div>
+                </article>
+
+                <article class="work-item">
+                    <div class="work-item-image">
+                        <img src="screenshot-elearning.png" alt="UXO Awareness Training Course" loading="lazy">
+                    </div>
+                    <div class="work-item-content">
+                        <div class="work-item-meta">
+                            <span class="work-tag">Articulate Rise</span>
+                        </div>
+                        <h3>UXO Awareness Training for Construction Sites</h3>
+                        <p>Safety-critical eLearning course developed in Articulate Rise for construction personnel working in high-risk environments. Teaches workers to identify, respond to, and report potential unexploded ordnance (UXO) through scenario-based training and stop-work protocols.</p>
+                        <div style="display: flex; gap: 16px; margin-top: 20px;">
+                            <a href="case-study-uxo.html" class="view-project">View Case Study →</a>
+                            <a href="https://www.badex.tv/portfolio/elearning/index.html" target="_blank" rel="noopener noreferrer" class="view-project">View Live Project →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="work-item">
+                    <div class="work-item-image">
+                        <img src="https://www.badex.tv/wp-content/uploads/2024/11/mlf-1-1024x576.png" alt="Alberta Machine Intelligence ML Foundations" loading="lazy">
+                    </div>
+                    <div class="work-item-content">
+                        <div class="work-item-meta">
+                            <span class="work-tag">Learning Design</span>
+                        </div>
+                        <h3>Alberta Machine Intelligence ML Foundations</h3>
+                        <p>Comprehensive learning design project for machine learning curriculum. Made complex AI concepts accessible through structured instructional strategies, visual explanations, and progressive skill-building modules.</p>
+                    </div>
+                </article>
+
+                <article class="work-item">
+                    <a href="https://vimeo.com/724348987" target="_blank" rel="noopener noreferrer" class="work-item-link-wrapper">
+                        <div class="work-item-image work-item-video">
+                            <iframe src="https://player.vimeo.com/video/724348987?h=0&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="work-item-content">
+                            <div class="work-item-meta">
+                                <span class="work-tag">Video Production</span>
+                            </div>
+                            <h3>Lethbridge College - Interpersonal Effective Roleplay Video</h3>
+                            <p>3 minute Instructional video that demonstrates performance modeling and visual storytelling.</p>
+                            <span class="view-project">Watch on Vimeo →</span>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="work-item">
+                    <a href="https://vimeo.com/114035014" target="_blank" rel="noopener noreferrer" class="work-item-link-wrapper">
+                        <div class="work-item-image work-item-video">
+                            <iframe src="https://player.vimeo.com/video/114035014?h=0&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="work-item-content">
+                            <div class="work-item-meta">
+                                <span class="work-tag">Video Production</span>
+                                <span class="work-tag">Motion Graphics</span>
+                            </div>
+                            <h3>Verve Reward Animated 30</h3>
+                            <p>30-second motion graphics piece created for Verve Rewards showcasing brand identity through dynamic animation. Clean visual storytelling that communicates reward program benefits with engaging kinetic typography and brand elements.</p>
+                            <span class="view-project">Watch on Vimeo →</span>
+                        </div>
+                    </a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         ABOUT SECTION
+    ======================================== -->
+    <section id="about">
+        <!-- Blueprint background image -->
+        <div class="about-bg-image">
+            <img src="new-mouse.png" alt="" aria-hidden="true">
+        </div>
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">About</p>
+                <h2 class="section-title">Thoughtful design for meaningful learning</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I solve performance problems through strategic learning design. When product adoption stalls at 55%, when compliance training fails to change field behavior, when complex expertise transfer requires more than a course—I build systematic solutions that move business metrics and prove impact.</p>
+                    <p>My work integrates performance gap analysis, role-based segmentation, and video production to create learning systems grounded in adult learning science: dual-path customer onboarding that increased utilization 25 percentage points, mobile-first safety training achieving 100% critical-item mastery, case-based peer learning with 9-deliverable facilitator packages.</p>
+                    <p>I specialize in translating business challenges into scalable instructional architecture—designed for behavior change, optimized for real-world context, and evaluated across all four Kirkpatrick levels.</p>
+                </div>
+                <div class="skills-section">
+                    <h3 class="skills-title">Expertise</h3>
+                    <ul class="skills-list">
+                        <li class="skill-item">Strategic Learning Design</li>
+                        <li class="skill-item">Performance Analysis</li>
+                        <li class="skill-item">Video Production</li>
+                        <li class="skill-item">eLearning Production</li>
+                        <li class="skill-item">Adult Learning Science</li>
+                        <li class="skill-item">Behavior Change Design</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         CONTACT SECTION
+    ======================================== -->
+    <section id="contact" class="contact">
+        <!-- Diagonal stroke decoration (flipped) -->
+        <div class="diagonal-stroke"></div>
+        <div class="container">
+            <div class="contact-content">
+                <p class="section-label">Get In Touch</p>
+                <h2 class="contact-title">Let's create something meaningful</h2>
+                <p class="contact-description">I'm always interested in discussing new projects, creative ideas, or opportunities to be part of your vision.</p>
+                <a href="mailto:taiwo@badex.tv" class="contact-email">taiwo@badex.tv</a>
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/taiwobadejo/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="https://github.com/turbo-badex" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://medium.com/@badex" target="_blank" rel="noopener noreferrer">Medium</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         FOOTER
+    ======================================== -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Taiwo. All rights reserved.</p>
+            <p>Crafted with 🤍</p>
+        </div>
+    </footer>
+
+    <!-- ========================================
+         GSAP & SCROLLTRIGGER
+    ======================================== -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <script>
+        // ========================================
+        // GSAP ANIMATIONS
+        // ========================================
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Check for reduced motion preference
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (!prefersReducedMotion) {
+
+            // ----------------------------------------
+            // INITIAL STATES
+            // ----------------------------------------
+            gsap.set('.hero-label', { opacity: 0, y: 20 });
+            gsap.set('.hero-title .line-inner', { yPercent: 105 });
+            gsap.set('.hero-description', { opacity: 0, y: 30 });
+            gsap.set('.hero-cta', { opacity: 0, y: 20 });
+            gsap.set('.scroll-indicator', { opacity: 0 });
+            gsap.set('.nav-links li', { opacity: 0, y: -15 });
+            gsap.set('.logo', { opacity: 0, x: -20 });
+
+            // ----------------------------------------
+            // HERO ENTRANCE TIMELINE
+            // ----------------------------------------
+            const heroTl = gsap.timeline({
+                defaults: { ease: 'power4.out' },
+                delay: 0.3
+            });
+
+            heroTl
+                .to('.logo', {
+                    opacity: 1,
+                    x: 0,
+                    duration: 1
+                })
+                .to('.nav-links li', {
+                    opacity: 1,
+                    y: 0,
+                    stagger: 0.1,
+                    duration: 0.8
+                }, '-=0.6')
+                .to('.hero-label', {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8
+                }, '-=0.4')
+                .to('.hero-title .line-inner', {
+                    yPercent: 0,
+                    duration: 1.2,
+                    stagger: 0.12,
+                    ease: 'power4.out'
+                }, '-=0.5')
+                .to('.hero-description', {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1
+                }, '-=0.7')
+                .to('.hero-cta', {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8
+                }, '-=0.6')
+                .to('.scroll-indicator', {
+                    opacity: 1,
+                    duration: 1
+                }, '-=0.3');
+
+            // ----------------------------------------
+            // SCROLL INDICATOR ANIMATION
+            // ----------------------------------------
+            gsap.to('.scroll-indicator .line', {
+                scaleY: 0.3,
+                transformOrigin: 'top',
+                repeat: -1,
+                yoyo: true,
+                duration: 1.5,
+                ease: 'power2.inOut'
+            });
+
+            // ----------------------------------------
+            // NAV SCROLL EFFECT
+            // ----------------------------------------
+            ScrollTrigger.create({
+                start: 100,
+                onUpdate: (self) => {
+                    if (self.scroll() > 100) {
+                        document.querySelector('nav').classList.add('scrolled');
+                    } else {
+                        document.querySelector('nav').classList.remove('scrolled');
+                    }
+                }
+            });
+
+            // ----------------------------------------
+            // ABOUT SECTION ANIMATIONS
+            // ----------------------------------------
+            gsap.set('#about .section-label', { opacity: 0, y: 20 });
+            gsap.set('#about .section-title', { opacity: 0, y: 40 });
+            gsap.set('.about-text p', { opacity: 0, y: 40 });
+            gsap.set('.skills-title', { opacity: 0, y: 10 });
+            gsap.set('.skills-list .skill-item', { opacity: 0, y: 10 });
+
+            const aboutTl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: '#about',
+                    start: 'top 70%',
+                    once: true
+                }
+            });
+
+            aboutTl
+                .to('#about .section-label', {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.6,
+                    ease: 'power3.out'
+                })
+                .to('#about .section-title', {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: 'power3.out'
+                }, '-=0.3')
+                .to('.about-text p', {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    stagger: 0.15,
+                    ease: 'power3.out'
+                }, '-=0.4')
+                .to('.skills-title', {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.5,
+                    ease: 'power3.out'
+                }, '-=0.3')
+                .to('.skills-list .skill-item', {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.6,
+                    stagger: 0.1,
+                    ease: 'power3.out'
+                }, '-=0.2');
+
+            // ----------------------------------------
+            // WORK SECTION ANIMATIONS
+            // ----------------------------------------
+            gsap.set('#work .section-label', { opacity: 0, y: 20 });
+            gsap.set('#work .section-title', { opacity: 0, y: 40 });
+            gsap.set('.work-item', { opacity: 0, y: 80 });
+
+            const workHeaderTl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: '#work',
+                    start: 'top 70%',
+                    once: true
+                }
+            });
+
+            workHeaderTl
+                .to('#work .section-label', {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.6,
+                    ease: 'power3.out'
+                })
+                .to('#work .section-title', {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: 'power3.out'
+                }, '-=0.3');
+
+            // Individual work items
+            document.querySelectorAll('.work-item').forEach((item, index) => {
+                gsap.to(item, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: item,
+                        start: 'top 80%',
+                        once: true
+                    }
+                });
+            });
+
+            
+            // ----------------------------------------
+            // PHILOSOPHY SECTION ANIMATIONS
+            // ----------------------------------------
+            gsap.set('#philosophy .section-label', { opacity: 0, y: 20 });
+            gsap.set('.philosophy-quote', { opacity: 0, y: 50 });
+            gsap.set('.philosophy-author', { opacity: 0 });
+
+            const philosophyTl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: '#philosophy',
+                    start: 'top 65%',
+                    once: true
+                }
+            });
+
+            philosophyTl
+                .to('#philosophy .section-label', {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.6,
+                    ease: 'power3.out'
+                })
+                .to('.philosophy-quote', {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1.2,
+                    ease: 'power3.out'
+                }, '-=0.2')
+                .to('.philosophy-author', {
+                    opacity: 1,
+                    duration: 0.8,
+                    ease: 'power2.out'
+                }, '-=0.4');
+
+            // ----------------------------------------
+            // CONTACT SECTION ANIMATIONS
+            // ----------------------------------------
+            gsap.set('#contact .section-label', { opacity: 0, y: 20 });
+            gsap.set('.contact-title', { opacity: 0, y: 50 });
+            gsap.set('.contact-description', { opacity: 0, y: 30 });
+            gsap.set('.contact-email', { opacity: 0, scale: 0.9 });
+            gsap.set('.social-links a', { opacity: 0, y: 20 });
+
+            const contactTl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: '#contact',
+                    start: 'top 65%',
+                    once: true
+                }
+            });
+
+            contactTl
+                .to('#contact .section-label', {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.6,
+                    ease: 'power3.out'
+                })
+                .to('.contact-title', {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    ease: 'power3.out'
+                }, '-=0.3')
+                .to('.contact-description', {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: 'power3.out'
+                }, '-=0.6')
+                .to('.contact-email', {
+                    opacity: 1,
+                    scale: 1,
+                    duration: 0.8,
+                    ease: 'back.out(1.5)'
+                }, '-=0.4')
+                .to('.social-links a', {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.6,
+                    stagger: 0.1,
+                    ease: 'power3.out'
+                }, '-=0.3');
+
+            // ----------------------------------------
+            // FOOTER FADE IN
+            // ----------------------------------------
+            gsap.set('footer', { opacity: 0 });
+            gsap.to('footer', {
+                opacity: 1,
+                duration: 1,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: 'footer',
+                    start: 'top 95%',
+                    once: true
+                }
+            });
+
+            // ----------------------------------------
+            // HOVER ANIMATIONS (GSAP-powered)
+            // ----------------------------------------
+            document.querySelectorAll('.hero-cta').forEach(btn => {
+                btn.addEventListener('mouseenter', () => {
+                    gsap.to(btn, {
+                        scale: 1.02,
+                        duration: 0.3,
+                        ease: 'power2.out'
+                    });
+                });
+                btn.addEventListener('mouseleave', () => {
+                    gsap.to(btn, {
+                        scale: 1,
+                        duration: 0.3,
+                        ease: 'power2.out'
+                    });
+                });
+            });
+
+        } // end reduced motion check
+
+        // ----------------------------------------
+        // SMOOTH SCROLL FOR ANCHOR LINKS
+        // ----------------------------------------
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    gsap.to(window, {
+                        duration: 1,
+                        scrollTo: { y: target, offsetY: 80 },
+                        ease: 'power3.inOut'
+                    });
+                }
+            });
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+</body>
+</html>

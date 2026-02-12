@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interpersonal Effectiveness Animation - Case Study | Taiwo</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="logo_new_badex.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="logo_new_badex.png">
+    <link rel="shortcut icon" href="logo_new_badex.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Sora:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* ========================================
+           FONT DISPLAY FIX - Ensures immediate text visibility
+        ======================================== */
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;  /* Show fallback text immediately */
+            src: url('https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfMZg.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 600;
+            font-display: swap;
+            src: url('https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuGKYMZg.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url('https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuFuYMZg.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Sora';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url('https://fonts.gstatic.com/s/sora/v17/xMQOuFFYT72X5wkB_18qmnndmSe1mX-K.ttf') format('truetype');
+        }
+
+        /* ========================================
+           CSS RESET & BASE STYLES
+        ======================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-tertiary: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --text-muted: #666666;
+            --accent: #6366f1;
+            --accent-hover: #818cf8;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(255, 255, 255, 0.15);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: radial-gradient(circle, rgba(255,255,255,0.18) 1px, transparent 1px);
+            background-size: 32px 32px;
+            background-attachment: fixed;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        .container-narrow {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* ========================================
+           NAVIGATION
+        ======================================== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 0;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 108px;
+            width: auto;
+            filter: invert(1);
+            transition: opacity 0.3s ease;
+        }
+
+        .logo:hover img {
+            opacity: 0.8;
+        }
+
+        .back-link {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 400;
+            position: relative;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-link:hover {
+            color: var(--text-primary);
+        }
+
+        .back-link::before {
+            content: '←';
+            font-size: 1.2rem;
+        }
+
+        /* ========================================
+           HERO SECTION
+        ======================================== */
+        .case-study-hero {
+            padding-top: 200px;
+            padding-bottom: 80px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .project-tag {
+            font-size: 0.75rem;
+            color: var(--accent);
+            padding: 6px 14px;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 20px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 24px;
+        }
+
+        .case-study-title {
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            letter-spacing: -2px;
+            line-height: 1.1;
+            margin-bottom: 32px;
+        }
+
+        .case-study-subtitle {
+            font-size: 1.35rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin-bottom: 48px;
+            font-weight: 400;
+            line-height: 1.7;
+        }
+
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            padding: 32px 0;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .meta-item strong {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* ========================================
+           VIDEO WRAPPER
+        ======================================== */
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* ========================================
+           FEATURED IMAGE
+        ======================================== */
+        .featured-image {
+            width: 100%;
+            margin: 80px 0;
+        }
+
+        .featured-image img {
+            width: 100%;
+            border-radius: 0;
+            border: 1px solid var(--border-subtle);
+        }
+
+        /* ========================================
+           CONTENT SECTIONS
+        ======================================== */
+        .content-section {
+            padding: 80px 0;
+        }
+
+        .content-section:not(:last-child) {
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent);
+            margin-bottom: 24px;
+            font-weight: 500;
+        }
+
+        .section-title {
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
+            font-weight: 700;
+            letter-spacing: -1px;
+            line-height: 1.2;
+            margin-bottom: 32px;
+        }
+
+        .content-text p {
+            color: var(--text-secondary);
+            font-size: 1.15rem;
+            line-height: 1.85;
+            margin-bottom: 24px;
+        }
+
+        .content-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .content-text strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .content-text ul, .content-text ol {
+            color: var(--text-secondary);
+            font-size: 1.15rem;
+            line-height: 1.85;
+            margin-bottom: 24px;
+            padding-left: 24px;
+        }
+
+        .content-text li {
+            margin-bottom: 12px;
+        }
+
+        .content-text h3 {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 48px 0 24px 0;
+        }
+
+        .content-text h3:first-child {
+            margin-top: 0;
+        }
+
+        /* ========================================
+           TWO COLUMN LAYOUT
+        ======================================== */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 48px;
+        }
+
+        /* ========================================
+           HIGHLIGHT BOX
+        ======================================== */
+        .highlight-box {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            padding: 48px;
+            margin: 48px 0;
+            border-radius: 0;
+        }
+
+        .highlight-box .section-title {
+            margin-bottom: 24px;
+        }
+
+        .highlight-box ul {
+            color: var(--text-secondary);
+            font-size: 1.15rem;
+            line-height: 1.85;
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .highlight-box li {
+            margin-bottom: 12px;
+            padding-left: 32px;
+            position: relative;
+        }
+
+        .highlight-box li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+
+        /* ========================================
+           CTA SECTION
+        ======================================== */
+        .cta-section {
+            padding: 100px 0;
+            text-align: center;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .cta-title {
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            letter-spacing: -1.5px;
+            margin-bottom: 32px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--text-primary);
+            color: var(--bg-primary);
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: transparent;
+            color: var(--text-primary);
+            padding: 16px 32px;
+            border-radius: 50px;
+            border: 1px solid var(--border-subtle);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* ========================================
+           FOOTER
+        ======================================== */
+        footer {
+            padding: 32px 0;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* ========================================
+           RESPONSIVE DESIGN
+        ======================================== */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 24px;
+            }
+
+            .case-study-hero {
+                padding-top: 160px;
+                padding-bottom: 60px;
+            }
+
+            .project-meta {
+                gap: 24px;
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .highlight-box {
+                padding: 32px 24px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            footer .container {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ========================================
+         NAVIGATION
+    ======================================== -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="logo_new_badex.png" alt="Badex">
+            </a>
+            <a href="index.html#work" class="back-link">Back to Portfolio</a>
+        </div>
+    </nav>
+
+    <!-- ========================================
+         HERO SECTION
+    ======================================== -->
+    <section class="case-study-hero">
+        <div class="container-narrow">
+            <span class="project-tag">Motion Graphics & Animation</span>
+            <h1 class="case-study-title">Interpersonal Effectiveness Roleplay Animation for Lethbridge College</h1>
+            <p class="case-study-subtitle">Teaching Communication Skills Through Scenario-Based Storytelling</p>
+
+            <div class="project-meta">
+                <div class="meta-item">
+                    <strong>Client</strong>
+                    <span>Lethbridge College – Student Success & Learning Services</span>
+                </div>
+                <div class="meta-item">
+                    <strong>Role</strong>
+                    <span>Storyboard Artist & Animator</span>
+                </div>
+                <div class="meta-item">
+                    <strong>Deliverables</strong>
+                    <span>2-3 minute educational animation with storyboard, character design, and full production</span>
+                </div>
+                <div class="meta-item">
+                    <strong>Audience</strong>
+                    <span>College students (diverse academic programs, ages 18-35+)</span>
+                </div>
+                <div class="meta-item">
+                    <strong>Tools</strong>
+                    <span>Animation software, character design, audio production</span>
+                </div>
+            </div>
+
+            <a href="https://vimeo.com/724348987" target="_blank" rel="noopener noreferrer" class="btn-primary" style="margin-top: 32px;">
+                Watch Video on Vimeo →
+            </a>
+        </div>
+    </section>
+
+    <!-- ========================================
+         VIDEO EMBED
+    ======================================== -->
+    <section style="padding: 80px 0;">
+        <div class="container">
+            <div class="video-wrapper">
+                <iframe src="https://player.vimeo.com/video/724348987?h=0&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         THE CHALLENGE
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <p class="section-label">The Challenge</p>
+            <h2 class="section-title">Teaching Soft Skills Through Concrete Examples</h2>
+            <div class="content-text">
+                <p>Lethbridge College's Student Success department needed an effective way to teach interpersonal communication skills—specifically the DEARSAN communication framework technique from Dialectical Behavior Therapy (DBT)—to help students navigate challenging academic conversations with confidence and professionalism.</p>
+
+                <p><strong>The Learning Gap:</strong></p>
+
+                <p><strong>Current State:</strong></p>
+                <ul>
+                    <li>Students lacked concrete examples of how to approach difficult conversations with instructors</li>
+                    <li>Many avoided addressing academic concerns due to fear of confrontation or uncertainty about appropriate communication</li>
+                    <li>Abstract descriptions of communication frameworks (DEARSAN acronym) didn't translate to real-world application</li>
+                    <li>Students struggled to balance assertiveness with respect in power-imbalanced situations (student-instructor dynamic)</li>
+                </ul>
+
+                <p><strong>Desired State:</strong></p>
+                <ul>
+                    <li>Students understand each component of the DEARSAN framework through observable behavior</li>
+                    <li>Students can recognize effective communication strategies in context</li>
+                    <li>Students feel empowered to advocate for themselves professionally</li>
+                    <li>Students can apply the framework to similar academic situations (grade discussions, extensions, accommodations)</li>
+                </ul>
+
+                <p><strong>Root Cause:</strong> Students needed to see the framework in action, not just memorized. The challenge wasn't information delivery—it was modeling professional advocacy behavior in a realistic, relatable scenario.</p>
+
+                <h3>Audience Challenges: Diverse Student Population</h3>
+
+                <p><strong>Audience Profile:</strong></p>
+                <ul>
+                    <li><strong>Demographics:</strong> Ages 18-35+, diverse cultural backgrounds, varying communication confidence levels</li>
+                    <li><strong>Context:</strong> Students experiencing academic stress, grade concerns, time constraints</li>
+                    <li><strong>Attitude:</strong> Some anxiety around instructor interactions, desire for practical guidance</li>
+                    <li><strong>Learning Preference:</strong> Visual learners, scenario-based examples, short-form content compatible with social media consumption habits</li>
+                </ul>
+
+                <p><strong>Instructional Challenge:</strong> The animation needed to demonstrate assertive communication without appearing confrontational, show vulnerability without weakness, and model professionalism in a situation many students find intimidating—all within 2-3 minutes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         PROCESS & METHODOLOGY
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <p class="section-label">Process & Methodology</p>
+            <h2 class="section-title">From Framework to Animation</h2>
+            <div class="content-text">
+                <h3>Needs Analysis & Concept Development</h3>
+
+                <p><strong>1. Framework Integration</strong></p>
+                <p>I worked with Lethbridge College stakeholders to understand the DEARSAN communication framework and how it applies to common student scenarios:</p>
+                <ul>
+                    <li><strong>D</strong>escribe the situation (facts, not judgments)</li>
+                    <li><strong>E</strong>xpress clearly (feelings and opinions)</li>
+                    <li><strong>A</strong>ssert wishes (specific requests)</li>
+                    <li><strong>R</strong>einforce (positive outcomes for all parties)</li>
+                    <li><strong>S</strong>tay mindful (focus on goals)</li>
+                    <li><strong>A</strong>ppear confident (tone, posture, language)</li>
+                    <li><strong>N</strong>egotiate (find middle ground)</li>
+                </ul>
+
+                <p><strong>2. Scenario Selection</strong></p>
+                <p>Through consultation with Student Success advisors, we identified the grade discussion scenario as highly relatable and commonly anxiety-inducing. The situation needed to demonstrate:</p>
+                <ul>
+                    <li>Student experiencing legitimate academic concerns (vague test questions, instructor unavailability, unanswered emails)</li>
+                    <li>Professional tone despite frustration</li>
+                    <li>Clear problem description without blaming</li>
+                    <li>Specific, reasonable solution proposal</li>
+                    <li>Positive resolution through collaborative problem-solving</li>
+                </ul>
+
+                <p><strong>3. Character & Visual Design Decisions</strong></p>
+                <ul>
+                    <li><strong>Character Design:</strong> Approachable, diverse, relatable student and instructor characters with neutral styling to maximize identification across demographics</li>
+                    <li><strong>Setting:</strong> Simple office environment—recognizable but not distracting from dialogue</li>
+                    <li><strong>Visual Style:</strong> Clean, friendly illustration style with hand-drawn warmth to reduce formality and intimidation</li>
+                </ul>
+
+                <h3>Storyboard Development</h3>
+
+                <p><strong>Strategic Scene Breakdown:</strong></p>
+
+                <p><strong>Opening Frame (Scene 01):</strong></p>
+                <ul>
+                    <li><strong>Purpose:</strong> Orient learners to the framework before dialogue begins</li>
+                    <li><strong>Visual Strategy:</strong> Split-screen showing full DEARSAN acronym on left (color-coded for each step) with characters on right</li>
+                    <li><strong>Audio:</strong> Upbeat, approachable music to reduce anxiety around "difficult conversation" framing</li>
+                    <li><strong>Why This Works:</strong> Learners see the roadmap before the scenario, priming them to notice each technique as it appears</li>
+                </ul>
+
+                <p><strong>Introduction & Describe (Scenes 02-04):</strong></p>
+                <ul>
+                    <li><strong>Student opens with gratitude and respect:</strong> "Hi Emily, thank you for agreeing to meet with me..."</li>
+                    <li><strong>Zoom technique:</strong> Camera moves from wide to medium shot, focusing attention on interpersonal dynamics</li>
+                    <li><strong>"DESCRIBE" text reveal:</strong> Punctuates the transition to problem description</li>
+                    <li><strong>Factual problem statement:</strong> Student lists specific issues (vague questions, unanswered emails, instructor unavailability) without accusatory language</li>
+                    <li><strong>Instructor validation:</strong> "I take your points" shows receptiveness to professional communication</li>
+                </ul>
+
+                <p><strong>Visual Teaching Strategy:</strong> Each DEARSAN component appears as on-screen text at the moment the character demonstrates it, creating immediate connection between framework and behavior. This dual-channel learning (visual text + character dialogue) reinforces the "what" and "how" simultaneously.</p>
+            </div>
+
+            <!-- Storyboard Image -->
+            <div class="featured-image">
+                <img src="screenshot/storyboard1.png" alt="Storyboard frames showing the DEARSAN framework integration and scene progression" loading="lazy">
+                <p style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-top: 16px;">
+                    Storyboard excerpt showing opening frame with DEARSAN framework and scene progression
+                </p>
+            </div>
+
+            <div class="content-text">
+                <h3>Animation Approach: Humanizing Professional Communication</h3>
+
+                <p><strong>Character Animation Choices:</strong></p>
+                <ul>
+                    <li><strong>Lip sync and hand gestures:</strong> Creating realistic, natural movement makes the scenario feel authentic rather than scripted</li>
+                    <li><strong>Body language consistency:</strong> Student maintains respectful posture while showing appropriate concern; instructor displays open, receptive positioning</li>
+                    <li><strong>Facial expressions:</strong> Subtle emotional cues (student's slight nervousness, instructor's thoughtful consideration) add humanity without melodrama</li>
+                </ul>
+
+                <p><strong>Pacing Strategy:</strong></p>
+                <ul>
+                    <li>Conversation unfolds at natural speaking pace (not rushed)</li>
+                    <li>Camera movements (pan up to reveal text, zoom in/out) create visual rhythm and guide attention</li>
+                    <li>Music fades down during dialogue to prioritize comprehension while maintaining emotional tone</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         DESIGN DECISIONS & SOLUTIONS
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <p class="section-label">Design Decisions</p>
+            <h2 class="section-title">Storytelling for Behavior Modeling</h2>
+            <div class="content-text">
+                <h3>Authentic Scenario Design</h3>
+
+                <p>The scenario reflects real student frustrations (instructor communication gaps, test fairness concerns, environmental disruptions like construction noise) to establish immediate relevance. By giving the student legitimate grievances, the animation validates student experiences while demonstrating professional response strategies.</p>
+
+                <p><strong>Solution Arc:</strong></p>
+                <ul>
+                    <li><strong>Problem → Process → Resolution structure</strong> shows that the framework works—the student gets a positive outcome (retake offer extended to all students) through professional advocacy</li>
+                    <li><strong>Teacher's receptiveness</strong> demonstrates that respectful communication is more likely to be heard than confrontational approaches</li>
+                    <li><strong>Fairness consideration</strong> (retake offered to all students, not just the complainer) models ethical thinking and consideration of peer equity</li>
+                </ul>
+
+                <h3>Visual Information Architecture</h3>
+
+                <p><strong>Color-Coded Framework:</strong></p>
+                <p>Each DEARSAN step uses a distinct color marker in the opening frame, creating visual categorization that helps with:</p>
+                <ul>
+                    <li><strong>Memory encoding:</strong> Color + acronym + behavior creates multiple retrieval pathways</li>
+                    <li><strong>Progress tracking:</strong> As the animation advances through steps, learners see where they are in the framework</li>
+                    <li><strong>Pattern recognition:</strong> Students can mentally map their own situations to specific framework components</li>
+                </ul>
+
+                <p><strong>Text Timing & Placement:</strong></p>
+                <ul>
+                    <li><strong>"DESCRIBE" title card:</strong> Large, centered text creates a chapter marker, signaling framework component shift</li>
+                    <li><strong>On-screen acronym list:</strong> Persistent visual reference allows learners to connect dialogue back to framework terminology</li>
+                    <li><strong>Minimal text during dialogue:</strong> Avoids cognitive overload; focus remains on character modeling</li>
+                </ul>
+
+                <h3>Accessibility & Inclusive Design Considerations</h3>
+
+                <p><strong>Multi-Sensory Learning:</strong></p>
+                <ul>
+                    <li><strong>Visual:</strong> Character demonstration, on-screen text, color coding</li>
+                    <li><strong>Auditory:</strong> Dialogue modeling tone, pacing, word choice</li>
+                    <li><strong>Reading:</strong> Transcript available</li>
+                    <li><strong>Captions:</strong> Ensuring deaf/hard-of-hearing accessibility</li>
+                </ul>
+
+                <p><strong>Cultural Considerations:</strong></p>
+                <ul>
+                    <li><strong>Neutral character styling:</strong> Avoids stereotyping while remaining relatable</li>
+                    <li><strong>Professional but approachable language:</strong> Student uses formal register without stiffness ("I appreciate you taking the time...")</li>
+                    <li><strong>Power balance acknowledgment:</strong> Student shows respect for instructor's authority while maintaining self-advocacy</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         IMPLEMENTATION & DELIVERABLES
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <p class="section-label">Deliverables</p>
+            <h2 class="section-title">Complete Animation Package</h2>
+            <div class="content-text">
+                <p><strong>1. Storyboard Document</strong></p>
+                <ul>
+                    <li>20+ frame breakdown with VO narration, on-screen text specifications, and visual direction</li>
+                    <li>Scene-by-scene notes for animator (camera movements, lipsync cues, text timing)</li>
+                    <li>Color-coded framework integration throughout</li>
+                </ul>
+
+                <p><strong>2. Animated Video (2-3 minutes)</strong></p>
+                <ul>
+                    <li>Character-driven scenario with professional voice acting</li>
+                    <li>Full DEARSAN framework demonstration embedded in natural dialogue</li>
+                    <li>Music, sound design, and visual effects to support learning without distraction</li>
+                </ul>
+
+                <p><strong>3. Educational Integration Materials</strong></p>
+                <ul>
+                    <li>Transcript for accessibility and analysis</li>
+                    <li>Suggested discussion questions for classroom use</li>
+                    <li>Framework reference sheet linking acronym to demonstrated behaviors</li>
+                </ul>
+
+                <h3>Distribution & Use Cases</h3>
+
+                <p><strong>Intended Applications:</strong></p>
+                <ul>
+                    <li><strong>Student Success workshops:</strong> Instructor-led sessions on communication skills</li>
+                    <li><strong>Online learning modules:</strong> Embedded in LMS courses on professional development</li>
+                    <li><strong>Peer mentor training:</strong> Teaching student leaders to coach peers</li>
+                    <li><strong>Counseling resources:</strong> Supplementing one-on-one student support</li>
+                    <li><strong>Social media snippets:</strong> Shareable clips for Instagram/TikTok promoting student services</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         RESULTS & IMPACT
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <p class="section-label">Impact</p>
+            <h2 class="section-title">Learning Outcomes & Educational Value</h2>
+            <div class="content-text">
+                <h3>Immediate Benefits</h3>
+
+                <ul>
+                    <li><strong>Concrete Modeling:</strong> Students see exactly what effective communication looks and sounds like in a high-stakes situation</li>
+                    <li><strong>Reduced Anxiety:</strong> Seeing a positive resolution demystifies difficult conversations with authority figures</li>
+                    <li><strong>Framework Retention:</strong> Visual + auditory + narrative integration creates multiple memory pathways for DEARSAN acronym</li>
+                    <li><strong>Transferable Skills:</strong> Scenario demonstrates principles applicable beyond grade discussions (workplace conflicts, personal relationships, service requests)</li>
+                </ul>
+
+                <h3>Measurable Success Indicators</h3>
+
+                <ul>
+                    <li>Student self-reported confidence in approaching instructors about academic concerns</li>
+                    <li>Workshop engagement metrics (view completion, discussion participation)</li>
+                    <li>Anecdotal feedback from instructors about quality of student communication in grade appeals</li>
+                    <li>Reduction in informal/unprofessional complaint channels (social media venting, third-party complaints)</li>
+                </ul>
+
+                <h3>Educational Value</h3>
+
+                <p>This animation transformed an abstract psychological framework (DEARSAN) into an observable, replicable behavior model. By embedding instructional content within a narrative scenario, the project demonstrates that:</p>
+
+                <ul>
+                    <li><strong>Soft skills can be taught through storytelling:</strong> Character-driven scenarios make abstract concepts tangible</li>
+                    <li><strong>Visual learning accelerates comprehension:</strong> Students don't just hear about the framework—they see it applied step-by-step</li>
+                    <li><strong>Relatability drives engagement:</strong> The student's concerns (unanswered emails, test frustration) mirror real experiences, creating emotional investment</li>
+                    <li><strong>Positive modeling encourages action:</strong> Showing successful outcomes motivates students to try the approach themselves</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         PROJECT HIGHLIGHTS
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <div class="highlight-box">
+                <h2 class="section-title">Project Highlights</h2>
+                <ul>
+                    <li>Behavior Modeling: Demonstrates interpersonal effectiveness through realistic scenario</li>
+                    <li>Framework Integration: DEARSAN technique embedded naturally in dialogue</li>
+                    <li>Character-Driven Learning: Animation humanizes abstract communication concepts</li>
+                    <li>Visual Information Design: Color coding, text reveals, and camera movement guide attention</li>
+                    <li>Accessibility Focused: Multi-sensory learning approach with transcript support</li>
+                    <li>Transferable Skills: Teaches professional communication applicable across contexts</li>
+                    <li>Positive Framing: Shows successful outcome of assertive, respectful advocacy</li>
+                    <li>Student-Centered Design: Addresses real anxiety around instructor interactions</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         CTA SECTION
+    ======================================== -->
+    <section class="cta-section">
+        <div class="container-narrow" style="text-align: center;">
+            <h2 style="font-family: 'Sora', sans-serif; font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 32px;">
+                Interested in Educational Animation?
+            </h2>
+            <div class="cta-buttons">
+                <a href="index.html#contact" class="btn-primary">Let's Discuss Your Project</a>
+                <a href="index.html#work" class="btn-secondary">View More Work</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         FOOTER
+    ======================================== -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Taiwo. All rights reserved.</p>
+            <p>Crafted with 🤍</p>
+        </div>
+    </footer>
+</body>
+</html>

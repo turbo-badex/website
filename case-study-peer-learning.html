@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crisis Decision-Making Through Case-Based Peer Learning - Case Study | Taiwo</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="logo_new_badex.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="logo_new_badex.png">
+    <link rel="shortcut icon" href="logo_new_badex.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Sora:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* ========================================
+           FONT DISPLAY FIX - Ensures immediate text visibility
+        ======================================== */
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;  /* Show fallback text immediately */
+            src: url('https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfMZg.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 600;
+            font-display: swap;
+            src: url('https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuGKYMZg.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url('https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuFuYMZg.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Sora';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url('https://fonts.gstatic.com/s/sora/v17/xMQOuFFYT72X5wkB_18qmnndmSe1mX-K.ttf') format('truetype');
+        }
+
+        /* ========================================
+           CSS RESET & BASE STYLES
+        ======================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-tertiary: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --text-muted: #666666;
+            --accent: #6366f1;
+            --accent-hover: #818cf8;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(255, 255, 255, 0.15);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: radial-gradient(circle, rgba(255,255,255,0.18) 1px, transparent 1px);
+            background-size: 32px 32px;
+            background-attachment: fixed;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        .container-narrow {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* ========================================
+           NAVIGATION
+        ======================================== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 0;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 108px;
+            width: auto;
+            filter: invert(1);
+            transition: opacity 0.3s ease;
+        }
+
+        .logo:hover img {
+            opacity: 0.8;
+        }
+
+        .back-link {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 400;
+            position: relative;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-link:hover {
+            color: var(--text-primary);
+        }
+
+        .back-link::before {
+            content: '←';
+            font-size: 1.2rem;
+        }
+
+        /* ========================================
+           HERO SECTION
+        ======================================== */
+        .case-study-hero {
+            padding-top: 200px;
+            padding-bottom: 80px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .project-tag {
+            font-size: 0.75rem;
+            color: var(--accent);
+            padding: 6px 14px;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 20px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 24px;
+        }
+
+        .case-study-title {
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            letter-spacing: -2px;
+            line-height: 1.1;
+            margin-bottom: 32px;
+        }
+
+        .case-study-subtitle {
+            font-size: 1.35rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin-bottom: 48px;
+            font-weight: 400;
+            line-height: 1.7;
+        }
+
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            padding: 32px 0;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .meta-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .meta-value {
+            font-size: 1rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* ========================================
+           CONTENT SECTIONS
+        ======================================== */
+        .content-section {
+            padding: 80px 0;
+        }
+
+        .content-section:not(:last-child) {
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent);
+            margin-bottom: 24px;
+            font-weight: 500;
+        }
+
+        .section-title {
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
+            font-weight: 700;
+            letter-spacing: -1px;
+            line-height: 1.2;
+            margin-bottom: 32px;
+        }
+
+        .content-text p {
+            color: var(--text-secondary);
+            font-size: 1.15rem;
+            line-height: 1.85;
+            margin-bottom: 24px;
+        }
+
+        .content-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .content-text strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .content-text ul, .content-text ol {
+            color: var(--text-secondary);
+            font-size: 1.15rem;
+            line-height: 1.85;
+            margin-bottom: 24px;
+            padding-left: 24px;
+        }
+
+        .content-text li {
+            margin-bottom: 12px;
+        }
+
+        /* ========================================
+           TWO COLUMN LAYOUT
+        ======================================== */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 48px;
+        }
+
+        /* ========================================
+           HIGHLIGHT BOX
+        ======================================== */
+        .highlight-box {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            padding: 48px;
+            margin: 48px 0;
+            border-radius: 0;
+        }
+
+        .highlight-box .section-title {
+            margin-bottom: 24px;
+        }
+
+        .highlight-stat {
+            font-family: 'Sora', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .highlight-label {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        /* ========================================
+           PROCESS TIMELINE
+        ======================================== */
+        .process-timeline {
+            margin: 48px 0;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 32px;
+            margin-bottom: 48px;
+            padding-bottom: 48px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .timeline-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .timeline-number {
+            font-family: 'Sora', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .timeline-content h3 {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .timeline-content p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        /* ========================================
+           CTA SECTION
+        ======================================== */
+        .cta-section {
+            padding: 100px 0;
+            text-align: center;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .cta-title {
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            letter-spacing: -1.5px;
+            margin-bottom: 32px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--text-primary);
+            color: var(--bg-primary);
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: transparent;
+            color: var(--text-primary);
+            padding: 16px 32px;
+            border-radius: 50px;
+            border: 1px solid var(--border-subtle);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* ========================================
+           FOOTER
+        ======================================== */
+        footer {
+            padding: 32px 0;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* ========================================
+           DELIVERABLES GRID
+        ======================================== */
+        .deliverables-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin: 48px 0;
+        }
+
+        .deliverable-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            padding: 32px;
+            transition: border-color 0.3s ease;
+        }
+
+        .deliverable-card:hover {
+            border-color: var(--border-hover);
+        }
+
+        .deliverable-card h4 {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .deliverable-card p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* ========================================
+           RESPONSIVE DESIGN
+        ======================================== */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 24px;
+            }
+
+            .case-study-hero {
+                padding-top: 160px;
+                padding-bottom: 60px;
+            }
+
+            .project-meta {
+                gap: 24px;
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .timeline-item {
+                grid-template-columns: 60px 1fr;
+                gap: 20px;
+            }
+
+            .timeline-number {
+                font-size: 2rem;
+            }
+
+            .highlight-box {
+                padding: 32px 24px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            footer .container {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+            }
+
+            .deliverables-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ========================================
+         NAVIGATION
+    ======================================== -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="logo_new_badex.png" alt="Badex">
+            </a>
+            <a href="index.html#work" class="back-link">Back to Portfolio</a>
+        </div>
+    </nav>
+
+    <!-- ========================================
+         HERO SECTION
+    ======================================== -->
+    <section class="case-study-hero">
+        <div class="container-narrow">
+            <span class="project-tag">Learning Design</span>
+            <h1 class="case-study-title">Crisis Decision-Making Through Case-Based Peer Learning</h1>
+            <p class="case-study-subtitle">Designing a collaborative learning architecture for institutional investment professionals to navigate portfolio crisis scenarios through structured peer interaction.</p>
+
+            <div class="project-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Role</span>
+                    <span class="meta-value">Lead Instructional Designer</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Timeline</span>
+                    <span class="meta-value">8-10 weeks</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Tools</span>
+                    <span class="meta-value">Learning Science Frameworks, Google Docs</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Type</span>
+                    <span class="meta-value">Design Showcase</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         OVERVIEW
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <p class="section-label">Overview</p>
+            <h2 class="section-title">Project Background</h2>
+            <div class="content-text">
+                <p>I designed a comprehensive case-based peer learning module for institutional investment professionals dealing with <strong>"The Denominator Effect Dilemma"</strong>—a realistic portfolio crisis scenario where professionals must analyze trade-offs, navigate competing stakeholder pressures, and defend crisis management decisions.</p>
+                <p>This project showcases the <strong>instructional design process, methodology, and artifacts</strong> created during the design phase. Rather than demonstrating a built course, it highlights my ability to design sophisticated learning architectures, facilitate peer learning, and create comprehensive implementation materials grounded in learning science.</p>
+                <p>The target audience is institutional investors who must make complex decisions under uncertainty, with incomplete information, and conflicting stakeholder priorities—skills that benefit from collaborative case analysis rather than traditional lecture-based training.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         THE CHALLENGE
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <p class="section-label">The Challenge</p>
+            <h2 class="section-title">Designing for Complex Decision-Making</h2>
+            <div class="content-text">
+                <p>The learning challenge required designing for crisis decision-making that involves:</p>
+                <ul>
+                    <li><strong>Analysis of incomplete information:</strong> Real portfolio crises don't come with all the data neatly packaged</li>
+                    <li><strong>Balancing competing stakeholder interests:</strong> Board policy, investor relationships, cash flow constraints, and reputation risk all conflict</li>
+                    <li><strong>Justifying decisions under uncertainty:</strong> No single "right" answer exists—learners must defend judgment calls</li>
+                    <li><strong>Learning from peer perspectives:</strong> Diverse professional experiences enrich analysis beyond what any individual knows</li>
+                </ul>
+                <p>The instructional design challenge was creating a learning experience that:</p>
+                <ul>
+                    <li><strong>Goes beyond lecture:</strong> Complex decision-making requires active learning and application</li>
+                    <li><strong>Leverages peer collaboration:</strong> Social learning theory shows knowledge is constructed through dialogue</li>
+                    <li><strong>Feels realistic:</strong> Authentic assessment in a crisis simulation context</li>
+                    <li><strong>Scales to cohorts:</strong> Works for 16-20 learners without quality loss</li>
+                    <li><strong>Works across delivery modes:</strong> Adaptable for online, in-person, hybrid, or asynchronous formats</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         MY APPROACH
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <p class="section-label">My Approach</p>
+            <h2 class="section-title">Design Process & Methodology</h2>
+            <div class="content-text">
+                <p>I applied evidence-based instructional design frameworks throughout the project:</p>
+                <ul>
+                    <li><strong>Merrill's First Principles:</strong> Problem-centered learning, activation of prior knowledge, demonstration through peer modeling, application through case analysis, and integration via reflection</li>
+                    <li><strong>Social Constructivism:</strong> Knowledge built through collaboration and dialogue, leveraging the "zone of proximal development" where peers scaffold each other's learning</li>
+                    <li><strong>Cognitive Apprenticeship:</strong> Learning through modeling, coaching, scaffolding, articulation, and reflection in authentic contexts</li>
+                    <li><strong>Bloom's Taxonomy:</strong> Targeting the highest cognitive levels—analysis, evaluation, and synthesis—appropriate for experienced professionals</li>
+                </ul>
+            </div>
+
+            <!-- Process Timeline -->
+            <div class="process-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-number">01</div>
+                    <div class="timeline-content">
+                        <h3>Learning Need Analysis</h3>
+                        <p>Identified the need for crisis decision-making training that goes beyond compliance-focused instruction. Analyzed target audience characteristics, prerequisite knowledge requirements, and learning context constraints including time pressure and distributed teams.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">02</div>
+                    <div class="timeline-content">
+                        <h3>SME Collaboration</h3>
+                        <p>Designed a 7-phase partnership workflow to collaborate with subject matter experts on creating realistic case scenarios. Created SME collaboration guides and case design briefs ensuring the case had appropriate complexity, realistic messiness, and multiple defensible options.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">03</div>
+                    <div class="timeline-content">
+                        <h3>Learning Architecture Design</h3>
+                        <p>Developed the 5-touchpoint peer learning protocol that structures collaboration from initial individual analysis through board defense simulation. Each touchpoint deliberately alternates between individual and collaborative work to maximize learning.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">04</div>
+                    <div class="timeline-content">
+                        <h3>Assessment Design</h3>
+                        <p>Created a dual rubric system measuring both individual analysis quality (60%) and peer learning contribution (40%). Designed authentic performance tasks rather than traditional knowledge checks, ensuring learners demonstrate actual decision-making capability.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">05</div>
+                    <div class="timeline-content">
+                        <h3>Implementation Planning</h3>
+                        <p>Developed comprehensive facilitator guides, discussion scaffolds, and delivery option documentation. Ensured the learning design could scale across multiple delivery modes and cohorts while maintaining pedagogical integrity.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         THE SOLUTION
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <p class="section-label">The Solution</p>
+            <h2 class="section-title">What I Created</h2>
+            <div class="content-text">
+                <p>I designed a complete instructional architecture with three primary components:</p>
+            </div>
+
+            <!-- Component 1: Peer Learning Architecture -->
+            <div class="highlight-box" style="margin-top: 48px;">
+                <h3 style="font-family: 'Sora', sans-serif; font-size: 1.5rem; margin-bottom: 24px;">1. Five-Touchpoint Peer Learning Architecture</h3>
+                <div class="content-text">
+                    <p><strong>Touchpoint 1: Initial Stance</strong> (Asynchronous, 30 min) — Learners individually analyze the case and post their preliminary recommendation before seeing peer responses, establishing baseline thinking and creating ownership.</p>
+                    <p><strong>Touchpoint 2: Small Group Stakeholder Analysis</strong> (Synchronous, 45 min) — Groups of 4 deeply analyze one stakeholder perspective (Board Chair, CIO, CFO, GP Partners), forcing empathy and perspective-taking through collaborative work.</p>
+                    <p><strong>Touchpoint 3: Gallery Walk</strong> (Synchronous, 25 min) — Groups present stakeholder analyses while others challenge assumptions using structured protocols, creating productive cognitive dissonance through exposure to conflicting viewpoints.</p>
+                    <p><strong>Touchpoint 4: Cross-Pollination</strong> (Asynchronous, 45 min) — Individual reflection integrating peer insights into revised recommendations, with explicit metacognition about how thinking evolved.</p>
+                    <p><strong>Touchpoint 5: Board Defense</strong> (Synchronous, 90 min) — Learners present recommendations to simulated board members (peers role-playing) who ask probing questions, developing confidence in defending decisions under pressure.</p>
+                </div>
+            </div>
+
+            <!-- Component 2: Implementation Package -->
+            <h3 style="font-family: 'Sora', sans-serif; font-size: 1.5rem; margin-top: 64px; margin-bottom: 32px;">2. Comprehensive Implementation Package (9 Documents)</h3>
+        </div>
+
+        <div class="container">
+            <div class="deliverables-grid">
+                <div class="deliverable-card">
+                    <h4>Facilitator Guide</h4>
+                    <p>Minute-by-minute session flow with facilitation moves, discussion quality indicators, troubleshooting common issues, and self-reflection criteria for facilitator development.</p>
+                </div>
+                <div class="deliverable-card">
+                    <h4>Learning Objectives</h4>
+                    <p>ABCD format objectives aligned to Bloom's taxonomy (analysis, evaluation, synthesis levels), with clear assessment evidence and measurability criteria.</p>
+                </div>
+                <div class="deliverable-card">
+                    <h4>Implementation Guide</h4>
+                    <p>3.5-hour structure breakdown, cohort sizing recommendations (16-20 optimal), delivery mode adaptations, technology requirements, and accessibility considerations.</p>
+                </div>
+                <div class="deliverable-card">
+                    <h4>Peer Learning Protocol</h4>
+                    <p>Detailed specifications for all 5 touchpoints including timing, purpose, facilitator roles, and pedagogical rationale grounded in social constructivism.</p>
+                </div>
+                <div class="deliverable-card">
+                    <h4>Assessment Rubric</h4>
+                    <p>Dual assessment approach: Individual Analysis (60% - trade-off clarity, stakeholder consideration, evidence use) and Peer Contribution (40% - perspective sharing, constructive challenge, synthesis).</p>
+                </div>
+                <div class="deliverable-card">
+                    <h4>Discussion Scaffolds</h4>
+                    <p>9 tools ensuring productive peer discussions including role cards (Analyst, Devil's Advocate, Synthesizer), discussion protocols, question stems, and challenge cards.</p>
+                </div>
+                <div class="deliverable-card">
+                    <h4>Case Design Brief</h4>
+                    <p>SME instructions for creating realistic case scenarios with requirements for ambiguity, multiple defensible options, stakeholder conflicts, and quantitative exhibits.</p>
+                </div>
+                <div class="deliverable-card">
+                    <h4>SME Collaboration Workflow</h4>
+                    <p>7-phase instructional designer and SME partnership process covering needs analysis, case development, review cycles, and quality assurance checkpoints.</p>
+                </div>
+                <div class="deliverable-card">
+                    <h4>Interview Presentation Guide</h4>
+                    <p>Portfolio presentation strategy for discussing this project in interview contexts, emphasizing process over product and methodology over tools.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-narrow">
+            <!-- Component 3: Scalable Delivery Options -->
+            <div class="highlight-box">
+                <h3 style="font-family: 'Sora', sans-serif; font-size: 1.5rem; margin-bottom: 24px;">3. Scalable Delivery Options</h3>
+                <div class="content-text">
+                    <p><strong>Fully Online:</strong> Zoom breakout rooms, Miro boards for collaborative work, LMS discussion forums for asynchronous touchpoints.</p>
+                    <p><strong>In-Person:</strong> Physical breakout spaces, poster boards for gallery walk, printed role cards and scaffolds.</p>
+                    <p><strong>Hybrid:</strong> Mixed remote and in-person participants with careful attention to equity and engagement across both groups.</p>
+                    <p><strong>Asynchronous:</strong> Discussion board adaptation over one-week timeframe, though acknowledges this loses 60% of the real-time dialogue value.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         KEY DECISIONS
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <p class="section-label">Design Decisions</p>
+            <h2 class="section-title">Critical Design Choices</h2>
+            <div class="content-text">
+                <p>Several key design decisions demonstrate evidence-based instructional design expertise:</p>
+            </div>
+
+            <div class="two-column">
+                <div>
+                    <h3 style="font-family: 'Sora', sans-serif; font-size: 1.3rem; margin-bottom: 16px;">Peer Learning Over Expert Lecture</h3>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.7;"><strong>Rationale:</strong> Complex decision-making benefits from multiple perspectives rather than seeking a single "right answer" from an expert. Social constructivism demonstrates knowledge is built through discourse.<br><br><strong>Implementation:</strong> Designed 5 structured touchpoints ensuring productive collaboration rather than unguided group work that can devolve into unproductive conversation.</p>
+                </div>
+                <div>
+                    <h3 style="font-family: 'Sora', sans-serif; font-size: 1.3rem; margin-bottom: 16px;">Dual Assessment (Individual + Peer)</h3>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.7;"><strong>Rationale:</strong> Avoids free-riding while rewarding both quality thinking AND collaborative behavior. 60% individual analysis measures decision-making capability; 40% peer contribution measures collaboration skills.<br><br><strong>Assessment:</strong> Individual rubric evaluates trade-off clarity and evidence use. Peer rubric evaluates perspective-sharing, constructive challenge, and synthesis contributions.</p>
+                </div>
+            </div>
+
+            <div class="two-column">
+                <div>
+                    <h3 style="font-family: 'Sora', sans-serif; font-size: 1.3rem; margin-bottom: 16px;">Realistic Messiness in Case Design</h3>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.7;"><strong>Rationale:</strong> Real decisions involve incomplete data, competing stakeholders, and ambiguity. Case requirements specify multiple defensible options with no clear "right" answer, time pressure, and conflicting priorities.<br><br><strong>Outcome:</strong> Learners practice professional judgment and argumentation rather than formula application, developing transferable crisis management skills.</p>
+                </div>
+                <div>
+                    <h3 style="font-family: 'Sora', sans-serif; font-size: 1.3rem; margin-bottom: 16px;">Facilitator as Process Guide</h3>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.7;"><strong>Rationale:</strong> Preserves learner agency and avoids "sage on stage" dynamics. Facilitator role focuses on keeping discussions productive, managing time, and surfacing diverse views—not providing answers.<br><br><strong>Scaffolds:</strong> Created 9 discussion tools (role cards, question stems, protocols) enabling facilitators to support learning without directing conclusions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         RESULTS & IMPACT
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <p class="section-label">Impact</p>
+            <h2 class="section-title">Design Quality & Projected Outcomes</h2>
+            <div class="content-text">
+                <p>Since this course has not been built or deployed, impact focuses on <strong>design quality indicators</strong> and <strong>projected learning outcomes</strong> based on the comprehensive implementation package created:</p>
+            </div>
+
+            <!-- Design Quality Metrics -->
+            <div class="two-column" style="margin-top: 48px;">
+                <div class="highlight-box">
+                    <div class="highlight-stat">9</div>
+                    <div class="highlight-label">Comprehensive Deliverables Created</div>
+                </div>
+                <div class="highlight-box">
+                    <div class="highlight-stat">3+</div>
+                    <div class="highlight-label">Learning Science Frameworks Applied</div>
+                </div>
+            </div>
+
+            <div class="two-column">
+                <div class="highlight-box">
+                    <div class="highlight-stat">5</div>
+                    <div class="highlight-label">Structured Peer Learning Touchpoints</div>
+                </div>
+                <div class="highlight-box">
+                    <div class="highlight-stat">4</div>
+                    <div class="highlight-label">Delivery Mode Adaptations</div>
+                </div>
+            </div>
+
+            <div class="content-text" style="margin-top: 32px;">
+                <p><strong>Design Quality Indicators:</strong></p>
+                <ul>
+                    <li><strong>Pedagogical grounding:</strong> Merrill's First Principles, Social Constructivism, Cognitive Apprenticeship, and Bloom's Taxonomy inform every design decision</li>
+                    <li><strong>Facilitator-ready materials:</strong> Minute-by-minute timing, facilitation moves, common challenges addressed, self-reflection criteria for facilitator development</li>
+                    <li><strong>Scalable architecture:</strong> Works across online, in-person, hybrid, and asynchronous modes; accommodates cohorts of 12-24 learners; reusable framework for different case scenarios</li>
+                    <li><strong>Accessible design:</strong> WCAG considerations including multiple participation modes, extended time options, alternative assessment formats, and inclusive facilitation protocols</li>
+                    <li><strong>Assessment rigor:</strong> Authentic performance tasks measuring synthesis-level thinking; dual rubric preventing free-riding; peer feedback mechanisms</li>
+                </ul>
+
+                <p><strong>Projected Learning Outcomes:</strong></p>
+                <ul>
+                    <li><strong>Learning effectiveness:</strong> 85%+ proficiency on rubric criteria; 50%+ learners revise initial recommendation after peer learning; high self-reported confidence gains</li>
+                    <li><strong>Engagement quality:</strong> 90%+ pre-work completion; 100% active participation in live sessions; 85%+ post-work submission rates</li>
+                    <li><strong>Satisfaction metrics:</strong> 4.0+/5.0 relevance and engagement ratings; 80%+ report peer discussion deepened understanding; strong word-of-mouth for future cohorts</li>
+                </ul>
+
+                <p><strong>Business Value:</strong></p>
+                <ul>
+                    <li><strong>Reusable architecture:</strong> Plug in different cases for different crisis scenarios (liquidity management, GP disputes, regulatory changes)</li>
+                    <li><strong>Scalable delivery:</strong> Cohorts of 16-20 without quality loss; low-tech requirements (Zoom, Google Docs, Miro—standard tools)</li>
+                    <li><strong>Efficient facilitator training:</strong> 2-3 hours onboarding time; comprehensive guide reduces dependency on single expert facilitator</li>
+                    <li><strong>Cost-effective:</strong> Free/low-cost technology stack option available; materials are digital and infinitely reproducible</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         LESSONS LEARNED
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <p class="section-label">Reflection</p>
+            <h2 class="section-title">What I Learned</h2>
+            <div class="content-text">
+                <p><strong>SME collaboration is critical for authentic cases.</strong> Realistic crisis scenarios require deep domain expertise that instructional designers don't possess. The 7-phase SME collaboration workflow I created ensures partnership success by clarifying roles, setting expectations for case complexity (multiple defensible options, realistic messiness), and building in review cycles for pedagogical and content quality.</p>
+
+                <p><strong>Scaffolding prevents chaos in peer learning.</strong> Early in the design process, I recognized that unstructured peer discussion can devolve into unproductive conversation or be dominated by one voice. Creating 9 discussion scaffolds (role cards, question stems, challenge cards, protocols) ensures discussions stay focused while preserving intellectual freedom. This balance between structure and openness is what makes peer learning work.</p>
+
+                <p><strong>Assessment drives behavior.</strong> The dual rubric—60% individual analysis, 40% peer contribution—prevents free-riding while explicitly valuing collaboration. Learners who know they're assessed on both dimensions behave differently than those evaluated on individual work alone. Making peer contribution an explicit, weighted assessment criterion signals that collaboration is core to learning, not an optional add-on.</p>
+
+                <p><strong>Facilitator training matters more than I initially thought.</strong> A sophisticated learning design only works if facilitators can execute it. Creating the comprehensive facilitator guide with minute-by-minute timing, facilitation moves mapped to learning science principles, and troubleshooting for common pitfalls ensures quality delivery. The self-reflection criteria help facilitators continuously improve rather than just "following the script."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         CTA SECTION
+    ======================================== -->
+    <section class="cta-section">
+        <div class="container-narrow">
+            <h2 class="cta-title">Let's work together</h2>
+            <div class="cta-buttons">
+                <a href="index.html#contact" class="btn-primary">
+                    Get in Touch
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="index.html#work" class="btn-secondary">View More Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         FOOTER
+    ======================================== -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Taiwo. All rights reserved.</p>
+            <p>Crafted with 🤍</p>
+        </div>
+    </footer>
+</body>
+</html>

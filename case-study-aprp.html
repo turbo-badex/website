@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abuse Prevention and Response Protocol - Case Study | Taiwo</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="logo_new_badex.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="logo_new_badex.png">
+    <link rel="shortcut icon" href="logo_new_badex.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Sora:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* ========================================
+           FONT DISPLAY FIX - Ensures immediate text visibility
+        ======================================== */
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;  /* Show fallback text immediately */
+            src: url('https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfMZg.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 600;
+            font-display: swap;
+            src: url('https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuGKYMZg.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url('https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuFuYMZg.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Sora';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url('https://fonts.gstatic.com/s/sora/v17/xMQOuFFYT72X5wkB_18qmnndmSe1mX-K.ttf') format('truetype');
+        }
+
+        /* ========================================
+           CSS RESET & BASE STYLES
+        ======================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-tertiary: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --text-muted: #666666;
+            --accent: #6366f1;
+            --accent-hover: #818cf8;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(255, 255, 255, 0.15);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: radial-gradient(circle, rgba(255,255,255,0.18) 1px, transparent 1px);
+            background-size: 32px 32px;
+            background-attachment: fixed;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        .container-narrow {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* ========================================
+           NAVIGATION
+        ======================================== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 0;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 108px;
+            width: auto;
+            filter: invert(1);
+            transition: opacity 0.3s ease;
+        }
+
+        .logo:hover img {
+            opacity: 0.8;
+        }
+
+        .back-link {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 400;
+            position: relative;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-link:hover {
+            color: var(--text-primary);
+        }
+
+        .back-link::before {
+            content: '←';
+            font-size: 1.2rem;
+        }
+
+        /* ========================================
+           HERO SECTION
+        ======================================== */
+        .case-study-hero {
+            padding-top: 200px;
+            padding-bottom: 80px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .project-tag {
+            font-size: 0.75rem;
+            color: var(--accent);
+            padding: 6px 14px;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 20px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 24px;
+        }
+
+        .case-study-title {
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            letter-spacing: -2px;
+            line-height: 1.1;
+            margin-bottom: 32px;
+        }
+
+        .case-study-subtitle {
+            font-size: 1.35rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin-bottom: 48px;
+            font-weight: 400;
+            line-height: 1.7;
+        }
+
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            padding: 32px 0;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .meta-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .meta-value {
+            font-size: 1rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* ========================================
+           FEATURED IMAGE
+        ======================================== */
+        .featured-image {
+            width: 100%;
+            margin: 80px 0;
+        }
+
+        .featured-image img {
+            width: 100%;
+            border-radius: 0;
+            border: 1px solid var(--border-subtle);
+        }
+
+        /* ========================================
+           CONTENT SECTIONS
+        ======================================== */
+        .content-section {
+            padding: 80px 0;
+        }
+
+        .content-section:not(:last-child) {
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent);
+            margin-bottom: 24px;
+            font-weight: 500;
+        }
+
+        .section-title {
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
+            font-weight: 700;
+            letter-spacing: -1px;
+            line-height: 1.2;
+            margin-bottom: 32px;
+        }
+
+        .content-text p {
+            color: var(--text-secondary);
+            font-size: 1.15rem;
+            line-height: 1.85;
+            margin-bottom: 24px;
+        }
+
+        .content-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .content-text strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .content-text ul, .content-text ol {
+            color: var(--text-secondary);
+            font-size: 1.15rem;
+            line-height: 1.85;
+            margin-bottom: 24px;
+            padding-left: 24px;
+        }
+
+        .content-text li {
+            margin-bottom: 12px;
+        }
+
+        /* ========================================
+           TWO COLUMN LAYOUT
+        ======================================== */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 48px;
+        }
+
+        /* ========================================
+           HIGHLIGHT BOX
+        ======================================== */
+        .highlight-box {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            padding: 48px;
+            margin: 48px 0;
+            border-radius: 0;
+        }
+
+        .highlight-box .section-title {
+            margin-bottom: 24px;
+        }
+
+        .highlight-stat {
+            font-family: 'Sora', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .highlight-label {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        /* ========================================
+           PROCESS TIMELINE
+        ======================================== */
+        .process-timeline {
+            margin: 48px 0;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 32px;
+            margin-bottom: 48px;
+            padding-bottom: 48px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .timeline-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .timeline-number {
+            font-family: 'Sora', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .timeline-content h3 {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .timeline-content p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        /* ========================================
+           QUOTE BLOCK
+        ======================================== */
+        .quote-block {
+            margin: 48px 0;
+            padding: 48px;
+            background: var(--bg-secondary);
+            border-left: 4px solid var(--accent);
+        }
+
+        .quote-text {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            line-height: 1.5;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+
+        /* ========================================
+           CTA SECTION
+        ======================================== */
+        .cta-section {
+            padding: 100px 0;
+            text-align: center;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .cta-title {
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            letter-spacing: -1.5px;
+            margin-bottom: 32px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--text-primary);
+            color: var(--bg-primary);
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: transparent;
+            color: var(--text-primary);
+            padding: 16px 32px;
+            border-radius: 50px;
+            border: 1px solid var(--border-subtle);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* ========================================
+           FOOTER
+        ======================================== */
+        footer {
+            padding: 32px 0;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* ========================================
+           RESPONSIVE DESIGN
+        ======================================== */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 24px;
+            }
+
+            .case-study-hero {
+                padding-top: 160px;
+                padding-bottom: 60px;
+            }
+
+            .project-meta {
+                gap: 24px;
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .timeline-item {
+                grid-template-columns: 60px 1fr;
+                gap: 20px;
+            }
+
+            .timeline-number {
+                font-size: 2rem;
+            }
+
+            .highlight-box {
+                padding: 32px 24px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            footer .container {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ========================================
+         NAVIGATION
+    ======================================== -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="logo_new_badex.png" alt="Badex">
+            </a>
+            <a href="index.html#work" class="back-link">Back to Portfolio</a>
+        </div>
+    </nav>
+
+    <!-- ========================================
+         HERO SECTION
+    ======================================== -->
+    <section class="case-study-hero">
+        <div class="container-narrow">
+            <span class="project-tag">Articulate Storyline</span>
+            <h1 class="case-study-title">Abuse Prevention and Response Protocol Training</h1>
+            <p class="case-study-subtitle">Designing behavior change and abuse mitigation for direct-care staff supporting vulnerable adults with developmental disabilities.</p>
+
+            <div class="project-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Client</span>
+                    <span class="meta-value">Provincial Health Agency</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Role</span>
+                    <span class="meta-value">Lead Instructional Designer</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Duration</span>
+                    <span class="meta-value">18-22 minutes</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Tools</span>
+                    <span class="meta-value">Articulate Storyline 360</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Audience</span>
+                    <span class="meta-value">200-500 direct-care staff</span>
+                </div>
+            </div>
+
+            <a href="https://demoinstructionaldesignaprp.s3.us-west-2.amazonaws.com/APRP_protocol_course+-+Storyline+output/story.html" target="_blank" rel="noopener noreferrer" class="btn-primary" style="margin-top: 32px;">
+                View Live Project
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- ========================================
+         FEATURED IMAGE
+    ======================================== -->
+    <div class="container">
+        <div class="featured-image">
+            <img src="https://www.badex.tv/wp-content/uploads/2024/11/new-frame-1024x581.png" alt="Abuse Prevention and Response Protocol Training">
+        </div>
+    </div>
+
+    <!-- ========================================
+         OVERVIEW
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <p class="section-label">Overview</p>
+            <h2 class="section-title">Project Background</h2>
+            <div class="content-text">
+                <p>A provincial disability services agency provides state-funded supports to adults with developmental disabilities in residential care homes and community settings. These individuals—often isolated from external oversight, dependent on paid staff for daily care, and historically taught to defer to authority—are at disproportionate risk of abuse, neglect, and exploitation.</p>
+                <p>The project, titled <strong>"Recognize. Report. Respond."</strong> aimed to equip 200-500 direct-care staff, caregivers, supervisors, and administrators with the knowledge and skills to prevent, recognize, and respond to abuse in all its forms.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         THE CHALLENGE
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <p class="section-label">The Challenge</p>
+            <h2 class="section-title">Safety-Critical Protocol Gaps in Vulnerable Populations</h2>
+            <div class="content-text">
+                <p>This was not a simple knowledge-transfer problem. The training had to <strong>shift staff mindsets</strong> from viewing abuse as overt (stranger danger, visible injuries) to recognizing subtle, systemic forms of harm occurring within trusted relationships.</p>
+
+                <p><strong>Performance Gap Analysis:</strong></p>
+
+                <p><strong>Current State:</strong></p>
+                <ul>
+                    <li>Staff inconsistently recognized subtle forms of abuse (emotional, exploitation, inappropriate use of restrictive procedures)</li>
+                    <li>Unclear reporting pathways resulted in delayed or missed incident documentation</li>
+                    <li>Power imbalances between staff and residents went unexamined, enabling exploitation</li>
+                    <li>No systematic prevention framework—response was reactive rather than proactive</li>
+                </ul>
+
+                <p><strong>Desired State:</strong></p>
+                <ul>
+                    <li>100% staff recognition and reporting of all suspected abuse incidents (6 categories: physical, sexual, emotional, exploitation, neglect, inappropriate restrictive procedures)</li>
+                    <li>Timely, accurate reporting through established chain of command</li>
+                    <li>Proactive abuse prevention through systemic changes</li>
+                    <li>Complete incident documentation and follow-up review</li>
+                </ul>
+
+                <p><strong>Audience Challenges:</strong></p>
+                <ul>
+                    <li><strong>Demographics:</strong> Ages 22-65+, high school to diploma education, 70%+ female, diverse language backgrounds</li>
+                    <li><strong>Experience:</strong> 6 months to 20+ years in disability support</li>
+                    <li><strong>Motivation:</strong> Mixed—some deeply committed advocates; others viewing role as "just a job"</li>
+                    <li><strong>Psychological Barriers:</strong> Fear of retaliation, blame-shifting ("She makes it up"), organizational loyalty</li>
+                    <li><strong>Context:</strong> High-stress, understaffed settings with competing demands</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         MY APPROACH
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <p class="section-label">My Approach</p>
+            <h2 class="section-title">Systematic, Evidence-Based Design</h2>
+            <div class="content-text">
+                <p>I applied the <strong>ADDIE framework</strong> integrated with <strong>Merrill's First Principles</strong>, <strong>Bloom's Revised Taxonomy</strong> (targeting behavioral change at "Apply" and "Analyze" levels), <strong>Kirkpatrick's Four Levels of Evaluation</strong>, and <strong>Social Cognitive Theory</strong> to address psychological barriers to behavior change.</p>
+            </div>
+
+            <!-- Process Timeline -->
+            <div class="process-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-number">01</div>
+                    <div class="timeline-content">
+                        <h3>Analysis & Research</h3>
+                        <p>Conducted stakeholder interviews with care home directors, frontline staff, and program officers. Performed task analysis to decompose critical responsibilities: recognize 6 abuse categories, follow reporting chain, apply prevention strategies, participate in review process. Identified psychological barriers: fear of job loss, blame culture, inadequate documentation time.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">02</div>
+                    <div class="timeline-content">
+                        <h3>Design & Storyboarding</h3>
+                        <p>Designed assessment-first with 12 questions spanning three domains: recognition (40%), reporting & response (35%), prevention & system thinking (25%). Applied Social Cognitive Theory to address self-efficacy ("Can I recognize abuse?"), outcome expectations (reporting leads to positive impact), and environmental influences (organizational commitment, peer support).</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">03</div>
+                    <div class="timeline-content">
+                        <h3>Development & Iteration</h3>
+                        <p>Built in Articulate Storyline 360 with 4 branching scenarios representing different abuse types: emotional abuse, neglect, exploitation, and sexual abuse/inappropriate restriction. Each scenario included decision points with consequence-based feedback showing impact on residents. Created testimonial video with real staff member (not actor) to normalize learning journey and reduce shame barriers.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">04</div>
+                    <div class="timeline-content">
+                        <h3>Testing & Refinement</h3>
+                        <p>Ensured WCAG 2.1 AA compliance with captions, transcripts, keyboard navigation, and screen reader compatibility. Developed 2-sided laminated staff reference card as performance support tool. Planned 4-week rollout: pilot with 30 staff, gather feedback, revise, then full deployment to 200-500 staff with manager support toolkit.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         THE SOLUTION
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <p class="section-label">The Solution</p>
+            <h2 class="section-title">A Values-Aligned Behavioral Readiness System</h2>
+            <div class="content-text">
+                <p>I designed a <strong>5-module interactive course</strong> (18-22 minutes total) that positioned abuse prevention not as a compliance burden but as fundamental to professional identity:</p>
+
+                <p><strong>Module 1: Why This Matters—Vulnerability & Your Role (5 min)</strong></p>
+                <ul>
+                    <li>Opened with testimonial video from real staff member: "I didn't recognize the signs... I wish I'd known what to look for. Now I do. And I'm part of protecting her. That matters."</li>
+                    <li>This framing established relevance, normalized not knowing, and demonstrated that reporting had positive impact</li>
+                </ul>
+
+                <p><strong>Module 2: Recognize—6 Categories of Abuse (5 min)</strong></p>
+                <ul>
+                    <li>Interactive flashcard stack: Physical, Sexual, Emotional, Exploitation, Neglect, Inappropriate Restrictive Procedures</li>
+                    <li>Comparison tabs: "What's normal vs. abuse?" (resident is quiet vs. resident has become withdrawn and flinches at touch)</li>
+                    <li>Embedded Scenario 1 (Emotional Abuse): Staff observes colleague criticizing resident in front of others, causing withdrawal</li>
+                </ul>
+
+                <p><strong>Module 3: Report—The Protocol & Your Role (4 min)</strong></p>
+                <ul>
+                    <li>Visual flowchart: You → Supervisor → Director → Program Officer → Documentation</li>
+                    <li>Role-specific tabs for frontline staff, supervisors, and administrators</li>
+                    <li>Barriers accordion: "I'm worried about retaliation" → Policy statement: "Retaliation is illegal and grounds for termination"</li>
+                    <li>Embedded Scenario 2 (Neglect): Understaffed shift, resident in soiled clothing—is this abuse or systemic failure? Answer: Both</li>
+                </ul>
+
+                <p><strong>Module 4: Prevent—Systemic Approaches to Reducing Vulnerability (4 min)</strong></p>
+                <ul>
+                    <li>4 vulnerability-reduction strategies: Power-sharing ("Ask, don't tell"), Community inclusion, Staff training, Monitoring & accountability</li>
+                    <li>Embedded Scenario 3 (Exploitation): Staff realizes colleague is using resident's benefits for personal favors</li>
+                    <li>Embedded Scenario 4 (Sexual Abuse): Resident discloses inappropriate touching—what do you tell them? "Thank you for telling me. This is not your fault. We will keep you safe."</li>
+                </ul>
+
+                <p><strong>Module 5: Assessment & Commitment (3 min)</strong></p>
+                <ul>
+                    <li>12-question assessment: 80% overall pass, 100% required on critical safety items</li>
+                    <li>Immediate feedback with targeted remediation</li>
+                    <li>Certificate + digital badge + staff reference card download</li>
+                    <li>Commitment statement: "I understand my role in protecting residents from abuse"</li>
+                </ul>
+            </div>
+
+            <div class="quote-block" style="margin-top: 48px;">
+                <p class="quote-text">"I've worked here 12 years. When I first started, I didn't recognize the signs. A resident who was really withdrawn, wouldn't make eye contact—I just thought that was her personality. But then... I realized she was being emotionally abused by another staff member. I wish I'd known what to look for. Now I do."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         KEY DECISIONS
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <p class="section-label">Design Decisions</p>
+            <h2 class="section-title">Critical Choices That Drove Behavior Change</h2>
+            <div class="content-text">
+                <p>Three key design decisions shaped the effectiveness of this training:</p>
+            </div>
+
+            <div class="two-column">
+                <div>
+                    <h3 style="font-family: 'Sora', sans-serif; font-size: 1.3rem; margin-bottom: 16px;">Values-Aligned Framing, Not Compliance Burden</h3>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.7;">Rather than framing abuse prevention as a mandatory requirement, I positioned it as fundamental to professional identity and care advocacy. The testimonial video hook established that "protecting residents matters"—appealing to staff's genuine care rather than obligation. This increased intrinsic motivation and reduced resistance.</p>
+                </div>
+                <div>
+                    <h3 style="font-family: 'Sora', sans-serif; font-size: 1.3rem; margin-bottom: 16px;">Consequence-Based Scenarios Addressing Real Barriers</h3>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.7;">Traditional "right/wrong" feedback wouldn't overcome psychological barriers (fear of retaliation, blame-shifting). Each scenario showed narrative consequences—seeing the resident's withdrawal deepen when abuse is ignored creates emotional encoding. Scenarios acknowledged real barriers ("I'm worried I'll lose my job") and showed how to navigate them.</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 48px;">
+                <h3 style="font-family: 'Sora', sans-serif; font-size: 1.3rem; margin-bottom: 16px;">System-Level Thinking, Not Just Individual Response</h3>
+                <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.7;">Module 4 deliberately shifted focus from "What do I do when abuse happens?" to "How do we prevent abuse from happening?" This addressed root causes (power imbalances, isolation, understaffing) rather than just reactive protocols. Staff learned they could reduce vulnerability through daily practices like power-sharing and community inclusion—not just incident reporting.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         RESULTS & IMPACT
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <p class="section-label">Impact</p>
+            <h2 class="section-title">Measurable Outcomes Across Four Levels</h2>
+            <div class="content-text">
+                <p>Success was measured using the Kirkpatrick model to track reaction, learning, behavior, and business results:</p>
+            </div>
+
+            <!-- Highlight Metrics -->
+            <div class="two-column" style="margin-top: 48px;">
+                <div class="highlight-box">
+                    <div class="highlight-stat">≥90%</div>
+                    <div class="highlight-label">Target Completion Rate</div>
+                </div>
+                <div class="highlight-box">
+                    <div class="highlight-stat">100%</div>
+                    <div class="highlight-label">Critical Item Accuracy Required</div>
+                </div>
+            </div>
+
+            <div class="content-text" style="margin-top: 32px;">
+                <p><strong>Level 1: Reaction (Learner Satisfaction & Confidence)</strong></p>
+                <ul>
+                    <li>Target: ≥4.0/5.0 satisfaction ("This training was clear, practical, and valuable")</li>
+                    <li>Target: Confidence increase of +1.5 points pre- to post-training ("How confident are you recognizing abuse?")</li>
+                    <li>Staff reported scenarios were "realistic" and appreciated peer testimonials</li>
+                </ul>
+
+                <p><strong>Level 2: Learning (Knowledge & Skill Acquisition)</strong></p>
+                <ul>
+                    <li>Target: ≥85% average assessment score across all staff</li>
+                    <li>100% accuracy required on critical safety items: recognizing abuse categories, following reporting chain, identifying prohibited actions</li>
+                    <li>Unlimited reassessment with targeted remediation (mastery-based learning)</li>
+                </ul>
+
+                <p><strong>Level 3: Behavior (On-the-Job Application & Reporting)</strong></p>
+                <ul>
+                    <li>Target: 100% protocol adherence in documented abuse incidents</li>
+                    <li>Did staff report immediately (within 24 hours)?</li>
+                    <li>Was reporting chain followed correctly?</li>
+                    <li>Were prohibited actions avoided (no self-investigation, no confrontation)?</li>
+                    <li>Target: ≥80% of facilities have reference card accessible at staff stations</li>
+                </ul>
+
+                <p><strong>Level 4: Results (Business Impact & Safeguarding Outcomes)</strong></p>
+                <ul>
+                    <li>Target: 30% reduction in undetected abuse incidents year-over-year</li>
+                    <li>Target: Faster detection-to-response timeline (from 3-5 days to <24 hours)</li>
+                    <li>Target: Improved resident safety and wellbeing (fewer confirmed incidents, increased trust)</li>
+                    <li>Target: Staff retention and confidence (reduced turnover, knowing how to report reduces burnout)</li>
+                    <li>Target: Organizational liability reduction (proper documentation protects organization)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         LESSONS LEARNED
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <p class="section-label">Reflection</p>
+            <h2 class="section-title">What I Learned</h2>
+            <div class="content-text">
+                <p>This project reinforced that <strong>effective behavior change training must address psychological barriers, not just knowledge gaps</strong>. Staff knew abuse was wrong, but fear of retaliation, organizational loyalty, and blame culture prevented reporting. The testimonial video, policy clarifications, and consequence-based scenarios addressed these emotional barriers in ways that traditional lecture-based content never could.</p>
+                <p>The values-aligned framing was critical. By positioning abuse prevention as professional identity ("I'm part of protecting her") rather than compliance obligation, I tapped into intrinsic motivation. Staff who care deeply about residents responded to this framing far better than fear-based or rule-based messaging.</p>
+                <p>If I were to iterate, I'd conduct earlier field testing of the reference card with direct-care staff to ensure it truly functions as point-of-need support in high-stress care moments. Testing protocol lookup speed, clarity under pressure, and placement preferences would have strengthened the performance support bridge from training to real-world application.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         CTA SECTION
+    ======================================== -->
+    <section class="cta-section">
+        <div class="container-narrow">
+            <h2 class="cta-title">Let's work together</h2>
+            <div class="cta-buttons">
+                <a href="index.html#contact" class="btn-primary">
+                    Get in Touch
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="index.html#work" class="btn-secondary">View More Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         FOOTER
+    ======================================== -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Taiwo. All rights reserved.</p>
+            <p>Crafted with 🤍</p>
+        </div>
+    </footer>
+</body>
+</html>
