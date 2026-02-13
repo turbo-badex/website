@@ -126,6 +126,36 @@
             transform-origin: top center;
         }
 
+        /* Diagonal stroke decoration - Contact Section (mirrored) */
+        .diagonal-stroke-contact {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2;
+            overflow: visible;
+            will-change: transform;
+        }
+
+        .diagonal-stroke-contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 25%;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom,
+                transparent 0%,
+                rgba(255, 255, 255, 0.15) 10%,
+                rgba(255, 255, 255, 0.15) 85%,
+                transparent 100%
+            );
+            transform: rotate(-35deg);
+            transform-origin: top center;
+        }
+
         /* ========================================
            VIDEO BACKGROUND
         ======================================== */
@@ -756,6 +786,8 @@
         .contact {
             text-align: center;
             padding-bottom: 160px;
+            position: relative;
+            overflow: hidden;
         }
 
         .contact-content {
@@ -1178,6 +1210,8 @@
          CONTACT SECTION
     ======================================== -->
     <section id="contact" class="contact">
+        <!-- Diagonal stroke decoration (mirrored from hero) -->
+        <div class="diagonal-stroke-contact"></div>
         <div class="container">
             <div class="contact-content">
                 <p class="section-label">Get In Touch</p>
