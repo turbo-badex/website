@@ -18,11 +18,11 @@ Professional portfolio for an instructional designer and video producer featurin
 
 ### Case Study Pages
 - `case-study-template.html` - Template for creating new case studies
-- `case-study-website.html` - Cloud Design Platform Customer Onboarding case study
-- `case-study-aprp.html` - Abuse Prevention and Response Protocol case study
-- `case-study-peer-learning.html` - Crisis Decision-Making Through Case-Based Peer Learning
-- `case-study-uxo.html` - UXO Awareness Training detailed case study
-- `case-study-lethbridge.html` - Lethbridge College Interpersonal Effectiveness video case study
+- `portfolio/case-study-website.html` - Cloud Design Platform Customer Onboarding case study
+- `portfolio/case-study-aprp.html` - Abuse Prevention and Response Protocol case study
+- `portfolio/case-study-peer-learning.html` - Crisis Decision-Making Through Case-Based Peer Learning
+- `portfolio/case-study-uxo.html` - UXO Awareness Training detailed case study
+- `portfolio/case-study-lethbridge.html` - Lethbridge College Interpersonal Effectiveness video case study
 
 ### Assets
 - `logo_new_badex.png` - Logo (also used as favicon)
@@ -41,11 +41,11 @@ The portfolio includes detailed case study pages that showcase instructional des
 
 ### Current Case Studies
 
-1. **UXO Awareness Training** (`case-study-uxo.html`)
+1. **UXO Awareness Training** (`portfolio/case-study-uxo.html`)
    - Safety-critical microlearning for construction workers
    - Links to live project at badex.tv
 
-2. **Abuse Prevention and Response Protocol** (`case-study-aprp.html`)
+2. **Abuse Prevention and Response Protocol** (`portfolio/case-study-aprp.html`)
    - Behavior change training for direct-care staff
    - Links to live Storyline demo
 
@@ -100,8 +100,8 @@ The portfolio includes detailed case study pages that showcase instructional des
 - `screenshot-elearning.png`
 
 **Optional (if deploying case studies):**
-- `case-study-uxo.html`
-- `case-study-aprp.html`
+- `portfolio/case-study-uxo.html`
+- `portfolio/case-study-aprp.html`
 - Any additional case study pages
 
 **Note:** Case studies link to external live demos (AWS S3, badex.tv) so those URLs must remain accessible.
