@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cloud Design Platform Customer Onboarding - Case Study | Taiwo</title>
+    <title>Communication for New Managers: Leading Through Change - Case Study | Taiwo</title>
     <link rel="icon" type="image/png" sizes="32x32" href="../logo_new_badex.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../logo_new_badex.png">
     <link rel="shortcut icon" href="../logo_new_badex.png">
@@ -18,7 +18,7 @@
             font-family: 'Inter';
             font-style: normal;
             font-weight: 400;
-            font-display: swap;  /* Show fallback text immediately */
+            font-display: swap;
             src: url('https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfMZg.ttf') format('truetype');
         }
 
@@ -236,11 +236,16 @@
         ======================================== */
         .featured-image {
             width: 100%;
-            margin: 80px 0;
+            margin: 80px auto;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
         }
 
         .featured-image img {
             width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
             border-radius: 0;
             border: 1px solid var(--border-subtle);
         }
@@ -327,87 +332,6 @@
             margin-bottom: 24px;
         }
 
-        .highlight-stat {
-            font-family: 'Sora', sans-serif;
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--accent);
-            line-height: 1;
-            margin-bottom: 8px;
-        }
-
-        .highlight-label {
-            color: var(--text-secondary);
-            font-size: 1rem;
-        }
-
-        /* ========================================
-           IMAGE GRID
-        ======================================== */
-        .image-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-            margin: 48px 0;
-        }
-
-        .image-grid img {
-            width: 100%;
-            border: 1px solid var(--border-subtle);
-        }
-
-        .image-caption {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-top: 12px;
-            text-align: center;
-            font-style: italic;
-        }
-
-        /* ========================================
-           VIDEO EMBED
-        ======================================== */
-        .video-wrapper {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
-            height: 0;
-            overflow: hidden;
-            margin: 48px 0;
-            border: 1px solid var(--border-subtle);
-        }
-
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        /* ========================================
-           QUOTE
-        ======================================== */
-        .quote-block {
-            margin: 48px 0;
-            padding: 48px;
-            background: var(--bg-secondary);
-            border-left: 4px solid var(--accent);
-        }
-
-        .quote-text {
-            font-family: 'Sora', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 600;
-            line-height: 1.5;
-            color: var(--text-primary);
-            margin-bottom: 16px;
-        }
-
-        .quote-author {
-            color: var(--text-muted);
-            font-size: 1rem;
-        }
-
         /* ========================================
            PROCESS TIMELINE
         ======================================== */
@@ -449,6 +373,73 @@
             color: var(--text-secondary);
             font-size: 1.1rem;
             line-height: 1.7;
+        }
+
+        .timeline-content .timeline-image {
+            margin-top: 32px;
+            border: 1px solid var(--border-subtle);
+            width: 100%;
+        }
+
+        /* ========================================
+           IMAGE GRID
+        ======================================== */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin: 48px 0;
+        }
+
+        .image-grid img {
+            width: 100%;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .image-grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin: 32px 0;
+        }
+
+        .image-grid-2col img {
+            width: 100%;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .image-full {
+            margin: 32px 0;
+        }
+
+        .image-full img {
+            width: 100%;
+            border: 1px solid var(--border-subtle);
+        }
+
+        /* ========================================
+           QUOTE BLOCK
+        ======================================== */
+        .quote-block {
+            margin: 48px 0;
+            padding: 48px;
+            background: var(--bg-secondary);
+            border-left: 4px solid var(--accent);
+        }
+
+        .quote-text {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            line-height: 1.5;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+
+        .quote-attribution {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-style: italic;
         }
 
         /* ========================================
@@ -567,6 +558,14 @@
                 padding: 32px 24px;
             }
 
+            .quote-block {
+                padding: 32px 24px;
+            }
+
+            .image-grid-2col {
+                grid-template-columns: 1fr;
+            }
+
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
@@ -598,43 +597,27 @@
     ======================================== -->
     <section class="case-study-hero">
         <div class="container-narrow">
-            <span class="project-tag">Articulate Rise</span>
-            <h1 class="case-study-title">Cloud Design Platform Customer Onboarding</h1>
-            <p class="case-study-subtitle">Transforming 55% Seat Utilization to 80% Through Strategic eLearning Design</p>
+            <span class="project-tag">Instructional Design</span>
+            <h1 class="case-study-title">Communication for New Managers: Leading Through Change</h1>
+            <p class="case-study-subtitle">A complete 2-hour virtual workshop design for new public sector managers, grounded in Kolb's Experiential Learning Cycle, the Three Conversations framework, and four production-ready deliverables.</p>
 
             <div class="project-meta">
                 <div class="meta-item">
                     <span class="meta-label">Role</span>
-                    <span class="meta-value">Lead Instructional Designer</span>
+                    <span class="meta-value">Instructional Designer</span>
                 </div>
                 <div class="meta-item">
                     <span class="meta-label">Timeline</span>
-                    <span class="meta-value">6 weeks</span>
+                    <span class="meta-value">1 week</span>
                 </div>
                 <div class="meta-item">
                     <span class="meta-label">Tools</span>
-                    <span class="meta-value">Articulate Rise 360, Camtasia</span>
+                    <span class="meta-value">Google Docs, Markdown, Excel</span>
                 </div>
                 <div class="meta-item">
-                    <span class="meta-label">Completed</span>
-                    <span class="meta-value">January 2026</span>
+                    <span class="meta-label">Context</span>
+                    <span class="meta-value">Interview Assignment</span>
                 </div>
-            </div>
-
-            <!-- Dual-path course buttons -->
-            <div style="display: flex; gap: 16px; margin-top: 32px; flex-wrap: wrap;">
-                <a href="designer/index.html" target="_blank" rel="noopener noreferrer" class="btn-primary">
-                    View Designer Path (15 min)
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
-                    </svg>
-                </a>
-                <a href="platform/index.html" target="_blank" rel="noopener noreferrer" class="btn-secondary">
-                    View Admin Path (30 min)
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
-                    </svg>
-                </a>
             </div>
         </div>
     </section>
@@ -642,25 +625,10 @@
     <!-- ========================================
          FEATURED IMAGE
     ======================================== -->
-    <div class="container">
-        <div class="featured-image">
-            <img src="../screenshot/platform_onboarding.png" alt="Cloud Design Platform Customer Onboarding interface">
-        </div>
+    <div class="featured-image container-narrow">
+        <img src="Public-Sector-Managers/homepage_public_sector.jpeg"
+             alt="Communication for New Managers: Leading Through Change — workshop design overview">
     </div>
-
-    <!-- ========================================
-         OVERVIEW
-    ======================================== -->
-    <section class="content-section">
-        <div class="container-narrow">
-            <p class="section-label">Overview</p>
-            <h2 class="section-title">Project Background</h2>
-            <div class="content-text">
-                <p>A cloud-based design collaboration platform was struggling with customer adoption despite strong sales performance. Architecture and interior design firms were purchasing the platform, but <strong>55% of seats remained unused after 30 days</strong>—a critical churn risk that threatened revenue retention and growth.</p>
-                <p>I designed a dual-path customer enablement program that transformed new customers from purchase to daily usage through role-based, self-paced eLearning delivered in Articulate Rise 360. The program included separate learning paths for <strong>Platform Administrators (30 minutes)</strong> and <strong>Designers (15 minutes)</strong>, designed specifically for each audience's tasks, time constraints, and prior knowledge.</p>
-            </div>
-        </div>
-    </section>
 
     <!-- ========================================
          THE CHALLENGE
@@ -668,17 +636,10 @@
     <section class="content-section">
         <div class="container-narrow">
             <p class="section-label">The Challenge</p>
-            <h2 class="section-title">What problem needed solving?</h2>
+            <h2 class="section-title">Designing for Real-World Constraints</h2>
             <div class="content-text">
-                <p>Despite strong sales performance, new customers received login credentials but no structured onboarding. This led to significant challenges:</p>
-                <ul>
-                    <li><strong>55% seat utilization:</strong> More than half of purchased seats remained unused after 30 days</li>
-                    <li><strong>High support costs:</strong> 40% of support tickets were basic onboarding questions</li>
-                    <li><strong>Slow time-to-value:</strong> 14 days average to first project completion</li>
-                    <li><strong>25% annual churn rate:</strong> Teams reverted to familiar tools (email, Dropbox) within weeks</li>
-                    <li><strong>$150K ARR at risk:</strong> Preventable churn threatened revenue retention and growth</li>
-                </ul>
-                <p>Using Gilbert's Behavior Engineering Model, I confirmed the gap was primarily a <strong>knowledge problem</strong>, not motivation or environment. Users had access and motivation, but lacked procedural knowledge of workflows.</p>
+                <p>A learning consultancy requested a complete instructional design for a 2-hour virtual workshop targeting new public sector managers. The session needed to equip participants with practical skills for navigating team communication during organizational change, specifically addressing resistance, institutional barriers, and difficult conversations.</p>
+                <p>Five constraints shaped every design decision: <strong>virtual-only delivery</strong> with no in-person fallback; <strong>diverse experience levels</strong> among new managers with widely varying backgrounds; a <strong>120-minute hard limit</strong> for meaningful skill development; the realities of <strong>public sector hierarchy</strong> where managers often communicate decisions they didn't make; and an <strong>application focus</strong> requiring participants to leave with skills usable immediately, not just theoretical knowledge.</p>
             </div>
         </div>
     </section>
@@ -689,42 +650,39 @@
     <section class="content-section">
         <div class="container-narrow">
             <p class="section-label">My Approach</p>
-            <h2 class="section-title">Design Process</h2>
-            <div class="content-text">
-                <p>I applied evidence-based instructional design frameworks throughout the project, including Gilbert's Behavior Engineering Model for performance analysis, Knowles' Andragogy for adult learning principles, Mayer's Cognitive Load Theory for multimedia design, and Wiggins & McTighe's Backward Design for assessment-first planning.</p>
-            </div>
+            <h2 class="section-title">From Constraints to Design Decisions</h2>
 
-            <!-- Process Timeline -->
             <div class="process-timeline">
                 <div class="timeline-item">
                     <div class="timeline-number">01</div>
                     <div class="timeline-content">
-                        <h3>Analysis & Strategy</h3>
-                        <p>Conducted needs analysis using adult learning theory (Knowles' Andragogy), performed task analysis to identify critical workflows, and developed detailed learner personas for Platform Administrators and End Users. Applied backward design methodology to define terminal objectives and design performance-based assessments before building instruction.</p>
+                        <h3>Framework Evaluation</h3>
+                        <p>Rather than defaulting to a familiar model, I evaluated two research-backed communication frameworks against the specific needs of public sector managers: <strong>Crucial Conversations</strong> (Patterson et al.) and <strong>Three Conversations</strong> (Stone, Patton & Heen, Harvard). I built a weighted matrix scoring each across five criteria: cognitive load, research backing, power dynamics, feelings normalization, and public sector fit.</p>
+                        <p style="margin-top: 16px;"><strong>Decision:</strong> Three Conversations scored 8.65/10. Its three-element structure (What Happened, Feelings, Identity) carried lower cognitive load than Crucial Conversations' seven-step model, and it directly addressed the power asymmetry inherent in public sector management, where managers must communicate decisions made elsewhere.</p>
+                        <img src="Public-Sector-Managers/framework_public_sector.png"
+                             alt="Framework evaluation matrix comparing Three Conversations and Crucial Conversations"
+                             class="timeline-image">
                     </div>
                 </div>
 
                 <div class="timeline-item">
                     <div class="timeline-number">02</div>
                     <div class="timeline-content">
-                        <h3>Design & Development</h3>
-                        <p>Created two separate learning paths optimized for each audience. Applied Mayer's Multimedia Principles throughout: coherence (eliminated decorative graphics), segmenting (2-3 min chunks), modality (narration + screen recordings), and signaling (callouts, cursor highlighting). Developed detailed narration scripts for 6 videos with timecodes and production specifications.</p>
+                        <h3>Learning Theory Application</h3>
+                        <p>I grounded the design in <strong>Kolb's Experiential Learning Cycle</strong>, which requires moving through four stages: Concrete Experience, Reflective Observation, Abstract Conceptualization, and Active Experimentation. Most training skips Reflective Observation by jumping directly from experience to conceptualization. I designed <strong>four explicit reflection pauses</strong> totaling 12 minutes — 10% of session time — to prevent this common failure.</p>
+                        <p style="margin-top: 16px;">I also applied <strong>Knowles' andragogy principles</strong>: adult learners need relevance, autonomy, and respect for their existing knowledge. The design honors this through realistic scenarios, learner choice in practice rounds, and peer feedback rather than top-down evaluation.</p>
                     </div>
                 </div>
 
                 <div class="timeline-item">
                     <div class="timeline-number">03</div>
                     <div class="timeline-content">
-                        <h3>Implementation & QA</h3>
-                        <p>Built courses in Articulate Rise 360 with complete quality assurance: content accuracy (SME review), navigation flow, WCAG AA accessibility compliance (captions, alt text, keyboard navigation, 4.5:1 color contrast), and cross-device testing. Conducted pilot testing with 5 target users and iterated based on feedback.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-number">04</div>
-                    <div class="timeline-content">
-                        <h3>Evaluation Strategy</h3>
-                        <p>Designed comprehensive evaluation plan using Kirkpatrick's Four-Level Model to measure reaction (satisfaction surveys), learning (assessment scores), behavior (usage analytics), and results (business impact including churn rate reduction, support ticket volume, time-to-value, and ROI).</p>
+                        <h3>Pre-Work as Pattern Discovery</h3>
+                        <p>I created a pre-work case study featuring Alex Chen, a social work supervisor announcing a state-mandated system change to a resistant team. The case was deliberately designed to <strong>violate all three conversations</strong>: Alex argues for one truth, suppresses feelings, and gets defensive when challenged.</p>
+                        <p style="margin-top: 16px;">Learners arrive at the session having already identified patterns that don't work. Module 1 surfaces those observations and transitions directly into the framework, making the introduction feel <em>discovered</em>, not delivered.</p>
+                        <img src="Public-Sector-Managers/case-study_public_sector.png"
+                             alt="Alex Chen pre-work case study for pattern discovery"
+                             class="timeline-image">
                     </div>
                 </div>
             </div>
@@ -737,26 +695,30 @@
     <section class="content-section">
         <div class="container-narrow">
             <p class="section-label">The Solution</p>
-            <h2 class="section-title">What I Created</h2>
+            <h2 class="section-title">Four Integrated Deliverables</h2>
             <div class="content-text">
-                <p>I designed two role-based learning paths that eliminated cognitive overload by letting learners skip irrelevant content. Each path was optimized for the specific audience's tasks, time constraints, and prior knowledge:</p>
-                <p><strong>Administrator Path (30 minutes):</strong> Designed for IT Managers and Operations Managers, focusing on workspace setup, user management, templates, and integrations. The outcome was a launch-ready workspace configured in under 30 minutes.</p>
-                <p><strong>End User Path (15 minutes):</strong> Designed for Designers and Architects with billable time pressure, focusing on project creation, file uploads, review cycles, and deliverables. The outcome was completing the first project in under 15 minutes.</p>
+                <p>I delivered four integrated components: a session agenda, training slides with speaker notes, a pre-work case study, and a pre-recorded video script. Together they form a production-ready package a facilitator could pick up and run. The video script replaced live role-play because in a 2-hour virtual session, live demonstrations carry real facilitation risk: volunteer reluctance, unpredictable quality, setup time. A pre-recorded video is reliable, controllable, and accessible with captions.</p>
             </div>
-        </div>
 
-        <!-- Image Grid for Screenshots -->
-        <div class="container">
-            <div class="image-grid">
-                <div>
-                    <img src="../screenshot/designer_onboarding2.png" alt="Designer Onboarding Path interface">
-                    <p class="image-caption">Designer Path: Fast visual instruction for time-constrained professionals</p>
-                </div>
-                <div>
-                    <img src="../screenshot/platform_onboarding.png" alt="Platform Administrator Onboarding interface">
-                    <p class="image-caption">Admin Path: Step-by-step guidance for workspace configuration</p>
-                </div>
+            <div class="image-grid-2col">
+                <img src="Public-Sector-Managers/agenda_public_sector.png"
+                     alt="2-hour session agenda structured around Kolb's Experiential Learning Cycle">
+                <img src="Public-Sector-Managers/case-study_public_sector.png"
+                     alt="Alex Chen pre-work case study document">
             </div>
+
+            <div class="image-grid-2col">
+                <img src="Public-Sector-Managers/slides_public_sector.png"
+                     alt="Session slide 1: Why difficult conversations fail">
+                <img src="Public-Sector-Managers/slide2_public_sector.png"
+                     alt="Session slide 2: The Three Conversations framework overview">
+            </div>
+
+            <div class="image-full">
+                <img src="Public-Sector-Managers/video_public_sector.png"
+                     alt="Pre-recorded video script: Jordan and Priya performance conversation demonstration">
+            </div>
+
         </div>
     </section>
 
@@ -766,90 +728,55 @@
     <section class="content-section">
         <div class="container-narrow">
             <p class="section-label">Design Decisions</p>
-            <h2 class="section-title">Critical Choices</h2>
-            <div class="content-text">
-                <p>This project showcased several key design decisions that demonstrate evidence-based instructional design expertise:</p>
-            </div>
+            <h2 class="section-title">Three Choices That Shaped the Design</h2>
 
             <div class="two-column">
                 <div>
-                    <h3 style="font-family: 'Sora', sans-serif; font-size: 1.3rem; margin-bottom: 16px;">Role-Based Paths Over Universal Training</h3>
-                    <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.7;">Rather than creating one comprehensive course covering all features, I designed separate paths for admins and end users. This decision eliminated cognitive overload and increased completion rates by respecting learners' time constraints and prior knowledge. Admins and end users have different tasks, motivations, and time availability—treating them the same would reduce effectiveness.</p>
+                    <h3 style="font-family: 'Sora', sans-serif; font-size: 1.3rem; margin-bottom: 16px;">Reflection as Non-Negotiable</h3>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.7;">Kolb's Reflective Observation stage is the most commonly skipped element in training design. I made it explicit and non-negotiable with four timed pauses at precise moments: after pre-work review, after the video demonstration, after the first practice round, and before action planning. Silence on Zoom feels awkward. It's also where experience converts to insight.</p>
                 </div>
                 <div>
-                    <h3 style="font-family: 'Sora', sans-serif; font-size: 1.3rem; margin-bottom: 16px;">Problem-Centered Over Feature-Centered</h3>
-                    <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.7;">Applied Knowles' adult learning principles by organizing content around tasks ("Create project," "Complete review cycle") rather than features ("Click this button," "Navigate this menu"). This approach aligned with how professionals actually work and leveraged their existing mental models from similar tools they already used.</p>
+                    <h3 style="font-family: 'Sora', sans-serif; font-size: 1.3rem; margin-bottom: 16px;">Two-Scenario Design</h3>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.7;">The pre-work case study (Alex Chen, group announcement) and the video demonstration (Jordan and Priya, one-on-one performance conversation) use <strong>different contexts intentionally</strong>. This shows learners the Three Conversations framework isn't just for one type of situation; it transfers across the full range of difficult conversations managers face.</p>
                 </div>
             </div>
 
-            <div class="two-column">
-                <div>
-                    <h3 style="font-family: 'Sora', sans-serif; font-size: 1.3rem; margin-bottom: 16px;">Performance Tasks Over Knowledge Checks</h3>
-                    <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.7;">Instead of traditional multiple-choice quizzes, I designed authentic performance tasks: "Configure your launch-ready workspace" (Admin) and "Complete your first project cycle" (End User). These assessments measured actual ability to perform job tasks, not just recall of information, and provided immediate business value.</p>
-                </div>
-                <div>
-                    <h3 style="font-family: 'Sora', sans-serif; font-size: 1.3rem; margin-bottom: 16px;">Self-Paced Over Instructor-Led</h3>
-                    <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.7;">Given the distributed, time-constrained nature of the audience (designers on billable time, admins with competing priorities), self-paced eLearning provided the flexibility needed for completion. This decision also enabled scalable delivery—onboard 1 or 10,000 customers with the same resource investment.</p>
-                </div>
+            <div style="margin-top: 48px; padding-top: 48px; border-top: 1px solid var(--border-subtle);">
+                <h3 style="font-family: 'Sora', sans-serif; font-size: 1.3rem; margin-bottom: 16px;">Practice Before Perfection</h3>
+                <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.7; max-width: 680px;">Module 3 — the largest block at 40 minutes — includes two structured practice rounds with peer feedback between them. Learners try the framework, receive observations from peers, reflect, then try again. This is deliberate practice in the Ericsson sense: not activity for its own sake, but the specific cycle of attempt, feedback, and refinement that builds durable skill.</p>
             </div>
         </div>
     </section>
 
     <!-- ========================================
-         RESULTS & IMPACT
+         OUTCOMES
     ======================================== -->
     <section class="content-section">
         <div class="container-narrow">
-            <p class="section-label">Impact</p>
-            <h2 class="section-title">Results & Outcomes</h2>
+            <p class="section-label">Outcomes</p>
+            <h2 class="section-title">What Landed Well</h2>
+
             <div class="content-text">
-                <p>The dual-path onboarding program delivered measurable business impact across learning, behavior, and revenue metrics:</p>
-            </div>
-
-            <!-- Highlight Metrics -->
-            <div class="two-column" style="margin-top: 48px;">
-                <div class="highlight-box">
-                    <div class="highlight-stat">80%</div>
-                    <div class="highlight-label">Activation Rate (up from 55%)</div>
-                </div>
-                <div class="highlight-box">
-                    <div class="highlight-stat">890%</div>
-                    <div class="highlight-label">ROI on Training Investment</div>
-                </div>
-            </div>
-
-            <div class="two-column">
-                <div class="highlight-box">
-                    <div class="highlight-stat">3 days</div>
-                    <div class="highlight-label">Time-to-Value (down from 14 days)</div>
-                </div>
-                <div class="highlight-box">
-                    <div class="highlight-stat">$150K</div>
-                    <div class="highlight-label">ARR Retained Annually</div>
-                </div>
-            </div>
-
-            <div class="content-text" style="margin-top: 32px;">
                 <ul>
-                    <li><strong>Learning metrics:</strong> 85% completion rate within 7 days, 80%+ pass rate on summative performance tasks, 4.2/5.0 average satisfaction rating</li>
-                    <li><strong>Behavior metrics:</strong> 60% daily active usage (≥3x per week), 40% reduction in support tickets for basic onboarding questions, 100% of feedback captured in platform (eliminated email attachments)</li>
-                    <li><strong>Business impact:</strong> 70% retention at 90 days (up from 45%), $178K annual savings (support cost reduction + retained revenue), churn rate reduced from 25% to 10%</li>
+                    <li>The deliberate reflection pauses were noted as uncommon in virtual training design, and as the right call given the research</li>
+                    <li>The two-scenario design (group announcement + one-on-one) was recognized as pedagogically sound, demonstrating framework transferability rather than context-specific application</li>
+                    <li>The video demonstration decision was valued as virtual-format-appropriate, showing awareness of facilitation risk in distributed settings</li>
                 </ul>
             </div>
         </div>
     </section>
 
     <!-- ========================================
-         LESSONS LEARNED
+         REFLECTION
     ======================================== -->
     <section class="content-section">
         <div class="container-narrow">
             <p class="section-label">Reflection</p>
-            <h2 class="section-title">What I Learned</h2>
+            <h2 class="section-title">What This Project Reinforced</h2>
             <div class="content-text">
-                <p>This project reinforced the critical importance of theory-to-practice application. Rather than "making courses," I applied evidence-based frameworks systematically: Gilbert's Behavior Engineering Model for performance analysis, Knowles' Andragogy for adult learning principles, Mayer's Cognitive Load Theory for multimedia design, and Kirkpatrick's Four Levels for comprehensive evaluation.</p>
-                <p>The audience-centric design approach proved highly effective. By developing detailed learner personas based on research and designing separate paths for admins versus end users, we eliminated irrelevant content and respected time constraints. This decision to treat different audiences differently—rather than forcing everyone through the same training—was key to achieving high completion rates and business impact.</p>
-                <p>If I were to approach this project again, I would invest even more time in the front-end analysis phase. The detailed learner personas, task analysis, and backward design planning paid dividends throughout development and resulted in a solution that required minimal iteration. The systematic, evidence-based approach not only produced better learning outcomes but also made stakeholder communication easier—I could explain design decisions with pedagogical rationale rather than personal preference.</p>
+                <p><strong>Theory informs practice, but context drives decisions.</strong> I didn't choose Three Conversations because it's the most well-known framework. I chose it because the weighted evaluation showed it fit the specific reality of public sector managers navigating power asymmetry and decisions made elsewhere.</p>
+                <p><strong>Reflection isn't optional.</strong> Kolb's cycle isn't complete without Reflective Observation. Most training skips it because silence feels unproductive. Designing those four pauses explicitly — with timing, purpose, and facilitation cues — was one of the highest-leverage decisions in the whole design.</p>
+                <p><strong>Design is collaborative, not solitary.</strong> The SME touchpoints throughout the design weren't extras; they were essential. Scenario validation, practice round development, video script review, and pilot feedback require subject matter expertise that instructional designers don't have and shouldn't pretend to.</p>
             </div>
         </div>
     </section>
