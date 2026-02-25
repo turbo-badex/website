@@ -576,6 +576,108 @@
                 gap: 8px;
                 text-align: center;
             }
+
+            .star-grid,
+            .challenge-response-grid { grid-template-columns: 1fr; }
+            .challenge-response-header.response-col,
+            .response-cell { border-left: none; border-top: 1px solid var(--border-subtle); }
+        }
+
+        /* STAR SUMMARY GRID */
+        .star-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px;
+            margin: 48px 0;
+            border: 1px solid var(--border-subtle);
+        }
+        .star-cell {
+            background: var(--bg-secondary);
+            padding: 32px;
+            border: 1px solid var(--border-subtle);
+        }
+        .star-cell-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: block;
+        }
+        .star-cell-text {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* FRAMEWORK TAGS */
+        .framework-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 24px;
+        }
+        .framework-tag {
+            font-size: 0.8rem;
+            color: var(--text-primary);
+            padding: 8px 16px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-hover);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* CHALLENGE-RESPONSE TABLE */
+        .challenge-response-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            margin: 48px 0;
+            border: 1px solid var(--border-subtle);
+        }
+        .challenge-response-header {
+            background: var(--bg-tertiary);
+            padding: 16px 32px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .challenge-response-header.response-col {
+            border-left: 1px solid var(--border-subtle);
+            color: var(--accent);
+        }
+        .challenge-cell {
+            padding: 28px 32px;
+            border-bottom: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+        .response-cell {
+            padding: 28px 32px;
+            border-bottom: 1px solid var(--border-subtle);
+            border-left: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* OUTCOMES LABEL BADGE */
+        .outcomes-label-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            color: var(--text-muted);
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-subtle);
+            padding: 6px 14px;
+            margin-bottom: 24px;
         }
     </style>
 </head>
@@ -618,6 +720,26 @@
                     <span class="meta-label">Context</span>
                     <span class="meta-value">Interview Assignment</span>
                 </div>
+                <div class="meta-item">
+                    <span class="meta-label">Audience</span>
+                    <span class="meta-value">New public sector managers (virtual, mixed experience)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         STAR SUMMARY
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <p class="section-label">At a Glance</p>
+            <h2 class="section-title">Project Summary</h2>
+            <div class="star-grid">
+                <div class="star-cell"><span class="star-cell-label">Situation</span><p class="star-cell-text">Learning consultancy needed a 2-hour virtual workshop for new public sector managers on change communication.</p></div>
+                <div class="star-cell"><span class="star-cell-label">Task</span><p class="star-cell-text">Design a 4-deliverable, production-ready workshop in 1 week as part of an interview assignment.</p></div>
+                <div class="star-cell"><span class="star-cell-label">Action</span><p class="star-cell-text">Weighted framework evaluation; Kolb-grounded design with 4 reflection pauses; pre-work structured as pattern discovery.</p></div>
+                <div class="star-cell"><span class="star-cell-label">Result</span><p class="star-cell-text">Reflection pauses, two-scenario structure, and video approach all validated as pedagogically sound.</p></div>
             </div>
         </div>
     </section>
@@ -639,7 +761,20 @@
             <h2 class="section-title">Designing for Real-World Constraints</h2>
             <div class="content-text">
                 <p>A learning consultancy requested a complete instructional design for a 2-hour virtual workshop targeting new public sector managers. The session needed to equip participants with practical skills for navigating team communication during organizational change, specifically addressing resistance, institutional barriers, and difficult conversations.</p>
-                <p>Five constraints shaped every design decision: <strong>virtual-only delivery</strong> with no in-person fallback; <strong>diverse experience levels</strong> among new managers with widely varying backgrounds; a <strong>120-minute hard limit</strong> for meaningful skill development; the realities of <strong>public sector hierarchy</strong> where managers often communicate decisions they didn't make; and an <strong>application focus</strong> requiring participants to leave with skills usable immediately, not just theoretical knowledge.</p>
+            </div>
+            <div class="challenge-response-grid">
+                <div class="challenge-response-header">Challenge / Constraint</div>
+                <div class="challenge-response-header response-col">Design Response</div>
+                <div class="challenge-cell">Virtual-only delivery with no in-person fallback</div>
+                <div class="response-cell">Pre-recorded video demonstration replaces live role-play — reliable, controllable, and accessible with captions</div>
+                <div class="challenge-cell">Diverse experience levels among new managers with widely varying backgrounds</div>
+                <div class="response-cell">Realistic scenarios with learner choice in practice rounds; peer feedback rather than top-down evaluation</div>
+                <div class="challenge-cell">120-minute hard limit for meaningful skill development</div>
+                <div class="response-cell">Four explicit Kolb reflection pauses (12 min total); Module 3 at 40 min uses deliberate practice cycle</div>
+                <div class="challenge-cell">Public sector hierarchy where managers communicate decisions they didn't make</div>
+                <div class="response-cell">Three Conversations scored 8.65/10 — directly addresses power asymmetry; addresses feelings normalization</div>
+                <div class="challenge-cell">Application focus requiring immediately usable skills, not theoretical knowledge</div>
+                <div class="response-cell">Pre-work case study for pattern discovery; two practice rounds with feedback and refinement cycle</div>
             </div>
         </div>
     </section>
@@ -658,11 +793,16 @@
                     <div class="timeline-content">
                         <h3>Framework Evaluation</h3>
                         <p>Rather than defaulting to a familiar model, I evaluated two research-backed communication frameworks against the specific needs of public sector managers: <strong>Crucial Conversations</strong> (Patterson et al.) and <strong>Three Conversations</strong> (Stone, Patton & Heen, Harvard). I built a weighted matrix scoring each across five criteria: cognitive load, research backing, power dynamics, feelings normalization, and public sector fit.</p>
-                        <p style="margin-top: 16px;"><strong>Decision:</strong> Three Conversations scored 8.65/10. Its three-element structure (What Happened, Feelings, Identity) carried lower cognitive load than Crucial Conversations' seven-step model, and it directly addressed the power asymmetry inherent in public sector management, where managers must communicate decisions made elsewhere.</p>
                         <img src="Public-Sector-Managers/framework_public_sector.png"
                              alt="Framework evaluation matrix comparing Three Conversations and Crucial Conversations"
                              class="timeline-image">
                     </div>
+                </div>
+
+                <div class="highlight-box">
+                    <p class="section-label">Framework Selection</p>
+                    <p style="font-family: 'Sora'; font-size: 1.5rem; font-weight: 700;">Three Conversations: 8.65 / 10</p>
+                    <p style="color: var(--text-secondary);">Scored highest across five criteria: cognitive load, research backing, power dynamics, feelings normalization, and public sector fit.</p>
                 </div>
 
                 <div class="timeline-item">
@@ -684,6 +824,17 @@
                              alt="Alex Chen pre-work case study for pattern discovery"
                              class="timeline-image">
                     </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 48px; padding-top: 48px; border-top: 1px solid var(--border-subtle);">
+                <p class="section-label">Frameworks & Theories Applied</p>
+                <div class="framework-tags">
+                    <span class="framework-tag">Kolb's Experiential Learning Cycle</span>
+                    <span class="framework-tag">Knowles' Andragogy</span>
+                    <span class="framework-tag">Three Conversations Framework</span>
+                    <span class="framework-tag">Deliberate Practice (Ericsson)</span>
+                    <span class="framework-tag">Weighted Framework Evaluation Matrix</span>
                 </div>
             </div>
         </div>
@@ -754,6 +905,7 @@
     <section class="content-section">
         <div class="container-narrow">
             <p class="section-label">Outcomes</p>
+            <span class="outcomes-label-badge">Interview Assignment Feedback</span>
             <h2 class="section-title">What Landed Well</h2>
 
             <div class="content-text">

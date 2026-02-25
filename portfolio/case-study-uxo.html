@@ -510,6 +510,108 @@
                 gap: 8px;
                 text-align: center;
             }
+
+            .star-grid,
+            .challenge-response-grid { grid-template-columns: 1fr; }
+            .challenge-response-header.response-col,
+            .response-cell { border-left: none; border-top: 1px solid var(--border-subtle); }
+        }
+
+        /* STAR SUMMARY GRID */
+        .star-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px;
+            margin: 48px 0;
+            border: 1px solid var(--border-subtle);
+        }
+        .star-cell {
+            background: var(--bg-secondary);
+            padding: 32px;
+            border: 1px solid var(--border-subtle);
+        }
+        .star-cell-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: block;
+        }
+        .star-cell-text {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* FRAMEWORK TAGS */
+        .framework-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 24px;
+        }
+        .framework-tag {
+            font-size: 0.8rem;
+            color: var(--text-primary);
+            padding: 8px 16px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-hover);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* CHALLENGE-RESPONSE TABLE */
+        .challenge-response-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            margin: 48px 0;
+            border: 1px solid var(--border-subtle);
+        }
+        .challenge-response-header {
+            background: var(--bg-tertiary);
+            padding: 16px 32px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .challenge-response-header.response-col {
+            border-left: 1px solid var(--border-subtle);
+            color: var(--accent);
+        }
+        .challenge-cell {
+            padding: 28px 32px;
+            border-bottom: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+        .response-cell {
+            padding: 28px 32px;
+            border-bottom: 1px solid var(--border-subtle);
+            border-left: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* OUTCOMES LABEL BADGE */
+        .outcomes-label-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            color: var(--text-muted);
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-subtle);
+            padding: 6px 14px;
+            margin-bottom: 24px;
         }
     </style>
 </head>
@@ -568,6 +670,22 @@
     </section>
 
     <!-- ========================================
+         STAR SUMMARY
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <p class="section-label">At a Glance</p>
+            <h2 class="section-title">Project Summary</h2>
+            <div class="star-grid">
+                <div class="star-cell"><span class="star-cell-label">Situation</span><p class="star-cell-text">Construction workers on DND sites were digging past UXO and touching suspicious objects, creating life-safety risk.</p></div>
+                <div class="star-cell"><span class="star-cell-label">Task</span><p class="star-cell-text">Design a 15–20 min mobile-first Rise course for 500–1,000 workers with a 4-step protocol usable in field conditions.</p></div>
+                <div class="star-cell"><span class="star-cell-label">Action</span><p class="star-cell-text">ADDIE + Merrill + Gagné + Mayer; 5 microlearning modules; color-coded protocol; laminated job aid for point-of-need support.</p></div>
+                <div class="star-cell"><span class="star-cell-label">Result</span><p class="star-cell-text">Target: 90%+ completion; 100% critical item accuracy; 50% reduction in protocol deviations year-over-year.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
          FEATURED IMAGE
     ======================================== -->
     <div class="container">
@@ -602,21 +720,18 @@
 
                 <p><strong>Performance Gap Analysis:</strong></p>
 
-                <p><strong>Current State:</strong></p>
-                <ul>
-                    <li>Workers delayed stop-work responses, continuing to dig "to see what it is"</li>
-                    <li>Personnel touched, moved, or photographed suspicious objects at close range</li>
-                    <li>Inconsistent reporting through chain of command (skipping steps, calling wrong contacts)</li>
-                    <li>Documentation gaps increased risk exposure and project delays</li>
-                </ul>
-
-                <p><strong>Desired State:</strong></p>
-                <ul>
-                    <li>100% immediate stop-work compliance upon encountering suspicious objects</li>
-                    <li>Zero incidents of workers handling or approaching potential UXO</li>
-                    <li>Consistent, accurate reporting through established chain</li>
-                    <li>Complete incident documentation</li>
-                </ul>
+                <div class="challenge-response-grid">
+                    <div class="challenge-response-header">Current State Gap</div>
+                    <div class="challenge-response-header response-col">Desired State / Design Response</div>
+                    <div class="challenge-cell">Workers delayed stop-work responses, continuing to dig "to see what it is"</div>
+                    <div class="response-cell">Branching scenario with consequence-based feedback — choosing "continue digging" triggers explosion animation: "NEVER continue digging. Vibration could detonate."</div>
+                    <div class="challenge-cell">Personnel touched, moved, or photographed suspicious objects at close range</div>
+                    <div class="response-cell">Color-coded recognition module + "DO NOT TOUCH" emphasis embedded in all scenarios; 25m exclusion zone as non-negotiable protocol step</div>
+                    <div class="challenge-cell">Inconsistent reporting through chain of command (skipping steps, calling wrong contacts)</div>
+                    <div class="response-cell">Visual flowchart with role-specific tabs (workers, supervisors, site authorities) + fillable emergency contacts on laminated job aid</div>
+                    <div class="challenge-cell">Documentation gaps increased risk exposure and project delays</div>
+                    <div class="response-cell">Certificate + digital badge + safety commitment acknowledgment + downloadable job aid (PDF + mobile PNG) at module completion</div>
+                </div>
 
                 <p><strong>Audience Challenges:</strong></p>
                 <ul>
@@ -675,6 +790,18 @@
                     </div>
                 </div>
             </div>
+
+            <div style="margin-top: 48px; padding-top: 48px; border-top: 1px solid var(--border-subtle);">
+                <p class="section-label">Frameworks & Theories Applied</p>
+                <div class="framework-tags">
+                    <span class="framework-tag">ADDIE Model</span>
+                    <span class="framework-tag">Merrill's First Principles</span>
+                    <span class="framework-tag">Gagné's Nine Events</span>
+                    <span class="framework-tag">Mayer's Multimedia Learning</span>
+                    <span class="framework-tag">Mastery-Based Learning</span>
+                    <span class="framework-tag">Mobile-First Design</span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -707,6 +834,16 @@
                     <li>90-second demonstration video with narration and captions</li>
                     <li>Role-specific tabs for workers, supervisors, and site authorities</li>
                 </ul>
+
+                <div class="highlight-box" style="margin-top: 32px;">
+                    <p class="section-label">The 4-Step UXO Protocol</p>
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 8px; text-align: center;">
+                        <div><div style="font-family: 'Sora'; font-size: 2rem; font-weight: 700; color: #ef4444;">Stop</div><div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted);">Immediately</div></div>
+                        <div><div style="font-family: 'Sora'; font-size: 2rem; font-weight: 700; color: #f59e0b;">Secure</div><div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted);">25m exclusion zone</div></div>
+                        <div><div style="font-family: 'Sora'; font-size: 2rem; font-weight: 700; color: var(--accent);">Report</div><div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted);">Chain of command</div></div>
+                        <div><div style="font-family: 'Sora'; font-size: 2rem; font-weight: 700; color: #22c55e;">Wait</div><div style="font-size: 0.75rem; text-transform: uppercase; color: var(--text-muted);">Expert clearance only</div></div>
+                    </div>
+                </div>
 
                 <p><strong>Module 4: Practice Scenarios (3 min)</strong></p>
                 <ul>
@@ -760,6 +897,7 @@
     <section class="content-section">
         <div class="container-narrow">
             <p class="section-label">Impact</p>
+            <span class="outcomes-label-badge">Target Outcomes — Kirkpatrick 4-Level Framework</span>
             <h2 class="section-title">Measurable Outcomes Across Four Levels</h2>
             <div class="content-text">
                 <p>Success was measured using the Kirkpatrick model to track reaction, learning, behavior, and business results:</p>

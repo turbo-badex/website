@@ -535,6 +535,108 @@
             .deliverables-grid {
                 grid-template-columns: 1fr;
             }
+
+            .star-grid,
+            .challenge-response-grid { grid-template-columns: 1fr; }
+            .challenge-response-header.response-col,
+            .response-cell { border-left: none; border-top: 1px solid var(--border-subtle); }
+        }
+
+        /* STAR SUMMARY GRID */
+        .star-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px;
+            margin: 48px 0;
+            border: 1px solid var(--border-subtle);
+        }
+        .star-cell {
+            background: var(--bg-secondary);
+            padding: 32px;
+            border: 1px solid var(--border-subtle);
+        }
+        .star-cell-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: block;
+        }
+        .star-cell-text {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* FRAMEWORK TAGS */
+        .framework-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 24px;
+        }
+        .framework-tag {
+            font-size: 0.8rem;
+            color: var(--text-primary);
+            padding: 8px 16px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-hover);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* CHALLENGE-RESPONSE TABLE */
+        .challenge-response-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            margin: 48px 0;
+            border: 1px solid var(--border-subtle);
+        }
+        .challenge-response-header {
+            background: var(--bg-tertiary);
+            padding: 16px 32px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .challenge-response-header.response-col {
+            border-left: 1px solid var(--border-subtle);
+            color: var(--accent);
+        }
+        .challenge-cell {
+            padding: 28px 32px;
+            border-bottom: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+        .response-cell {
+            padding: 28px 32px;
+            border-bottom: 1px solid var(--border-subtle);
+            border-left: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* OUTCOMES LABEL BADGE */
+        .outcomes-label-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            color: var(--text-muted);
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-subtle);
+            padding: 6px 14px;
+            margin-bottom: 24px;
         }
     </style>
 </head>
@@ -582,6 +684,22 @@
     </section>
 
     <!-- ========================================
+         STAR SUMMARY
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <p class="section-label">At a Glance</p>
+            <h2 class="section-title">Project Summary</h2>
+            <div class="star-grid">
+                <div class="star-cell"><span class="star-cell-label">Situation</span><p class="star-cell-text">Institutional investors needed training for crisis decisions under uncertainty with conflicting stakeholder data.</p></div>
+                <div class="star-cell"><span class="star-cell-label">Task</span><p class="star-cell-text">Design a case-based peer learning architecture for the "Denominator Effect Dilemma" — a design showcase, not a built course.</p></div>
+                <div class="star-cell"><span class="star-cell-label">Action</span><p class="star-cell-text">Applied 4 learning frameworks; built a 5-touchpoint peer learning protocol; created 9 complete implementation documents.</p></div>
+                <div class="star-cell"><span class="star-cell-label">Result</span><p class="star-cell-text">9 production-ready deliverables; architecture supports 16–20 learners across 4 delivery modes; 2–3 hr facilitator onboarding.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
          OVERVIEW
     ======================================== -->
     <section class="content-section">
@@ -611,14 +729,18 @@
                     <li><strong>Justifying decisions under uncertainty:</strong> No single "right" answer exists—learners must defend judgment calls</li>
                     <li><strong>Learning from peer perspectives:</strong> Diverse professional experiences enrich analysis beyond what any individual knows</li>
                 </ul>
-                <p>The instructional design challenge was creating a learning experience that:</p>
-                <ul>
-                    <li><strong>Goes beyond lecture:</strong> Complex decision-making requires active learning and application</li>
-                    <li><strong>Leverages peer collaboration:</strong> Social learning theory shows knowledge is constructed through dialogue</li>
-                    <li><strong>Feels realistic:</strong> Authentic assessment in a crisis simulation context</li>
-                    <li><strong>Scales to cohorts:</strong> Works for 16-20 learners without quality loss</li>
-                    <li><strong>Works across delivery modes:</strong> Adaptable for online, in-person, hybrid, or asynchronous formats</li>
-                </ul>
+            </div>
+            <div class="challenge-response-grid">
+                <div class="challenge-response-header">Instructional Design Challenge</div>
+                <div class="challenge-response-header response-col">Design Response</div>
+                <div class="challenge-cell">Goes beyond lecture: complex decision-making requires active learning and application</div>
+                <div class="response-cell">5-touchpoint peer learning protocol structures collaboration from initial individual analysis through board defense simulation</div>
+                <div class="challenge-cell">Leverages peer collaboration: knowledge is constructed through dialogue, not delivered by an expert</div>
+                <div class="response-cell">Dual assessment (60% individual analysis + 40% peer contribution) signals that collaboration is core to learning, not optional</div>
+                <div class="challenge-cell">Feels realistic: authentic assessment in a crisis simulation context with incomplete, conflicting data</div>
+                <div class="response-cell">Case design brief requires multiple defensible options, realistic messiness, stakeholder conflicts, and ambiguous quantitative exhibits</div>
+                <div class="challenge-cell">Scales to cohorts of 16–20 and adapts across delivery modes without quality loss</div>
+                <div class="response-cell">9 scaffolding tools (role cards, question stems, protocols) + fully documented adaptations for online, in-person, hybrid, and asynchronous formats</div>
             </div>
         </div>
     </section>
@@ -682,6 +804,18 @@
                     </div>
                 </div>
             </div>
+
+            <div style="margin-top: 48px; padding-top: 48px; border-top: 1px solid var(--border-subtle);">
+                <p class="section-label">Frameworks & Theories Applied</p>
+                <div class="framework-tags">
+                    <span class="framework-tag">Merrill's First Principles</span>
+                    <span class="framework-tag">Social Constructivism</span>
+                    <span class="framework-tag">Cognitive Apprenticeship</span>
+                    <span class="framework-tag">Bloom's Taxonomy (Analysis–Synthesis)</span>
+                    <span class="framework-tag">Zone of Proximal Development</span>
+                    <span class="framework-tag">Dual Assessment Design</span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -709,6 +843,12 @@
             </div>
 
             <!-- Component 2: Implementation Package -->
+            <div class="highlight-box" style="display: flex; align-items: center; gap: 32px; margin-top: 64px;">
+                <div><div class="highlight-stat">9</div><div class="highlight-label">Production-Ready Documents</div></div>
+                <div style="border-left: 1px solid var(--border-subtle); padding-left: 32px; color: var(--text-secondary);">
+                    A complete implementation package a facilitator team could pick up and run.
+                </div>
+            </div>
             <h3 style="font-family: 'Sora', sans-serif; font-size: 1.5rem; margin-top: 64px; margin-bottom: 32px;">2. Comprehensive Implementation Package (9 Documents)</h3>
         </div>
 
@@ -808,6 +948,7 @@
     <section class="content-section">
         <div class="container-narrow">
             <p class="section-label">Impact</p>
+            <span class="outcomes-label-badge">Design Quality Benchmarks — Course Not Yet Deployed</span>
             <h2 class="section-title">Design Quality & Projected Outcomes</h2>
             <div class="content-text">
                 <p>Since this course has not been built or deployed, impact focuses on <strong>design quality indicators</strong> and <strong>projected learning outcomes</strong> based on the comprehensive implementation package created:</p>

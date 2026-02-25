@@ -492,6 +492,108 @@
                 gap: 8px;
                 text-align: center;
             }
+
+            .star-grid,
+            .challenge-response-grid { grid-template-columns: 1fr; }
+            .challenge-response-header.response-col,
+            .response-cell { border-left: none; border-top: 1px solid var(--border-subtle); }
+        }
+
+        /* STAR SUMMARY GRID */
+        .star-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px;
+            margin: 48px 0;
+            border: 1px solid var(--border-subtle);
+        }
+        .star-cell {
+            background: var(--bg-secondary);
+            padding: 32px;
+            border: 1px solid var(--border-subtle);
+        }
+        .star-cell-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: block;
+        }
+        .star-cell-text {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* FRAMEWORK TAGS */
+        .framework-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 24px;
+        }
+        .framework-tag {
+            font-size: 0.8rem;
+            color: var(--text-primary);
+            padding: 8px 16px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-hover);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* CHALLENGE-RESPONSE TABLE */
+        .challenge-response-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            margin: 48px 0;
+            border: 1px solid var(--border-subtle);
+        }
+        .challenge-response-header {
+            background: var(--bg-tertiary);
+            padding: 16px 32px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .challenge-response-header.response-col {
+            border-left: 1px solid var(--border-subtle);
+            color: var(--accent);
+        }
+        .challenge-cell {
+            padding: 28px 32px;
+            border-bottom: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+        .response-cell {
+            padding: 28px 32px;
+            border-bottom: 1px solid var(--border-subtle);
+            border-left: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* OUTCOMES LABEL BADGE */
+        .outcomes-label-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            color: var(--text-muted);
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-subtle);
+            padding: 6px 14px;
+            margin-bottom: 24px;
         }
     </style>
 </head>
@@ -517,6 +619,7 @@
             <h1 class="case-study-title">Interpersonal Effectiveness Roleplay Animation for Lethbridge College</h1>
             <p class="case-study-subtitle">Teaching Communication Skills Through Scenario-Based Storytelling</p>
 
+            <!-- TODO: add project timeline -->
             <div class="project-meta">
                 <div class="meta-item">
                     <strong>Client</strong>
@@ -547,6 +650,22 @@
     </section>
 
     <!-- ========================================
+         STAR SUMMARY
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <p class="section-label">At a Glance</p>
+            <h2 class="section-title">Project Summary</h2>
+            <div class="star-grid">
+                <div class="star-cell"><span class="star-cell-label">Situation</span><p class="star-cell-text">Students avoided difficult instructor conversations due to fear of confrontation; the DEARSAN framework was abstract and difficult to apply.</p></div>
+                <div class="star-cell"><span class="star-cell-label">Task</span><p class="star-cell-text">Create a 2–3 minute animation demonstrating DEARSAN through a realistic grade discussion scenario.</p></div>
+                <div class="star-cell"><span class="star-cell-label">Action</span><p class="star-cell-text">Split-screen opening with color-coded steps; dual-channel learning syncing visual framework labels with character dialogue.</p></div>
+                <div class="star-cell"><span class="star-cell-label">Result</span><p class="star-cell-text">Abstract framework transformed into an observable, replicable behavior model with a positive resolution students can follow.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
          VIDEO EMBED
     ======================================== -->
     <section style="padding: 80px 0;">
@@ -569,21 +688,26 @@
 
                 <p><strong>The Learning Gap:</strong></p>
 
-                <p><strong>Current State:</strong></p>
-                <ul>
-                    <li>Students lacked concrete examples of how to approach difficult conversations with instructors</li>
-                    <li>Many avoided addressing academic concerns due to fear of confrontation or uncertainty about appropriate communication</li>
-                    <li>Abstract descriptions of communication frameworks (DEARSAN acronym) didn't translate to real-world application</li>
-                    <li>Students struggled to balance assertiveness with respect in power-imbalanced situations (student-instructor dynamic)</li>
-                </ul>
-
-                <p><strong>Desired State:</strong></p>
-                <ul>
-                    <li>Students understand each component of the DEARSAN framework through observable behavior</li>
-                    <li>Students can recognize effective communication strategies in context</li>
-                    <li>Students feel empowered to advocate for themselves professionally</li>
-                    <li>Students can apply the framework to similar academic situations (grade discussions, extensions, accommodations)</li>
-                </ul>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 32px 0;">
+                    <div class="highlight-box" style="margin: 0;">
+                        <p class="section-label">Current State</p>
+                        <ul>
+                            <li>Students lacked concrete examples of how to approach difficult conversations with instructors</li>
+                            <li>Many avoided academic concerns due to fear of confrontation</li>
+                            <li>Abstract DEARSAN acronym didn't translate to real-world application</li>
+                            <li>Students struggled to balance assertiveness with respect in power-imbalanced situations</li>
+                        </ul>
+                    </div>
+                    <div class="highlight-box" style="margin: 0; border-left: 4px solid var(--accent);">
+                        <p class="section-label">Desired State</p>
+                        <ul>
+                            <li>Students understand each DEARSAN component through observable behavior</li>
+                            <li>Students can recognize effective communication strategies in context</li>
+                            <li>Students feel empowered to advocate for themselves professionally</li>
+                            <li>Students can apply the framework to similar academic situations</li>
+                        </ul>
+                    </div>
+                </div>
 
                 <p><strong>Root Cause:</strong> Students needed to see the framework in action, not just memorized. The challenge wasn't information delivery—it was modeling professional advocacy behavior in a realistic, relatable scenario.</p>
 
@@ -689,6 +813,17 @@
                     <li>Camera movements (pan up to reveal text, zoom in/out) create visual rhythm and guide attention</li>
                     <li>Music fades down during dialogue to prioritize comprehension while maintaining emotional tone</li>
                 </ul>
+            </div>
+
+            <div style="margin-top: 48px; padding-top: 48px; border-top: 1px solid var(--border-subtle);">
+                <p class="section-label">Frameworks & Theories Applied</p>
+                <div class="framework-tags">
+                    <span class="framework-tag">DEARSAN (DBT Communication Framework)</span>
+                    <span class="framework-tag">Behavior Modeling (Bandura)</span>
+                    <span class="framework-tag">Dual-Channel Learning (Mayer)</span>
+                    <span class="framework-tag">Cognitive Load Management</span>
+                    <span class="framework-tag">Scenario-Based Narrative Design</span>
+                </div>
             </div>
         </div>
     </section>
@@ -798,6 +933,7 @@
     <section class="content-section">
         <div class="container-narrow">
             <p class="section-label">Impact</p>
+            <span class="outcomes-label-badge">Intended Learning Outcomes & Success Indicators</span>
             <h2 class="section-title">Learning Outcomes & Educational Value</h2>
             <div class="content-text">
                 <h3>Immediate Benefits</h3>

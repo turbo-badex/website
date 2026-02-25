@@ -529,6 +529,108 @@
                 gap: 8px;
                 text-align: center;
             }
+
+            .star-grid,
+            .challenge-response-grid { grid-template-columns: 1fr; }
+            .challenge-response-header.response-col,
+            .response-cell { border-left: none; border-top: 1px solid var(--border-subtle); }
+        }
+
+        /* STAR SUMMARY GRID */
+        .star-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px;
+            margin: 48px 0;
+            border: 1px solid var(--border-subtle);
+        }
+        .star-cell {
+            background: var(--bg-secondary);
+            padding: 32px;
+            border: 1px solid var(--border-subtle);
+        }
+        .star-cell-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: block;
+        }
+        .star-cell-text {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* FRAMEWORK TAGS */
+        .framework-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 24px;
+        }
+        .framework-tag {
+            font-size: 0.8rem;
+            color: var(--text-primary);
+            padding: 8px 16px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-hover);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* CHALLENGE-RESPONSE TABLE */
+        .challenge-response-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            margin: 48px 0;
+            border: 1px solid var(--border-subtle);
+        }
+        .challenge-response-header {
+            background: var(--bg-tertiary);
+            padding: 16px 32px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .challenge-response-header.response-col {
+            border-left: 1px solid var(--border-subtle);
+            color: var(--accent);
+        }
+        .challenge-cell {
+            padding: 28px 32px;
+            border-bottom: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+        .response-cell {
+            padding: 28px 32px;
+            border-bottom: 1px solid var(--border-subtle);
+            border-left: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* OUTCOMES LABEL BADGE */
+        .outcomes-label-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            color: var(--text-muted);
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-subtle);
+            padding: 6px 14px;
+            margin-bottom: 24px;
         }
     </style>
 </head>
@@ -587,6 +689,22 @@
     </section>
 
     <!-- ========================================
+         STAR SUMMARY
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <p class="section-label">At a Glance</p>
+            <h2 class="section-title">Project Summary</h2>
+            <div class="star-grid">
+                <div class="star-cell"><span class="star-cell-label">Situation</span><p class="star-cell-text">Adults with developmental disabilities at disproportionate abuse risk; staff response was reactive, not proactive.</p></div>
+                <div class="star-cell"><span class="star-cell-label">Task</span><p class="star-cell-text">Design an 18–22 min Storyline course for 200–500 staff, overcoming psychological barriers including fear of retaliation and organizational loyalty.</p></div>
+                <div class="star-cell"><span class="star-cell-label">Action</span><p class="star-cell-text">ADDIE + Merrill + Kirkpatrick + Social Cognitive Theory; 5 modules, 4 branching scenarios, staff testimonial hook.</p></div>
+                <div class="star-cell"><span class="star-cell-label">Result</span><p class="star-cell-text">Target: 90%+ completion; 100% accuracy on critical items; 30% reduction in undetected incidents year-over-year.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
          FEATURED IMAGE
     ======================================== -->
     <div class="container">
@@ -621,21 +739,18 @@
 
                 <p><strong>Performance Gap Analysis:</strong></p>
 
-                <p><strong>Current State:</strong></p>
-                <ul>
-                    <li>Staff inconsistently recognized subtle forms of abuse (emotional, exploitation, inappropriate use of restrictive procedures)</li>
-                    <li>Unclear reporting pathways resulted in delayed or missed incident documentation</li>
-                    <li>Power imbalances between staff and residents went unexamined, enabling exploitation</li>
-                    <li>No systematic prevention framework—response was reactive rather than proactive</li>
-                </ul>
-
-                <p><strong>Desired State:</strong></p>
-                <ul>
-                    <li>100% staff recognition and reporting of all suspected abuse incidents (6 categories: physical, sexual, emotional, exploitation, neglect, inappropriate restrictive procedures)</li>
-                    <li>Timely, accurate reporting through established chain of command</li>
-                    <li>Proactive abuse prevention through systemic changes</li>
-                    <li>Complete incident documentation and follow-up review</li>
-                </ul>
+                <div class="challenge-response-grid">
+                    <div class="challenge-response-header">Current State Gap</div>
+                    <div class="challenge-response-header response-col">Desired State / Design Response</div>
+                    <div class="challenge-cell">Staff inconsistently recognized subtle forms of abuse (emotional, exploitation, inappropriate restrictive procedures)</div>
+                    <div class="response-cell">Interactive flashcard stack with 6 abuse categories + comparison tabs ("normal vs. abuse") + embedded Scenario 1 (emotional abuse)</div>
+                    <div class="challenge-cell">Unclear reporting pathways resulted in delayed or missed incident documentation</div>
+                    <div class="response-cell">Visual flowchart of reporting chain + role-specific tabs + barriers accordion addressing retaliation fears with policy statements</div>
+                    <div class="challenge-cell">Power imbalances between staff and residents went unexamined, enabling exploitation</div>
+                    <div class="response-cell">Social Cognitive Theory framing + testimonial hook + values-aligned positioning: abuse prevention as professional identity, not compliance burden</div>
+                    <div class="challenge-cell">No systematic prevention framework — response was reactive rather than proactive</div>
+                    <div class="response-cell">Module 4: 4 vulnerability-reduction strategies (power-sharing, community inclusion, staff training, monitoring) shift focus to proactive prevention</div>
+                </div>
 
                 <p><strong>Audience Challenges:</strong></p>
                 <ul>
@@ -694,6 +809,18 @@
                     </div>
                 </div>
             </div>
+
+            <div style="margin-top: 48px; padding-top: 48px; border-top: 1px solid var(--border-subtle);">
+                <p class="section-label">Frameworks & Theories Applied</p>
+                <div class="framework-tags">
+                    <span class="framework-tag">ADDIE Model</span>
+                    <span class="framework-tag">Merrill's First Principles</span>
+                    <span class="framework-tag">Bloom's Revised Taxonomy</span>
+                    <span class="framework-tag">Kirkpatrick's Four Levels</span>
+                    <span class="framework-tag">Social Cognitive Theory (Bandura)</span>
+                    <span class="framework-tag">Values-Aligned Behavior Change</span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -746,6 +873,7 @@
 
             <div class="quote-block" style="margin-top: 48px;">
                 <p class="quote-text">"I've worked here 12 years. When I first started, I didn't recognize the signs. A resident who was really withdrawn, wouldn't make eye contact—I just thought that was her personality. But then... I realized she was being emotionally abused by another staff member. I wish I'd known what to look for. Now I do."</p>
+                <p class="quote-attribution">— Direct care staff member, 12 years experience</p>
             </div>
         </div>
     </section>
@@ -785,6 +913,7 @@
     <section class="content-section">
         <div class="container-narrow">
             <p class="section-label">Impact</p>
+            <span class="outcomes-label-badge">Target Outcomes — Kirkpatrick 4-Level Framework</span>
             <h2 class="section-title">Measurable Outcomes Across Four Levels</h2>
             <div class="content-text">
                 <p>Success was measured using the Kirkpatrick model to track reaction, learning, behavior, and business results:</p>
