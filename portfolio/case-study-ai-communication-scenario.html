@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Generated Communication Scenario - Case Study | Taiwo</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="../logo_new_badex.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../logo_new_badex.png">
+    <link rel="shortcut icon" href="../logo_new_badex.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Sora:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* ========================================
+           FONT DISPLAY FIX - Ensures immediate text visibility
+        ======================================== */
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url('https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfMZg.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 600;
+            font-display: swap;
+            src: url('https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuGKYMZg.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url('https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuFuYMZg.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Sora';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url('https://fonts.gstatic.com/s/sora/v17/xMQOuFFYT72X5wkB_18qmnndmSe1mX-K.ttf') format('truetype');
+        }
+
+        /* ========================================
+           CSS RESET & BASE STYLES
+        ======================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-tertiary: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --text-muted: #666666;
+            --accent: #6366f1;
+            --accent-hover: #818cf8;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(255, 255, 255, 0.15);
+        }
+
+        * {
+            cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14'%3E%3Ccircle cx='7' cy='7' r='6' fill='white'/%3E%3C/svg%3E") 7 7, auto;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: radial-gradient(circle, rgba(255,255,255,0.18) 1px, transparent 1px);
+            background-size: 32px 32px;
+            background-attachment: fixed;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        .container-narrow {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        /* ========================================
+           NAVIGATION
+        ======================================== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 0;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 108px;
+            width: auto;
+            filter: invert(1);
+            transition: opacity 0.3s ease;
+        }
+
+        .logo:hover img {
+            opacity: 0.8;
+        }
+
+        .back-link {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 400;
+            position: relative;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-link:hover {
+            color: var(--text-primary);
+        }
+
+        .back-link::before {
+            content: '←';
+            font-size: 1.2rem;
+        }
+
+        /* ========================================
+           HERO SECTION
+        ======================================== */
+        .case-study-hero {
+            padding-top: 200px;
+            padding-bottom: 80px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .project-tag {
+            font-size: 0.75rem;
+            color: var(--accent);
+            padding: 6px 14px;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 20px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 24px;
+        }
+
+        .case-study-title {
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            letter-spacing: -2px;
+            line-height: 1.1;
+            margin-bottom: 32px;
+        }
+
+        .case-study-subtitle {
+            font-size: 1.35rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin-bottom: 48px;
+            font-weight: 400;
+            line-height: 1.7;
+        }
+
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            padding: 32px 0;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .meta-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .meta-value {
+            font-size: 1rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* ========================================
+           FEATURED IMAGE PLACEHOLDER
+        ======================================== */
+        .featured-image {
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .featured-image-placeholder {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 32px;
+            gap: 16px;
+            margin: 0;
+        }
+
+        .featured-image-placeholder-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .featured-image-placeholder-title {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-secondary);
+            text-align: center;
+        }
+
+        /* ========================================
+           CONTENT SECTIONS
+        ======================================== */
+        .content-section {
+            padding: 80px 0;
+        }
+
+        .content-section:not(:last-child) {
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent);
+            margin-bottom: 24px;
+            font-weight: 500;
+        }
+
+        .section-title {
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
+            font-weight: 700;
+            letter-spacing: -1px;
+            line-height: 1.2;
+            margin-bottom: 32px;
+        }
+
+        .content-text p {
+            color: var(--text-secondary);
+            font-size: 1.15rem;
+            line-height: 1.85;
+            margin-bottom: 24px;
+        }
+
+        .content-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .content-text strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .content-text ul, .content-text ol {
+            color: var(--text-secondary);
+            font-size: 1.15rem;
+            line-height: 1.85;
+            margin-bottom: 24px;
+            padding-left: 24px;
+        }
+
+        .content-text li {
+            margin-bottom: 12px;
+        }
+
+        /* ========================================
+           TWO COLUMN LAYOUT
+        ======================================== */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 48px;
+        }
+
+        .two-column h3 {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .two-column p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        /* ========================================
+           HIGHLIGHT BOX
+        ======================================== */
+        .highlight-box {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            padding: 48px;
+            margin: 48px 0;
+            border-radius: 0;
+        }
+
+        /* ========================================
+           PROCESS TIMELINE
+        ======================================== */
+        .process-timeline {
+            margin: 48px 0;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 32px;
+            margin-bottom: 48px;
+            padding-bottom: 48px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .timeline-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .timeline-number {
+            font-family: 'Sora', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .timeline-content h3 {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .timeline-content p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .timeline-content ul {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            padding-left: 20px;
+            margin-top: 12px;
+        }
+
+        .timeline-content li {
+            margin-bottom: 8px;
+        }
+
+        /* ========================================
+           CTA SECTION
+        ======================================== */
+        .cta-section {
+            padding: 100px 0;
+            text-align: center;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .cta-title {
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            letter-spacing: -1.5px;
+            margin-bottom: 32px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--text-primary);
+            color: var(--bg-primary);
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: transparent;
+            color: var(--text-primary);
+            padding: 16px 32px;
+            border-radius: 50px;
+            border: 1px solid var(--border-subtle);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* ========================================
+           FOOTER
+        ======================================== */
+        footer {
+            padding: 32px 0;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* ========================================
+           IMPACT BLOCKS
+        ======================================== */
+        .impact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .impact-block {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            padding: 32px;
+            transition: border-color 0.3s ease;
+        }
+
+        .impact-block:hover {
+            border-color: var(--border-hover);
+        }
+
+        .impact-block h3 {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .impact-block p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.75;
+        }
+
+        .impact-block ul {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.75;
+            padding-left: 20px;
+            margin-top: 8px;
+        }
+
+        .impact-block li {
+            margin-bottom: 8px;
+        }
+
+        /* ========================================
+           STAR SUMMARY GRID
+        ======================================== */
+        .star-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px;
+            margin: 48px 0;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .star-cell {
+            background: var(--bg-secondary);
+            padding: 32px;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .star-cell-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .star-cell-text {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* ========================================
+           FRAMEWORK TAGS
+        ======================================== */
+        .framework-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 24px;
+        }
+
+        .framework-tag {
+            font-size: 0.8rem;
+            color: var(--text-primary);
+            padding: 8px 16px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-hover);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* ========================================
+           CHALLENGE-RESPONSE TABLE
+        ======================================== */
+        .challenge-response-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            margin: 48px 0;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .challenge-response-header {
+            background: var(--bg-tertiary);
+            padding: 16px 32px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .challenge-response-header.response-col {
+            border-left: 1px solid var(--border-subtle);
+            color: var(--accent);
+        }
+
+        .challenge-cell {
+            padding: 28px 32px;
+            border-bottom: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .response-cell {
+            padding: 28px 32px;
+            border-bottom: 1px solid var(--border-subtle);
+            border-left: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* ========================================
+           RESPONSIVE DESIGN
+        ======================================== */
+        @media (max-width: 768px) {
+            html {
+                overflow-x: hidden;
+            }
+
+            .container {
+                padding: 0 24px;
+            }
+
+            .case-study-hero {
+                padding-top: 160px;
+                padding-bottom: 60px;
+            }
+
+            .logo img {
+                height: 72px;
+            }
+
+            .back-link {
+                font-size: 0.8rem;
+                gap: 6px;
+                white-space: nowrap;
+            }
+
+            .case-study-title {
+                font-size: clamp(2.25rem, 11vw, 3rem);
+                letter-spacing: -1px;
+                overflow-wrap: break-word;
+            }
+
+            .project-meta {
+                gap: 24px;
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .timeline-item {
+                grid-template-columns: 60px 1fr;
+                gap: 20px;
+            }
+
+            .timeline-number {
+                font-size: 2rem;
+            }
+
+            .highlight-box {
+                padding: 32px 24px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            footer .container {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+            }
+
+            .impact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .star-grid,
+            .challenge-response-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .challenge-response-header.response-col,
+            .response-cell {
+                border-left: none;
+                border-top: 1px solid var(--border-subtle);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ========================================
+         NAVIGATION
+    ======================================== -->
+    <nav>
+        <div class="container">
+            <a href="../index.html" class="logo">
+                <img src="../logo_new_badex.png" alt="Badex">
+            </a>
+            <a href="../index.html#work" class="back-link">Back to Portfolio</a>
+        </div>
+    </nav>
+
+    <!-- ========================================
+         HERO SECTION
+    ======================================== -->
+    <section class="case-study-hero">
+        <div class="container-narrow">
+            <span class="project-tag">Learning Design &middot; AI Video</span>
+            <h1 class="case-study-title">Designing an AI-Generated Communication Scenario for Respectful Patient Interaction</h1>
+            <p class="case-study-subtitle">A self-initiated interactive prototype exploring how AI-generated video can be used to create rich, learner-centered healthcare communication practice.</p>
+
+            <div class="project-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Project Type</span>
+                    <span class="meta-value">Self-initiated learning prototype</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Role</span>
+                    <span class="meta-value">Learning Experience Designer, Scenario Writer, AI Video Director, Prototype Developer</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Format</span>
+                    <span class="meta-value">Communication Response / Scenario-Based Decision Check</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Tools</span>
+                    <span class="meta-value">HTML, CSS, JavaScript, Seedance 2.0, Vercel</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Audience</span>
+                    <span class="meta-value">Healthcare learners practicing patient-centered communication</span>
+                </div>
+            </div>
+            <a href="https://acfd-scenario-vercel.vercel.app" target="_blank" rel="noopener noreferrer" class="btn-primary" style="display: inline-flex; margin-top: 32px;">View Live Prototype →</a>
+        </div>
+    </section>
+
+    <!-- ========================================
+         FEATURED IMAGE
+    ======================================== -->
+    <div class="featured-image">
+        <div class="container">
+            <img src="../screenshot-ai-communication-scenario.png" alt="AI-generated communication scenario prototype" style="width: 100%; display: block;">
+        </div>
+    </div>
+
+    <!-- ========================================
+         STAR SUMMARY
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <p class="section-label">At a Glance</p>
+            <h2 class="section-title">Project Summary</h2>
+            <div class="star-grid">
+                <div class="star-cell">
+                    <span class="star-cell-label">Situation</span>
+                    <p class="star-cell-text">Healthcare communication practice often needs realism, tone, hesitation, and facial expression, but traditional video production can be expensive, slow, and hard to revise.</p>
+                </div>
+                <div class="star-cell">
+                    <span class="star-cell-label">Task</span>
+                    <p class="star-cell-text">I wanted to prototype a narrow, emotionally grounded decision moment where a provider realizes they may have assumed a patient's partner's gender and the learner chooses how to respond.</p>
+                </div>
+                <div class="star-cell">
+                    <span class="star-cell-label">Action</span>
+                    <p class="star-cell-text">I wrote the scenario, designed meaningful response options, created character references and storyboard direction, generated branch videos with Seedance 2.0, and built a static interactive prototype.</p>
+                </div>
+                <div class="star-cell">
+                    <span class="star-cell-label">Result</span>
+                    <p class="star-cell-text">The prototype demonstrates how AI-generated video can support a compact communication response activity when the media is directed by instructional intent rather than treated as decoration.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         OVERVIEW
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <p class="section-label">Overview</p>
+            <h2 class="section-title">Project Background</h2>
+            <div class="content-text">
+                <p>This personal project began as an experiment in combining learning design with AI-generated video production.</p>
+                <p>I wanted to explore whether a short, interactive healthcare scenario could feel emotionally grounded and instructionally useful without relying on traditional video production. Instead of filming actors, booking a clinic location, or assembling a production crew, I created character references, built a storyboard, and used those materials to guide AI video generation in Seedance 2.0.</p>
+                <p>The learning moment itself is intentionally narrow: a provider realizes they may have assumed a patient's partner's gender, and the learner must choose how the provider should respond.</p>
+                <p>The goal was not to build a full course. It was to prototype a compact, realistic decision moment and test how AI-generated video could support a richer, more human learning experience than text-only branching scenarios usually provide.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         THE CHALLENGE
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <p class="section-label">The Challenge</p>
+            <h2 class="section-title">Creating Realistic Practice Without Traditional Production</h2>
+            <div class="content-text">
+                <p>Healthcare communication scenarios often benefit from video because tone, pacing, facial expression, and hesitation all matter. But video production can be expensive, slow, and difficult to iterate.</p>
+                <p>For this prototype, I wanted to solve two connected design problems: how to help learners practice subtle communication judgment, and how to create enough realism and emotional context without a full video shoot.</p>
+                <p>The communication challenge was nuanced. Learners were not being asked to recall a rule. They needed to recognize the difference between a response that repairs trust and one that unintentionally shifts emotional labor back to the patient.</p>
+            </div>
+            <div class="challenge-response-grid">
+                <div class="challenge-response-header">Current Risk</div>
+                <div class="challenge-response-header response-col">Desired Learner Behavior</div>
+                <div class="challenge-cell">Learners may know inclusive language matters but struggle to apply it naturally in the moment.</div>
+                <div class="response-cell">Notice when an assumption has surfaced and respond with calm, respectful accountability.</div>
+                <div class="challenge-cell">Over-apologizing can center the provider's discomfort rather than the patient's experience.</div>
+                <div class="response-cell">Acknowledge the assumption briefly and without defensiveness.</div>
+                <div class="challenge-cell">Moving on without acknowledging the assumption can miss a trust-building repair opportunity.</div>
+                <div class="response-cell">Correct the language respectfully and continue the conversation without making the patient responsible for the provider's discomfort.</div>
+                <div class="challenge-cell">Text-only scenarios can flatten the emotional cues that make communication decisions feel real.</div>
+                <div class="response-cell">Use the video context to read tone, pause, and interpersonal stakes before choosing the next response.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         MY APPROACH
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <p class="section-label">My Approach</p>
+            <h2 class="section-title">Scenario-First Design With AI-Generated Video</h2>
+            <div class="content-text">
+                <p>I treated the project as both a learning design prototype and an AI media workflow experiment. The interaction needed to work instructionally, but the video generation process also had to support consistency, continuity, and believable scenario flow.</p>
+            </div>
+
+            <div class="process-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-number">01</div>
+                    <div class="timeline-content">
+                        <h3>Scenario Framing</h3>
+                        <p>The opening interaction creates a recognizable healthcare communication moment. Rather than presenting the learner with an abstract rule about inclusive language, the prototype places them inside a short patient-provider exchange. The scenario pauses at the moment of realization, giving the learner space to judge the next response before seeing the outcome.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">02</div>
+                    <div class="timeline-content">
+                        <h3>Response Design</h3>
+                        <p>The three options were written to represent meaningful differences in communication quality:</p>
+                        <ul>
+                            <li><strong>Option A:</strong> Briefly acknowledges the assumption, corrects the language, and continues respectfully.</li>
+                            <li><strong>Option B:</strong> Uses neutral language but misses the repair moment.</li>
+                            <li><strong>Option C:</strong> Apologizes heavily and risks centering the provider's discomfort.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">03</div>
+                    <div class="timeline-content">
+                        <h3>Branch-Specific Feedback</h3>
+                        <p>Each choice leads to feedback that names the communication pattern and explains why it matters. The feedback avoids shaming the learner and instead focuses on the effect of the response. The intended takeaway is simple: acknowledge briefly, correct language, and continue with care.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">04</div>
+                    <div class="timeline-content">
+                        <h3>Lightweight Interactive Build</h3>
+                        <p>I built the experience as a static prototype using semantic HTML, CSS, and JavaScript. The interface includes keyboard-accessible controls, visible focus states, transcripts, status labels, and screen-reader announcements.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         AI VIDEO WORKFLOW
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <p class="section-label">AI Video Production Workflow</p>
+            <h2 class="section-title">Using Reference Images and Storyboards to Direct Seedance 2.0</h2>
+            <div class="featured-image" style="border-bottom: none; margin: 0 0 48px;">
+                <img src="../ai-communication-reference-portraits.jpeg" alt="Reference portrait sheet for Dr. Patel and patient character continuity" style="width: 100%; display: block;">
+            </div>
+            <div class="content-text">
+                <p>A major part of this project was figuring out how to use AI-generated video intentionally, not just decoratively.</p>
+                <p>I created visual references for the provider and patient, then used a storyboard to guide the scene structure, camera framing, and continuity across the setup and response branches. Those references helped Seedance 2.0 maintain a more consistent visual language across multiple generated clips.</p>
+            </div>
+
+            <div class="process-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-number">01</div>
+                    <div class="timeline-content">
+                        <h3>Define the Learning Moment</h3>
+                        <p>I started with the instructional goal: learners should practice repairing an assumption respectfully.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">02</div>
+                    <div class="timeline-content">
+                        <h3>Create Character References</h3>
+                        <p>I developed reference images for the provider and patient so the generated videos would feel like they belonged to the same scenario world.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">03</div>
+                    <div class="timeline-content">
+                        <h3>Storyboard the Interaction</h3>
+                        <p>I mapped the setup, pause, decision point, and branch responses before generating video. This helped keep the media aligned to the learning flow rather than letting the visuals drive the design.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">04</div>
+                    <div class="timeline-content">
+                        <h3>Prompt Seedance 2.0 for Scenario Clips</h3>
+                        <p>I used the references and storyboard direction to generate the setup clip and branch response clips.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">05</div>
+                    <div class="timeline-content">
+                        <h3>Integrate the Clips Into an Interactive Prototype</h3>
+                        <p>The AI-generated videos became part of a decision-based learning flow: watch, choose, observe consequence, receive feedback.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">06</div>
+                    <div class="timeline-content">
+                        <h3>Iterate the Interface Around the Media</h3>
+                        <p>I adjusted the prompts, overlays, feedback screens, and transcript support so the video served the learner's decision-making rather than overwhelming it.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <div class="content-text">
+                    <p>This process showed me that AI-generated video becomes much more useful for learning when it is directed by instructional intent. The storyboard mattered. The references mattered. The branching structure mattered. Without those, the video might look interesting but would not necessarily support practice.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         THE SOLUTION
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <p class="section-label">The Solution</p>
+            <h2 class="section-title">A Compact Interactive Communication Scenario</h2>
+            <div class="content-text">
+                <p>The final prototype guides the learner through a short decision-based experience.</p>
+            </div>
+
+            <div class="highlight-box">
+                <h3 style="font-family: 'Sora', sans-serif; font-size: 1.3rem; font-weight: 600; margin-bottom: 24px; color: var(--text-primary);">Learner Flow</h3>
+                <div class="content-text">
+                    <ol style="padding-left: 24px; color: var(--text-secondary); font-size: 1.1rem; line-height: 1.85;">
+                        <li><strong>Intro Screen:</strong> The learner receives the communication task and starts the scenario.</li>
+                        <li><strong>AI-Generated Setup Video:</strong> A short generated scene introduces the patient-provider exchange and creates the decision moment.</li>
+                        <li><strong>Decision Prompt:</strong> The learner chooses from three possible provider responses.</li>
+                        <li><strong>AI-Generated Branch Video:</strong> The selected response plays out as a consequence of the learner's choice.</li>
+                        <li><strong>Feedback Screen:</strong> The learner receives targeted feedback explaining what the response does well or where it falls short.</li>
+                        <li><strong>Summary:</strong> After the strongest response, the learner can view a concise takeaway that reinforces the core behavior.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="content-text" style="margin-top: 48px;">
+                <p>The prototype sits between two related learning formats. It is primarily a <strong>communication response</strong> activity because the learner is judging person-centered language. It also borrows from <strong>scenario-based decision checks</strong> because the learner is choosing the best next move in context. With additional linked decisions, it could evolve into a fuller mini case sequence.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         DESIGN DECISIONS
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <p class="section-label">Design Decisions</p>
+            <h2 class="section-title">Critical Choices That Shaped the Prototype</h2>
+
+            <div class="two-column">
+                <div>
+                    <h3>AI Video as Practice Context, Not Decoration</h3>
+                    <p>The generated video was used to create context: the clinical setting, the patient-provider dynamic, the moment of pause, and the emotional weight of the provider's response. The learner is not simply selecting a sentence from a quiz list; they are responding to a human moment.</p>
+                </div>
+                <div>
+                    <h3>Communication Repair, Not Generic Inclusion Content</h3>
+                    <p>I focused the interaction on a specific repair moment rather than a broad lesson about inclusive communication. The learner has to decide what respectful repair sounds like after an assumption has already happened.</p>
+                </div>
+            </div>
+
+            <div class="two-column">
+                <div>
+                    <h3>Feedback That Explains Impact</h3>
+                    <p>The feedback clarifies why one response works better than another. The strongest response is brief, accountable, and keeps the conversation moving. The weaker responses reveal common communication traps: avoiding the repair or making the patient manage the provider's discomfort.</p>
+                </div>
+                <div>
+                    <h3>Lightweight Build, Rich Media Experience</h3>
+                    <p>HTML, CSS, JavaScript, and AI-generated video were enough to support branching, transcripts, feedback states, and deployment. That combination let me create a polished learner-centered experience quickly without overbuilding the platform layer.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         PROTOTYPE OUTCOMES
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <p class="section-label">Prototype Outcomes</p>
+            <h2 class="section-title">Intended Learning and Validation Criteria</h2>
+            <div class="content-text">
+                <p>Because this was a self-initiated prototype, the outcomes are framed as design targets rather than deployed learner metrics.</p>
+            </div>
+
+            <div class="impact-grid">
+                <div class="impact-block">
+                    <h3>Intended Learner Outcomes</h3>
+                    <ul>
+                        <li>Recognize when a communication assumption needs repair.</li>
+                        <li>Select a response that acknowledges the assumption without overexplaining.</li>
+                        <li>Explain why brief, accountable language is more patient-centered.</li>
+                        <li>Distinguish between neutral wording and meaningful repair.</li>
+                    </ul>
+                </div>
+                <div class="impact-block">
+                    <h3>Prototype Success Criteria</h3>
+                    <ul>
+                        <li>The learner can understand the scenario without additional instruction.</li>
+                        <li>The AI-generated videos provide enough realism to support decision-making.</li>
+                        <li>The decision prompt makes the three response options meaningfully distinct.</li>
+                        <li>Feedback clarifies the consequence of each choice.</li>
+                        <li>The experience works with keyboard navigation and includes transcript support.</li>
+                        <li>The prototype is simple enough to revise into a longer sequence if needed.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         REFLECTION
+    ======================================== -->
+    <section class="content-section">
+        <div class="container-narrow">
+            <p class="section-label">Reflection</p>
+            <h2 class="section-title">What I Learned</h2>
+            <div class="content-text">
+                <p>This project reinforced that AI-generated video is most powerful in learning design when it is treated as part of the instructional system, not as a novelty.</p>
+                <p>The most important work happened before generating the clips: defining the learning objective, writing the decision point, creating references, building a storyboard, and deciding what each branch needed to teach. Seedance 2.0 helped produce the media, but the learning design gave the media a job.</p>
+                <p>It also clarified how thin the line can be between different scenario formats. With the current structure, the experience is best described as a communication response activity. The learner is primarily evaluating language.</p>
+                <p>But a small semantic shift could make it feel more like a scenario-based decision check. If the prompt asked "What should the provider do next?" and the options were framed as actions rather than spoken lines, the same interaction would emphasize decision-making more than wording.</p>
+                <p>If I were to iterate, I would add one follow-up decision after the initial repair. For example, after the provider responds, the learner could choose how to continue the conversation in a way that maintains trust while returning to the patient's care needs. That would turn the prototype into a fuller mini case sequence and create a stronger test of how AI-generated video can support linked decisions over time.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         CTA SECTION
+    ======================================== -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Let's work together</h2>
+            <div class="cta-buttons">
+                <a href="../index.html#contact" class="btn-primary">Get in Touch →</a>
+                <a href="../index.html#work" class="btn-secondary">View More Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         FOOTER
+    ======================================== -->
+    <footer>
+        <div class="container">
+            <p>© 2025 Taiwo Badejo. All rights reserved.</p>
+            <p>Instructional Designer & Learning Experience Designer</p>
+        </div>
+    </footer>
+</body>
+</html>
