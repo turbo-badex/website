@@ -800,11 +800,11 @@
                 </div>
                 <div class="star-cell">
                     <span class="star-cell-label">Action</span>
-                    <p class="star-cell-text">I wrote the scenario, designed meaningful response options, created character references and storyboard direction, generated branch videos with Seedance 2.0, and built a static interactive prototype.</p>
+                    <p class="star-cell-text">I wrote the scenario, designed meaningful response options, added a self-explanation check, created character references and storyboard direction, generated branch videos with Seedance 2.0, and built a static interactive prototype.</p>
                 </div>
                 <div class="star-cell">
                     <span class="star-cell-label">Result</span>
-                    <p class="star-cell-text">The prototype demonstrates how AI-generated video can support a compact communication response activity when the media is directed by instructional intent rather than treated as decoration.</p>
+                    <p class="star-cell-text">The prototype demonstrates how AI-generated video can support a compact communication response activity when learners choose a response, explain their reasoning, watch the consequence, and compare their thinking with an expert rationale.</p>
                 </div>
             </div>
         </div>
@@ -889,13 +889,28 @@
                 <div class="timeline-item">
                     <div class="timeline-number">03</div>
                     <div class="timeline-content">
-                        <h3>Branch-Specific Feedback</h3>
-                        <p>Each choice leads to feedback that names the communication pattern and explains why it matters. The feedback avoids shaming the learner and instead focuses on the effect of the response. The intended takeaway is simple: acknowledge briefly, correct language, and continue with care.</p>
+                        <h3>Self-Explanation Before Consequence</h3>
+                        <p>After learners choose a provider response, they first complete a short reasoning check by selecting one or more explanations for why the response is more or less effective.</p>
+                        <ul>
+                            <li>Briefly acknowledges the assumption.</li>
+                            <li>Keeps the focus on the patient.</li>
+                            <li>Uses neutral language but skips the repair.</li>
+                            <li>Makes the patient manage the provider's discomfort.</li>
+                        </ul>
+                        <p>I chose a selection-based prompt rather than a typed reflection because the goal was to encourage active reasoning without interrupting the pace of the scenario. The learner has to commit to a principle before watching the consequence.</p>
                     </div>
                 </div>
 
                 <div class="timeline-item">
                     <div class="timeline-number">04</div>
+                    <div class="timeline-content">
+                        <h3>Branch-Specific Feedback</h3>
+                        <p>Each choice leads to feedback that names the communication pattern and explains why it matters. The feedback avoids shaming the learner and instead compares the learner's selected reasoning with the expert rationale. The intended takeaway is simple: acknowledge briefly, correct language, and continue with care.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-number">05</div>
                     <div class="timeline-content">
                         <h3>Lightweight Interactive Build</h3>
                         <p>I built the experience as a static prototype using semantic HTML, CSS, and JavaScript. The interface includes keyboard-accessible controls, visible focus states, transcripts, status labels, and screen-reader announcements.</p>
@@ -953,14 +968,14 @@
                     <div class="timeline-number">05</div>
                     <div class="timeline-content">
                         <h3>Integrate the Clips Into an Interactive Prototype</h3>
-                        <p>The AI-generated videos became part of a decision-based learning flow: watch, choose, observe consequence, receive feedback.</p>
+                        <p>The AI-generated videos became part of a decision-based learning flow: watch, choose, explain the reasoning, observe consequence, receive feedback.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-number">06</div>
                     <div class="timeline-content">
                         <h3>Iterate the Interface Around the Media</h3>
-                        <p>I adjusted the prompts, overlays, feedback screens, and transcript support so the video served the learner's decision-making rather than overwhelming it.</p>
+                        <p>I adjusted the prompts, overlays, self-explanation step, feedback screens, and transcript support so the video served the learner's decision-making rather than overwhelming it.</p>
                     </div>
                 </div>
             </div>
@@ -991,9 +1006,9 @@
                         <li><strong>Intro Screen:</strong> The learner receives the communication task and starts the scenario.</li>
                         <li><strong>AI-Generated Setup Video:</strong> A short generated scene introduces the patient-provider exchange and creates the decision moment.</li>
                         <li><strong>Decision Prompt:</strong> The learner chooses from three possible provider responses.</li>
+                        <li><strong>Self-Explanation Check:</strong> Before seeing the consequence, the learner selects one or more reasons that explain why the chosen response is more or less effective.</li>
                         <li><strong>AI-Generated Branch Video:</strong> The selected response plays out as a consequence of the learner's choice.</li>
-                        <li><strong>Feedback Screen:</strong> The learner receives targeted feedback explaining what the response does well or where it falls short.</li>
-                        <li><strong>Summary:</strong> After the strongest response, the learner can view a concise takeaway that reinforces the core behavior.</li>
+                        <li><strong>Feedback Screen:</strong> The learner receives targeted feedback that shows their selected reasoning alongside an expert rationale. For the strongest response, the key takeaway is included directly in that expert rationale.</li>
                     </ol>
                 </div>
             </div>
@@ -1023,10 +1038,17 @@
                 </div>
             </div>
 
+            <div style="margin-top: 48px;">
+                <h3 style="font-family: 'Sora', sans-serif; font-size: 1.25rem; font-weight: 600; margin-bottom: 16px;">Self-Explanation Without Overloading the Learner</h3>
+                <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.8;">The reasoning check was added to make the learner's thinking visible. Instead of letting learners choose an option and passively receive feedback, the prototype asks them to select the principle they believe is at work.</p>
+                <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.8; margin-top: 16px;">That choice turns the interaction from picking a response and reading the answer into picking a response, explaining the principle, watching the consequence, and comparing the learner's reasoning with the expert rationale. The checklist keeps cognitive load manageable because learners do not have to compose a written answer, but they still have to process the underlying communication strategy.</p>
+            </div>
+
             <div class="two-column">
                 <div>
                     <h3>Feedback That Explains Impact</h3>
-                    <p>The feedback clarifies why one response works better than another. The strongest response is brief, accountable, and keeps the conversation moving. The weaker responses reveal common communication traps: avoiding the repair or making the patient manage the provider's discomfort.</p>
+                    <p>The feedback clarifies why one response works better than another. It includes the learner's selected reasoning, the expert rationale, and the status of the response. The strongest response is brief, accountable, and keeps the conversation moving. The weaker responses reveal common communication traps: avoiding the repair or making the patient manage the provider's discomfort.</p>
+                    <p>I removed the separate summary screen because the expert rationale now carries the final teaching point in context. That makes the feedback popup the final instructional moment instead of sending learners to one more screen.</p>
                 </div>
                 <div>
                     <h3>Lightweight Build, Rich Media Experience</h3>
@@ -1053,7 +1075,8 @@
                     <ul>
                         <li>Recognize when a communication assumption needs repair.</li>
                         <li>Select a response that acknowledges the assumption without overexplaining.</li>
-                        <li>Explain why brief, accountable language is more patient-centered.</li>
+                        <li>Select the principle that explains why a response is or is not patient-centered.</li>
+                        <li>Compare their reasoning with an expert rationale.</li>
                         <li>Distinguish between neutral wording and meaningful repair.</li>
                     </ul>
                 </div>
@@ -1063,7 +1086,8 @@
                         <li>The learner can understand the scenario without additional instruction.</li>
                         <li>The AI-generated videos provide enough realism to support decision-making.</li>
                         <li>The decision prompt makes the three response options meaningfully distinct.</li>
-                        <li>Feedback clarifies the consequence of each choice.</li>
+                        <li>The self-explanation prompt encourages learners to process the underlying principle before feedback.</li>
+                        <li>Feedback clarifies the consequence of each choice and compares learner reasoning with expert rationale.</li>
                         <li>The experience works with keyboard navigation and includes transcript support.</li>
                         <li>The prototype is simple enough to revise into a longer sequence if needed.</li>
                     </ul>
@@ -1082,6 +1106,7 @@
             <div class="content-text">
                 <p>This project reinforced that AI-generated video is most powerful in learning design when it is treated as part of the instructional system, not as a novelty.</p>
                 <p>The most important work happened before generating the clips: defining the learning objective, writing the decision point, creating references, building a storyboard, and deciding what each branch needed to teach. Seedance 2.0 helped produce the media, but the learning design gave the media a job.</p>
+                <p>The self-explanation layer made the prototype stronger. The interaction is no longer just about selecting the best line. It now asks learners to name the principle behind the choice before they see the consequence. That makes the feedback more meaningful because learners can compare their own reasoning with the expert model.</p>
                 <p>It also clarified how thin the line can be between different scenario formats. With the current structure, the experience is best described as a communication response activity. The learner is primarily evaluating language.</p>
                 <p>But a small semantic shift could make it feel more like a scenario-based decision check. If the prompt asked "What should the provider do next?" and the options were framed as actions rather than spoken lines, the same interaction would emphasize decision-making more than wording.</p>
                 <p>If I were to iterate, I would add one follow-up decision after the initial repair. For example, after the provider responds, the learner could choose how to continue the conversation in a way that maintains trust while returning to the patient's care needs. That would turn the prototype into a fuller mini case sequence and create a stronger test of how AI-generated video can support linked decisions over time.</p>
